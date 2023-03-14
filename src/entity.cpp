@@ -15,6 +15,10 @@ Entity::Entity(Vector2f p_pos, SDL_Texture* p_tex)
 	SDL_QueryTexture(p_tex, NULL, NULL, &currentFrame.w, &currentFrame.h);
 }
 
+Vector2f& Entity::getPos()
+{
+	return pos;
+}
 
 SDL_Texture* Entity::getTex()
 {

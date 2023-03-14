@@ -7,12 +7,8 @@
 class Entity 
 {
 public:
-	//constructor
 	Entity(Vector2f p_pos, SDL_Texture* p_tex);
-	Vector2f& getPos()
-	{
-		return pos;
-	}
+	Vector2f& getPos();
 	void setPos(float x, float y);
 	void setScale(float w, float h);
 	SDL_Texture* getTex();

@@ -30,10 +30,10 @@ SDL_Rect Entity::getCurrentFrame()
 	return currentFrame;
 }
 
-void Entity::setPos(float x, float y)
+void Entity::setPos(Vector2f(p_pos))
 {
-	pos.x = x;
-	pos.y = y;
+	pos.x = p_pos.x;
+	pos.y = p_pos.y;
 }
 
 void Entity::setScale(float w, float h)

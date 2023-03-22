@@ -1,4 +1,4 @@
-#include <SDL2/SDL_image.h>
+#include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
 #include "Math.hpp"
@@ -12,9 +12,9 @@ Note::Note(Vector2f(p_pos), SDL_Texture* p_tex)
 
 }
 
-Vector2f Note::moveNote(Vector2f p_pos) 
+Vector2f Note::moveNote(Vector2f p_pos, Uint32 deltaTime) 
 {
-	p_pos.x -= velocity;
+	p_pos.x -= velocity * deltaTime / 1000.0f;
 	//std::cout << p_pos.x << " " << p_pos.y << std::endl;
 	return p_pos;
 }
@@ -30,6 +30,11 @@ bool Note::isInTheScreen(Vector2f p_pos)
 
 float Note::distanceFromPoint(Vector2f p_pos)
 {	
-	std::cout << p_pos.x - 290;
+	//std::cout << p_pos.x - 290;
 	return (p_pos.x - 290);
+}
+
+float Note::getVelocity()
+{
+	return velocity;
 }

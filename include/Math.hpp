@@ -12,6 +12,16 @@ struct Vector2f
 	:x(p_x), y(p_y)
 	{}
 
+	float getX() 
+	{
+		return x;
+	}
+
+	float getY()
+	{
+		return y;
+	}
+
 	void print()
 	{
 		std::cout << x << ", " << y << std::endl;

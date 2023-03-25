@@ -14,15 +14,22 @@
 
 const int GAME_WIDTH = 1280;
 const int GAME_HEIGHT = 720;
+const int PERFECT = 300;
+const int OKAY = 100;
+
+int point = 0;
+int combo = 0;
 Vector2f SPAWN_POINT = {1570,230};
 
 RenderWindow window;
 
 std::vector<Entity> base;
 std::vector<Effect> effect;
+std::vector<Effect> drum;
 std::vector<Note> reaoharu;
 std::vector<Note> playnotes;
 std::vector<Uint32> timings;
+std::vector<int> scores(3);
 
 Mix_Chunk* donSfx;
 Mix_Chunk* kaSfx;
@@ -33,6 +40,21 @@ SDL_Texture* kaTexture;
 
 SDL_Texture* innerTexture;
 SDL_Texture* outerTexture;
+SDL_Texture* perfectTexture;
+SDL_Texture* okTexture;
+SDL_Texture* missTexture;
+
+TTF_Font* font64;
+TTF_Font* font64_outline;
+TTF_Font* font32;
+TTF_Font* font32_outline;
+TTF_Font* font24;
+TTF_Font* font16;
+
+SDL_Color white = { 255, 255, 255 };
+SDL_Color black = { 0, 0, 0 };
+SDL_Color red = { 251, 103, 103 };
+SDL_Color orange = { 250, 129, 40 };
 
 void init()
 {
@@ -47,6 +69,7 @@ void init()
 
 	if (Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 1024) == -1)
 		std::cout << "Mix_OpenAudio failed. Error: " << SDL_GetError() << std::endl;
+	TTF_Init();
 
 	window.create("Project Taiko", GAME_WIDTH, GAME_HEIGHT);
 
@@ -64,6 +87,55 @@ void init()
 	
 	innerTexture = window.loadTexture("res/textures/taiko-drum-inner.png");
 	outerTexture = window.loadTexture("res/textures/taiko-drum-outer.png");
+	perfectTexture =  window.loadTexture("res/textures/taiko-hit-perfect.png");
+	okTexture =  window.loadTexture("res/textures/taiko-hit-ok.png");
+	missTexture =  window.loadTexture("res/textures/taiko-hit-miss.png");
+
+	font64 = TTF_OpenFont("res/fonts/taikofont.ttf", 64);
+	font64_outline = TTF_OpenFont("res/fonts/taikofont.ttf", 64);
+	font32 = TTF_OpenFont("res/fonts/taikofont.ttf", 32);
+	font32_outline = TTF_OpenFont("res/fonts/taikofont.ttf", 32);
+	font24 = TTF_OpenFont("res/fonts/taikofont.ttf", 24);
+	font16 = TTF_OpenFont("res/fonts/taikofont.ttf", 16);
+	TTF_SetFontOutline(font32_outline, 1);
+	TTF_SetFontOutline(font64_outline, 1);  
+}
+
+const char* getScore(const char* str, int score)
+{
+	std::string s = std::to_string(score);
+	s = str + s;
+	return s.c_str();
+}
+
+void pressNote(SDL_Texture* p_tex, Uint32 time)
+{
+	if (playnotes.size() <= 0) return;
+	float distance = playnotes[0].distanceFromPoint(playnotes[0].getPos());
+	//std:: cout << distance << std::endl; 
+	if (playnotes[0].getTex() != p_tex) return;
+	if (distance <= 100) 
+	{
+		if (distance <= 40)
+		{
+			effect.push_back(Effect(Vector2f(190, GAME_HEIGHT/4), perfectTexture, time));
+			point += PERFECT;
+			combo++;
+			scores[0]++;
+		} else if (distance <= 70)
+			{
+				effect.push_back(Effect(Vector2f(190, GAME_HEIGHT/4), okTexture, time));
+				point += OKAY;
+				scores[1]++;
+				combo++;
+			} else
+				{
+					effect.push_back(Effect(Vector2f(190, GAME_HEIGHT/4), missTexture, time));
+					scores[2]++;
+					combo = 0;
+				}
+		playnotes.erase(playnotes.begin());
+	}
 }
 
 void reAoharu()
@@ -108,11 +180,12 @@ void reAoharu()
 	};
 }
 
-
 void gameLoop()
 {
 	bool gameRunning = true;
 	int currentNote = 0;
+	int finalNote = reaoharu.size();
+	std::cout << finalNote << std::endl;
 	SDL_Event event;
 	Uint32 lastFrameTime = SDL_GetTicks();
 	Mix_PlayMusic(reAoharuMusic, -1);
@@ -126,9 +199,12 @@ void gameLoop()
 
 		if (currentTime >= nextNoteTime)
 		{			
-			playnotes.push_back(reaoharu[currentNote]);
 			//std::cout << currentTime << std::endl;
-			currentNote++;
+			if (currentNote < finalNote) 
+			{
+				playnotes.push_back(reaoharu[currentNote]);
+				currentNote++;
+			}
 		}
 
   		Uint32 deltaTime = currentTime - lastFrameTime; // calculate elapsed time
@@ -138,8 +214,12 @@ void gameLoop()
 		for (auto it = playnotes.begin(); it != playnotes.end(); ) 
 		{
 			it->setPos(it->moveNote(it->getPos(), deltaTime));
-			if (it->getPos().x <= 0) {
+			if (it->getPos().x <= 100 && playnotes.size() > 0) {
 				it = playnotes.erase(it);
+				effect.push_back(Effect(Vector2f(190, GAME_HEIGHT/4), missTexture, currentTime));
+				//std::cout << playnotes.size() << std::endl;
+				scores[2]++;
+				combo = 0;
 			} else {
 				++it;
 			}
@@ -156,23 +236,13 @@ void gameLoop()
 					switch (event.key.keysym.sym) {
 						case SDLK_LEFT:
 							Mix_PlayChannel(-1, kaSfx, 0);
-							effect.push_back(Effect(Vector2f(0, GAME_HEIGHT/4), outerTexture, currentTime));
-							if (playnotes.size() > 0) {
-								if (playnotes[0].distanceFromPoint(playnotes[0].getPos()) <= 50 && playnotes[0].getTex() == kaTexture) 
-								{
-									playnotes.erase(playnotes.begin());
-								}
-							}
+							drum.push_back(Effect(Vector2f(0, GAME_HEIGHT/4), outerTexture, currentTime));
+							pressNote(kaTexture, currentTime);
 							break;
 						case SDLK_RIGHT:
 							Mix_PlayChannel(-1, donSfx, 0);
-							effect.push_back(Effect(Vector2f(0, GAME_HEIGHT/4), innerTexture, currentTime));
-							if (playnotes.size() > 0) {
-								if (playnotes[0].distanceFromPoint(playnotes[0].getPos()) <= 50 && playnotes[0].getTex() == donTexture) 
-								{
-									playnotes.erase(playnotes.begin());
-								}
-							}
+							drum.push_back(Effect(Vector2f(0, GAME_HEIGHT/4), innerTexture, currentTime));
+							pressNote(donTexture, currentTime);
 							break;
 				}
 			}
@@ -181,11 +251,23 @@ void gameLoop()
 		/*int mouseX, mouseY;
 		SDL_GetMouseState(&mouseX, &mouseY);
 		std::cout << "Mouse X: " << mouseX << ", Mouse Y: " << mouseY << std::endl;*/
-
+		//std::cout << "Points: " << point << std::endl << "Perfect: " << scores[0] << std::endl << "Okay: " << scores[1] << std::endl << "Miss: " << scores[2] << std::endl;
 		for (Entity& p : base) window.render(p);
-		for (Entity& p : playnotes) window.render(p);
-		window.render(base[1]);
+		window.render(Vector2f(1050, 20), getScore("Point: ", point), font32, white);
+		window.render(Vector2f(20, 600), getScore("Perfect: ", scores[0]), font24, white);
+		window.render(Vector2f(20, 630), getScore("Okay: ", scores[1]), font24, white);
+		window.render(Vector2f(20, 660), getScore("Miss: ", scores[2]), font24, white);
+		if (combo < 50) {
+			window.renderCenter(Vector2f(0, -GAME_HEIGHT/3), getScore("", combo), font64, white);
+		} else if (combo < 100) 
+			window.renderCenter(Vector2f(0, -GAME_HEIGHT/3), getScore("", combo), font64, orange);
+		else window.renderCenter(Vector2f(0, -GAME_HEIGHT/3), getScore("", combo), font64, red);
+		
+		window.renderCenter(Vector2f(0, -GAME_HEIGHT/3), getScore("", combo), font64_outline, black);
 		for (Effect& p : effect) window.render(p);
+		for (Note& p : playnotes) window.render(p);
+		window.render(base[1]);
+		for (Effect& p: drum) window.render(p);
 
 		for (Effect& p : effect) {
 			if (currentTime - p.getTime() > 100 && effect.size() > 0) 
@@ -193,7 +275,12 @@ void gameLoop()
 				effect.erase(effect.begin());
 			}
 		}
-
+		for (Effect& p : drum) {
+			if (currentTime - p.getTime() > 100 && drum.size() > 0) 
+			{
+				drum.erase(drum.begin());
+			}
+		}
 		window.display();
 	}
 }
@@ -206,6 +293,10 @@ int main(int argc, char* argv[])
 	gameLoop();
 	window.cleanUp();
 	Mix_CloseAudio();
+	TTF_CloseFont(font32);
+	TTF_CloseFont(font32_outline);
+	TTF_CloseFont(font24);
+	TTF_CloseFont(font16);
 	Mix_Quit();
 	SDL_Quit();
 

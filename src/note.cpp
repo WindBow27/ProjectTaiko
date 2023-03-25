@@ -31,7 +31,7 @@ bool Note::isInTheScreen(Vector2f p_pos)
 float Note::distanceFromPoint(Vector2f p_pos)
 {	
 	//std::cout << p_pos.x - 290;
-	return (p_pos.x - 290);
+	return abs(p_pos.x - 190);
 }
 
 float Note::getVelocity()

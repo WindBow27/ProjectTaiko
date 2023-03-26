@@ -2,9 +2,12 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_mixer.h>
+#include <SDL2/SDL_video.h>
 
 #include <iostream>
+#include <string>
 #include <vector>
+#include <cstring>
 
 #include "RenderWindow.hpp"
 #include "Entity.hpp"
@@ -16,30 +19,40 @@ const int GAME_WIDTH = 1280;
 const int GAME_HEIGHT = 720;
 const int PERFECT = 300;
 const int OKAY = 100;
-
+const int PLACEMENT = GAME_HEIGHT/4+5;
 int point = 0;
 int combo = 0;
-Vector2f SPAWN_POINT = {1570,230};
+
+Vector2f SPAWN_POINT = {290 + GAME_WIDTH, 235};
 
 RenderWindow window;
 
 std::vector<Entity> base;
+std::vector<Entity> backgrounds;
+std::vector<Entity> playbackground;
+std::vector<Entity> shiroko;
 std::vector<Effect> effect;
 std::vector<Effect> drum;
 std::vector<Note> reaoharu;
 std::vector<Note> playnotes;
 std::vector<Uint32> timings;
 std::vector<int> scores(3);
+std::vector<const char*> bgfile;
 
 Mix_Chunk* donSfx;
-Mix_Chunk* kaSfx;
+Mix_Chunk* kaSfx ;
+Mix_Chunk* missSfx;
 Mix_Music* reAoharuMusic;
+
+SDL_Surface* surface;
+SDL_Texture* video;
 
 SDL_Texture* donTexture;
 SDL_Texture* kaTexture;
 
 SDL_Texture* innerTexture;
 SDL_Texture* outerTexture;
+SDL_Texture* hyperTexture;
 SDL_Texture* perfectTexture;
 SDL_Texture* okTexture;
 SDL_Texture* missTexture;
@@ -53,8 +66,62 @@ TTF_Font* font16;
 
 SDL_Color white = { 255, 255, 255 };
 SDL_Color black = { 0, 0, 0 };
-SDL_Color red = { 251, 103, 103 };
-SDL_Color orange = { 250, 129, 40 };
+SDL_Color silver = { 178, 192, 205 };
+SDL_Color blue = {1, 215, 251 };
+
+const char* getScore(const char* str, int score)
+{
+	std::string s = std::to_string(score);
+	s = str + s;
+	return s.c_str();
+}
+
+const char* getScore(int score)
+{
+	std::string s = std::to_string(score);
+    size_t n = 6;
+    int precision = n - std::min(n, s.size());
+    s.insert(0, precision, '0');
+    return s.c_str();
+}
+
+const char* getScore(int score, int totalscore)
+{
+	float scr = (float)score/totalscore*100.0;
+    std::string s = std::to_string(scr);
+    s.erase(s.begin()+5,s.end());
+    s += "%";
+	return s.c_str();
+}
+
+const char* getScore(int n300, int n100, int n0)
+{
+	float acc = (float)(n300*300+n100*100)/((n300+n100+n0)*300)*100.0;
+    std::string s = std::to_string(acc);
+    s.erase(s.begin()+5,s.end());
+    s += "%";
+	return s.c_str();
+}
+
+std::vector<const char*> getNumber(const char* str, int number, const char* str1)
+{
+    std::string s = std::to_string(number);
+    size_t n = 3;
+    int precision = n - std::min(n, s.size());
+    s.insert(0, precision, '0');
+    std::string result_str = str + s + str1;
+
+    // Allocate memory for const char*
+    const char* result_cstr = new char[result_str.size() + 1];
+
+    // Copy string to const char*
+    std::strcpy(const_cast<char*>(result_cstr), result_str.c_str());
+
+    // Create vector of const char*
+    std::vector<const char*> result_vector {result_cstr};
+
+    return result_vector;
+}
 
 void init()
 {
@@ -75,18 +142,40 @@ void init()
 
 	donSfx = Mix_LoadWAV("res/sounds/taiko-normal-hitnormal.wav");
 	kaSfx = Mix_LoadWAV("res/sounds/taiko-normal-hitclap.wav");
+	missSfx = Mix_LoadWAV("res/sounds/taiko-normal-hitwhistle.wav");
 	reAoharuMusic = Mix_LoadMUS("res/sounds/reaoharu-audio.mp3");
 
 	donTexture = window.loadTexture("res/textures/don.png");
 	kaTexture = window.loadTexture("res/textures/ka.png");
 
-	base.push_back(Entity(Vector2f(0,0), window.loadTexture("res/textures/background.png")));
-	base.push_back(Entity(Vector2f(0, GAME_HEIGHT/4), window.loadTexture("res/textures/taiko-bar-left.png")));
-	base.push_back(Entity(Vector2f(190, GAME_HEIGHT/4), window.loadTexture("res/textures/taiko-bar-middle.png")));
-	base.push_back(Entity(Vector2f(390, GAME_HEIGHT/4), window.loadTexture("res/textures/taiko-bar-right.png")));
+	//base.push_back(Entity(Vector2f(0,0), window.loadTexture("res/textures/background.png")));
+	base.push_back(Entity(Vector2f(0, PLACEMENT), window.loadTexture("res/textures/taiko-bar-left.png")));
+	base.push_back(Entity(Vector2f(190, PLACEMENT), window.loadTexture("res/textures/taiko-bar-middle.png")));
+	base.push_back(Entity(Vector2f(390, PLACEMENT), window.loadTexture("res/textures/taiko-bar-right.png")));
 	
+    for (int i = 1; i <= 723; i++) {
+        std::vector<const char*> v = getNumber("res/textures/background/Image_", i, ".jpg");
+        bgfile.insert(bgfile.end(), v.begin(), v.end());
+    }
+  
+   // for (auto i : bgfile) std::cout << i << std::endl;
+
+    for (auto i: bgfile)
+    {
+    	backgrounds.push_back(Entity(Vector2f(0,0), window.loadTexture(i)));
+    }
+
+    // Free memory for const char*
+    for (auto i : bgfile) delete[] i;
+
+    shiroko.push_back(Entity(Vector2f(0, 18), window.loadTexture("res/textures/shiroko/0.png")));
+	shiroko.push_back(Entity(Vector2f(0, 18), window.loadTexture("res/textures/shiroko/1.png")));
+	shiroko.push_back(Entity(Vector2f(0, 18), window.loadTexture("res/textures/shiroko/2.png")));
+	shiroko.push_back(Entity(Vector2f(0, 18), window.loadTexture("res/textures/shiroko/3.png")));
+
 	innerTexture = window.loadTexture("res/textures/taiko-drum-inner.png");
 	outerTexture = window.loadTexture("res/textures/taiko-drum-outer.png");
+	hyperTexture = window.loadTexture("res/textures/taiko-glow.png");
 	perfectTexture =  window.loadTexture("res/textures/taiko-hit-perfect.png");
 	okTexture =  window.loadTexture("res/textures/taiko-hit-ok.png");
 	missTexture =  window.loadTexture("res/textures/taiko-hit-miss.png");
@@ -101,13 +190,6 @@ void init()
 	TTF_SetFontOutline(font64_outline, 1);  
 }
 
-const char* getScore(const char* str, int score)
-{
-	std::string s = std::to_string(score);
-	s = str + s;
-	return s.c_str();
-}
-
 void pressNote(SDL_Texture* p_tex, Uint32 time)
 {
 	if (playnotes.size() <= 0) return;
@@ -118,19 +200,20 @@ void pressNote(SDL_Texture* p_tex, Uint32 time)
 	{
 		if (distance <= 40)
 		{
-			effect.push_back(Effect(Vector2f(190, GAME_HEIGHT/4), perfectTexture, time));
+			effect.push_back(Effect(Vector2f(190, PLACEMENT), perfectTexture, time));
 			point += PERFECT;
 			combo++;
 			scores[0]++;
 		} else if (distance <= 70)
 			{
-				effect.push_back(Effect(Vector2f(190, GAME_HEIGHT/4), okTexture, time));
+				effect.push_back(Effect(Vector2f(190, PLACEMENT), okTexture, time));
 				point += OKAY;
 				scores[1]++;
 				combo++;
 			} else
 				{
-					effect.push_back(Effect(Vector2f(190, GAME_HEIGHT/4), missTexture, time));
+					Mix_PlayChannel(-1, missSfx, 0);
+					effect.push_back(Effect(Vector2f(190, PLACEMENT), missTexture, time));
 					scores[2]++;
 					combo = 0;
 				}
@@ -184,22 +267,34 @@ void gameLoop()
 {
 	bool gameRunning = true;
 	int currentNote = 0;
+	int currentBackGround = 0;
+	int shirokoBackGround = 0;
 	int finalNote = reaoharu.size();
-	std::cout << finalNote << std::endl;
-	SDL_Event event;
+
+	Uint32 currentTime;
+	Uint32 backGroundTime;
+	Uint32 shirokoTime;
+	Uint32 lastBackGroundTime = 0;
+	Uint32 lastShirokoTime = 0;
+	Uint32 initNote = SDL_GetTicks();
+	Uint32 nextNoteTime;
 	Uint32 lastFrameTime = SDL_GetTicks();
+
 	Mix_PlayMusic(reAoharuMusic, -1);
+
+	SDL_Event event;
 
 	while (gameRunning)
 	{
 		window.clear();
 
-		Uint32 currentTime = SDL_GetTicks();
-		Uint32 nextNoteTime = timings[currentNote] - 1000;
+		currentTime = SDL_GetTicks();
+		backGroundTime = currentTime - lastBackGroundTime;
+		shirokoTime = currentTime - lastShirokoTime;
+		nextNoteTime = timings[currentNote] - GAME_WIDTH + initNote;
 
 		if (currentTime >= nextNoteTime)
 		{			
-			//std::cout << currentTime << std::endl;
 			if (currentNote < finalNote) 
 			{
 				playnotes.push_back(reaoharu[currentNote]);
@@ -216,8 +311,8 @@ void gameLoop()
 			it->setPos(it->moveNote(it->getPos(), deltaTime));
 			if (it->getPos().x <= 100 && playnotes.size() > 0) {
 				it = playnotes.erase(it);
-				effect.push_back(Effect(Vector2f(190, GAME_HEIGHT/4), missTexture, currentTime));
-				//std::cout << playnotes.size() << std::endl;
+				effect.push_back(Effect(Vector2f(190, PLACEMENT), missTexture, currentTime));
+				Mix_PlayChannel(-1, missSfx, 0);
 				scores[2]++;
 				combo = 0;
 			} else {
@@ -235,13 +330,13 @@ void gameLoop()
 				case SDL_KEYDOWN:
 					switch (event.key.keysym.sym) {
 						case SDLK_LEFT:
-							Mix_PlayChannel(-1, kaSfx, 0);
-							drum.push_back(Effect(Vector2f(0, GAME_HEIGHT/4), outerTexture, currentTime));
+							Mix_PlayChannel(-1, donSfx, 0);
+							drum.push_back(Effect(Vector2f(0, PLACEMENT), outerTexture, currentTime));
 							pressNote(kaTexture, currentTime);
 							break;
 						case SDLK_RIGHT:
-							Mix_PlayChannel(-1, donSfx, 0);
-							drum.push_back(Effect(Vector2f(0, GAME_HEIGHT/4), innerTexture, currentTime));
+							Mix_PlayChannel(-1, kaSfx, 0);
+							drum.push_back(Effect(Vector2f(0, PLACEMENT), innerTexture, currentTime));
 							pressNote(donTexture, currentTime);
 							break;
 				}
@@ -251,22 +346,41 @@ void gameLoop()
 		/*int mouseX, mouseY;
 		SDL_GetMouseState(&mouseX, &mouseY);
 		std::cout << "Mouse X: " << mouseX << ", Mouse Y: " << mouseY << std::endl;*/
-		//std::cout << "Points: " << point << std::endl << "Perfect: " << scores[0] << std::endl << "Okay: " << scores[1] << std::endl << "Miss: " << scores[2] << std::endl;
+
+		if (backGroundTime >= 200 && currentBackGround < 723) 
+		{
+			playbackground.push_back(backgrounds[currentBackGround]);
+			lastBackGroundTime = currentTime;
+			currentBackGround++;
+			//std::cout << currentBackGround << std::endl;
+		}
+
+		window.render(playbackground[playbackground.size()-1]);
+
 		for (Entity& p : base) window.render(p);
-		window.render(Vector2f(1050, 20), getScore("Point: ", point), font32, white);
+		window.render(Vector2f(1140, 20), getScore(point), font32, blue);
+		window.render(Vector2f(1175, 60), getScore(scores[0], scores[1], scores[2]), font24, white);
 		window.render(Vector2f(20, 600), getScore("Perfect: ", scores[0]), font24, white);
 		window.render(Vector2f(20, 630), getScore("Okay: ", scores[1]), font24, white);
 		window.render(Vector2f(20, 660), getScore("Miss: ", scores[2]), font24, white);
-		if (combo < 50) {
-			window.renderCenter(Vector2f(0, -GAME_HEIGHT/3), getScore("", combo), font64, white);
-		} else if (combo < 100) 
-			window.renderCenter(Vector2f(0, -GAME_HEIGHT/3), getScore("", combo), font64, orange);
-		else window.renderCenter(Vector2f(0, -GAME_HEIGHT/3), getScore("", combo), font64, red);
+		
+		window.renderCenter(Vector2f(0, -GAME_HEIGHT/3), getScore("", combo), font64, blue);
+		window.renderCenter(Vector2f(0, -GAME_HEIGHT/3+40), "Combo", font24, white);
 		
 		window.renderCenter(Vector2f(0, -GAME_HEIGHT/3), getScore("", combo), font64_outline, black);
 		for (Effect& p : effect) window.render(p);
 		for (Note& p : playnotes) window.render(p);
-		window.render(base[1]);
+		window.render(base[0]);
+
+		//window.render(shiroko[0]);
+		if (shirokoTime >= 60) 
+		{
+			lastShirokoTime = currentTime;
+			shirokoBackGround++;
+			if (shirokoBackGround == 3) shirokoBackGround = 0;
+		}
+		window.render(shiroko[shirokoBackGround]);
+		
 		for (Effect& p: drum) window.render(p);
 
 		for (Effect& p : effect) {

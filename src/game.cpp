@@ -3,8 +3,11 @@
 
 #include <iostream>
 
-TitleScreen* title = NULL;
-Gameplay* gameplay = NULL;
+TitleScreen* titlescreen = NULL;
+Gameplay* gamescreen = NULL;
+EndScreen* endscreen = NULL;
+Manual* manualscreen = NULL;
+Option* optionscreen = NULL;
 
 RenderWindow window;
 
@@ -20,10 +23,11 @@ Game::~Game()
 
 enum State
 {
-	Title = 0,
-	Ingame = 1,
-	End = 2,
-	Option = 3
+	TitleState = 0,
+	IngameState = 1,
+	EndState = 2,
+	ManualState = 3,
+	OptionState = 4
 };
 
 void Game::init()
@@ -38,12 +42,15 @@ void Game::init()
 		std::cout << "Mix_OpenAudio failed. Error: " << SDL_GetError() << std::endl;
 	if (TTF_Init())
 		std::cout << "TTF_init has failed. Error: " << SDL_GetError() << std::endl;
-	
+	clickSfx = Mix_LoadWAV("res/sounds/button-click.wav");
+	backSfx = Mix_LoadWAV("res/sounds/title-screen-back.wav");
 	window.create("Project Taiko", 1280, 720);
 
-	gameState = Title;
-	title = new TitleScreen(window);
-	gameplay = new Gameplay(window);
+	gameState = TitleState;
+	titlescreen = new TitleScreen(window);
+	titlescreen->render();
+	titlescreen->init();
+	gamescreen = new Gameplay(window);
 
 	isRunning = true;
 }
@@ -51,11 +58,26 @@ void Game::init()
 void Game::update() {
 	switch (gameState)
 	{
-	case Title:
-		title->update();
+	case TitleState:
+		titlescreen->update();
 		break;
-	case Ingame:
-		gameplay->update();
+	case IngameState:
+		gamescreen->update();
+		if (gamescreen->getEnd() == END_POINT)
+		{
+			Mix_HaltMusic();
+			gameState = EndState;
+			endscreen = new EndScreen(window, gamescreen->getTotalScore(), gamescreen->getMaxCombo(), gamescreen->getRanking(), gamescreen->getAcc());
+		}
+		break;
+	case EndState:
+		endscreen->update();
+		break;
+	case ManualState:
+		manualscreen->update();
+		break;
+	case OptionState:
+		optionscreen->update();
 		break;
 	default:
 		break;
@@ -64,31 +86,126 @@ void Game::update() {
 
 void Game::handleEvents()
 {
-	SDL_Event e;
-	while (SDL_PollEvent(&e))
-	{
-		switch(e.type)
-		{
-		case SDL_QUIT:
-			isRunning = false;
-			break;
-		case SDL_MOUSEBUTTONDOWN:
-			if (gameState == Title)
-			{
-				gameState = Ingame;
-				gameplay->init();
-			}
-			if (gameState == Ingame)
-			{
-				//gameplay->handleEvents(e);
-			}
-		case SDL_KEYDOWN:
-			if (gameState == Ingame)
-			{
-				gameplay->handleEvents(e);
-			}
-		}
-	}
+    SDL_Event e;
+    Uint32 escPressedTime;
+    Uint32 rPressedTime;
+
+    while (SDL_PollEvent(&e))
+    {
+        switch (e.type)
+        {
+            case SDL_QUIT:
+                isRunning = false;
+                break;
+            case SDL_MOUSEBUTTONDOWN:
+            	switch (gameState)
+            	{
+            	case TitleState:
+            		if (titlescreen->getButton(START)->getHovered())
+                    {
+                    	Mix_PlayChannel(-1, clickSfx, 0);
+                        gameState = IngameState;
+                        gamescreen->init();
+                        return;
+                    }
+                    if (titlescreen->getButton(MANUAL)->getHovered())
+                    {
+                    	Mix_PlayChannel(-1, clickSfx, 0);
+                        gameState = ManualState;
+                        manualscreen = new Manual(window);
+                        return;
+                    }
+                    if (titlescreen->getButton(OPTION)->getHovered())
+                    {
+                    	Mix_PlayChannel(-1, clickSfx, 0);
+                        gameState = OptionState;
+                        optionscreen = new Option(window);
+                        return;
+                    }
+                    if (titlescreen->getButton(QUIT)->getHovered())
+                    {
+                    	Mix_PlayChannel(-1, clickSfx, 0);
+                        isRunning = false;
+                        return;
+                    }
+                    break;
+
+                case IngameState:
+                	break;
+
+                case EndState:
+                	if (endscreen->getButton(RESTART)->getHovered())
+                	{
+                		Mix_PlayChannel(-1, clickSfx, 0);
+                		Mix_HaltMusic();
+                		gameState = IngameState;
+                		gamescreen->init();
+                		return;
+                	}
+                	if (endscreen->getButton(TITLE)->getHovered())
+                	{
+                		Mix_PlayChannel(-1, clickSfx, 0);
+                		Mix_HaltMusic();
+                		gameState = TitleState;
+                		titlescreen->init();
+                		return;
+                	}
+                	break;
+
+                case ManualState:
+                	if (manualscreen->getButton()->getHovered())
+                	{
+                		Mix_PlayChannel(-1, clickSfx, 0);
+                		gameState = TitleState;
+                		return;
+                	}
+                	break;
+
+               	case OptionState:
+               		if (optionscreen->getButton()->getHovered())
+               		{
+               			Mix_PlayChannel(-1, clickSfx, 0);
+                		gameState = TitleState;
+                		return;
+               		}
+               		break;
+
+            	}
+
+            case SDL_KEYDOWN:
+                if (gameState == IngameState)
+                {
+                	gamescreen->handleEvents(e);
+                	switch (e.key.keysym.sym) {
+                	case SDLK_ESCAPE:
+                		if (e.key.repeat == 0)
+                        {
+                            escPressedTime = SDL_GetTicks();
+                            Mix_PlayChannel(-1, backSfx, 0);
+                        }
+                        else if (SDL_GetTicks() - escPressedTime >= 500)
+                        {
+                        	Mix_HaltMusic();
+                            gameState = TitleState;
+   							titlescreen->init();                         
+                        }
+                        break;
+                	case SDLK_r:
+                		if (e.key.repeat == 0)
+                        {
+                            rPressedTime = SDL_GetTicks();
+                            Mix_PlayChannel(-1, backSfx, 0);
+                        }
+                        else if (SDL_GetTicks() - rPressedTime >= 500)
+                        {
+                            gamescreen->init();
+                        }
+                        break;
+                	}
+                }
+                break;
+        }
+    }
 }
 
 void Game::clean()
@@ -101,11 +218,20 @@ void Game::render()
 {
 	switch(gameState)
 	{
-	case Title:
-		title->render();
+	case TitleState:
+		titlescreen->render();
 		break;
-	case Ingame:
-		gameplay->render();
+	case IngameState:
+		gamescreen->render();
+		break;
+	case EndState:
+		endscreen->render();
+		break;
+	case ManualState:
+		manualscreen->render();
+		break;
+	case OptionState:
+		optionscreen->render();
 		break;
 	default:
 		break;

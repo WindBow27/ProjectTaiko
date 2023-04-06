@@ -19,12 +19,7 @@
 
 Gameplay::Gameplay(RenderWindow p_window) : window(p_window)
 {
-
-}
-
-void Gameplay::init()
-{
-	donSfx = Mix_LoadWAV("res/sounds/taiko-normal-hitnormal.wav");
+    donSfx = Mix_LoadWAV("res/sounds/taiko-normal-hitnormal.wav");
 	kaSfx = Mix_LoadWAV("res/sounds/taiko-normal-hitclap.wav");
 	missSfx = Mix_LoadWAV("res/sounds/taiko-normal-hitwhistle.wav");
 	reAoharuMusic = Mix_LoadMUS("res/sounds/reaoharu-audio.mp3");
@@ -37,7 +32,7 @@ void Gameplay::init()
 	slider.push_back(Entity(Vector2f(390, PLACEMENT), window.loadTexture("res/textures/slider/taiko-bar-right.png")));
 	
 	//Background textures
-    for (int i = 1; i <= 723; i++) {
+	for (int i = 1; i <= 723; i++) {
         std::vector<const char*> v = getText("res/textures/background/", i, ".png");
         bgfile.insert(bgfile.end(), v.begin(), v.end());
     }
@@ -68,12 +63,28 @@ void Gameplay::init()
 	font16 = TTF_OpenFont("res/fonts/taikofont.ttf", 16);
 	TTF_SetFontOutline(font32_outline, 1);
 	TTF_SetFontOutline(font64_outline, 1);  
+}
 
+void Gameplay::init()
+{
+	chart.clear();
+	timings.clear();
+	playnotes.clear();
 	chart = getNormalChart(SPAWN_POINT, donTexture, kaTexture);
 	timings = getNormalTiming();
+	accs = { 0, 0, 0};
+	point = 0;
+	combo = 0;
+	maxCombo = 0;
 	Mix_PlayMusic(reAoharuMusic, -1);
 	finalNote = chart.size();
 	initNote = SDL_GetTicks();
+	currentNote = 0;
+	shirokoBackGround = 0;
+	backGround = 0;
+	lastBackGroundTime = 0;
+	lastShirokoTime = 0;
+	lastFrameTime = SDL_GetTicks();
 }
 
 void Gameplay::pressNote(SDL_Texture* p_tex, Uint32 time)
@@ -83,23 +94,23 @@ void Gameplay::pressNote(SDL_Texture* p_tex, Uint32 time)
 	if (playnotes[0].getTex() != p_tex) return;
 	if (distance <= 100) 
 	{
-		if (distance <= 40)
+		if (distance <= 30)
 		{
 			effect.push_back(Effect(Vector2f(190, PLACEMENT), perfectTexture, time));
-			point += PERFECT;
+			point += POINT_PERFECT;
 			combo++;
-			accs[0]++;
-		} else if (distance <= 70)
+			accs[PERFECT]++;
+		} else if (distance <= 60)
 			{
 				effect.push_back(Effect(Vector2f(190, PLACEMENT), okTexture, time));
-				point += OKAY;
-				accs[1]++;
+				point += POINT_OKAY;
+				accs[OKAY]++;
 				combo++;
 			} else
 				{
 					Mix_PlayChannel(-1, missSfx, 0);
 					effect.push_back(Effect(Vector2f(190, PLACEMENT), missTexture, time));
-					accs[2]++;
+					accs[MISS]++;
 					combo = 0;
 				}
 		playnotes.erase(playnotes.begin());
@@ -108,7 +119,6 @@ void Gameplay::pressNote(SDL_Texture* p_tex, Uint32 time)
 
 void Gameplay::update()
 {		
-
 		currentTime = SDL_GetTicks();
 		backGroundTime = currentTime - lastBackGroundTime;
 		shirokoTime = currentTime - lastShirokoTime;
@@ -135,7 +145,8 @@ void Gameplay::update()
 				it = playnotes.erase(it);
 				effect.push_back(Effect(Vector2f(190, PLACEMENT), missTexture, currentTime));
 				Mix_PlayChannel(-1, missSfx, 0);
-				accs[2]++;
+				accs[MISS]++;
+				maxCombo = std::max(maxCombo, combo);
 				combo = 0;
 			} else {
 				++it;
@@ -186,21 +197,22 @@ void Gameplay::handleEvents(SDL_Event event)
 void Gameplay::render()
 {
 	window.clear();
-	window.render(backgrounds[0]);
-	if (backGroundTime >= 200 && backgrounds.size() > 0) 
+	//std::cout << "Background: " << backGround << "   " << "size: " << backgrounds.size() << std::endl;
+	window.render(backgrounds[backGround]);
+	if (backGroundTime >= 200 && backgrounds.size() > 0 && backGround < 723) 
 	{
-		backgrounds.erase(backgrounds.begin());
 		lastBackGroundTime = currentTime;
+		backGround++;
 	} // background timer
 
 	for (Entity& p : slider) window.render(p);
 	if (currentTime - initNote > 95245 && currentTime - initNote < 116578) window.render(Vector2f(190,PLACEMENT), glowTexture);
 
 	window.render(Vector2f(1140, 20), getScore(point), font32, blue);
-	window.render(Vector2f(1175, 60), getScore(accs[0], accs[1], accs[2]), font24, white);
-	window.render(Vector2f(20, 600), getScore("Perfect: ", accs[0]), font24, white);
-	window.render(Vector2f(20, 630), getScore("Okay: ", accs[1]), font24, white);
-	window.render(Vector2f(20, 660), getScore("Miss: ", accs[2]), font24, white);
+	window.render(Vector2f(1175, 60), getScore(accs[PERFECT], accs[OKAY], accs[MISS]), font24, white);
+	window.render(Vector2f(20, 600), getScore("Perfect: ", accs[PERFECT]), font24, white);
+	window.render(Vector2f(20, 630), getScore("Okay: ", accs[OKAY]), font24, white);
+	window.render(Vector2f(20, 660), getScore("Miss: ", accs[MISS]), font24, white);
 	
 	window.renderCenter(Vector2f(0, -GAME_HEIGHT/3), getScore("", combo), font64, blue);
 	window.renderCenter(Vector2f(0, -GAME_HEIGHT/3+40), "Combo", font24, white);
@@ -228,4 +240,30 @@ void Gameplay::render()
 	}
 	
 	window.display();
+}
+
+std::vector<int> Gameplay::getAcc()
+{
+	return accs;
+}
+
+int Gameplay::getEnd()
+{
+	return backGround;
+}
+
+int Gameplay::getTotalScore()
+{
+	return point;
+}
+
+int Gameplay::getMaxCombo()
+{
+	return maxCombo;
+}
+
+int Gameplay::getRanking()
+{
+	int rank = getRank(accs[PERFECT], accs[OKAY], accs[MISS]);
+	return rank;
 }

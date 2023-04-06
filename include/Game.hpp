@@ -19,6 +19,9 @@
 #include "Charts.hpp"
 #include "Gameplay.hpp"
 #include "TitleScreen.hpp"
+#include "EndScreen.hpp"
+#include "Manual.hpp"
+#include "Option.hpp"
 
 class Game
 {
@@ -48,4 +51,7 @@ private:
 	bool isRunning;
 	RenderWindow window;
 	int mouseX, mouseY;
+	Mix_Chunk* backSfx;
+	Mix_Chunk* clickSfx;
+	const int END_POINT = 723;
 };

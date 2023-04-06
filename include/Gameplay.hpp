@@ -18,6 +18,13 @@
 #include "Utils.hpp"
 #include "Charts.hpp"
 
+enum Accuracy
+{
+	PERFECT = 0,
+	OKAY = 1, 
+	MISS = 2,
+};
+
 class Gameplay
 {
 public:
@@ -27,15 +34,22 @@ public:
 	void update();
 	void handleEvents(SDL_Event event);
 	void render();
+	void reset();
+	int getTotalScore();
+	int getEnd();
+	std::vector<int> getAcc();
+	int getMaxCombo();
+	int getRanking();
 private:
 	RenderWindow window;
 	const int GAME_WIDTH = 1280;
 	const int GAME_HEIGHT = 720;
-	const int PERFECT = 300;
-	const int OKAY = 100;
+	const int POINT_PERFECT = 300;
+	const int POINT_OKAY = 100;
 	const int PLACEMENT = GAME_HEIGHT/4+5;
-	int point = 0;
-	int combo = 0;
+	int point;
+	int combo;
+	int maxCombo;
 	Vector2f SPAWN_POINT = {1570, 235};
 
 	std::vector<Entity> slider;
@@ -46,7 +60,7 @@ private:
 	std::vector<Note> chart;
 	std::vector<Note> playnotes;
 	std::vector<Uint32> timings;
-	std::vector<int> accs = { 0, 0, 0};
+	std::vector<int> accs;
 	std::vector<const char*> bgfile;
 
 	Mix_Chunk* donSfx;
@@ -79,18 +93,19 @@ private:
 	SDL_Color silver = { 178, 192, 205 };
 	SDL_Color blue = {1, 215, 251 };
 
-	int currentNote = 0;
-	int shirokoBackGround = 0;
+	int currentNote;
+	int shirokoBackGround;
+	int backGround;
 	int finalNote;
 
 	Uint32 currentTime;
 
 	Uint32 backGroundTime;
 	Uint32 shirokoTime;
-	Uint32 lastBackGroundTime = 0;
-	Uint32 lastShirokoTime = 0;
+	Uint32 lastBackGroundTime;
+	Uint32 lastShirokoTime;
 
 	Uint32 initNote;
 	Uint32 nextNoteTime;
-	Uint32 lastFrameTime = SDL_GetTicks();
+	Uint32 lastFrameTime;
 };

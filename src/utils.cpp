@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <cstring>
+#include <algorithm>
 
 const char* getScore(const char* str, int score)
 {
@@ -21,7 +22,7 @@ const char* getScore(int score)
 
 const char* getScore(int score, int totalscore)
 {
-	float scr = (float)score/totalscore*100.0;
+	float scr = std::max(0.0, (float)score/totalscore*100.0);
     std::string s = std::to_string(scr);
     s.erase(s.begin()+5,s.end());
     s += "%";
@@ -30,11 +31,22 @@ const char* getScore(int score, int totalscore)
 
 const char* getScore(int n300, int n100, int n0)
 {
-	float acc = (float)(n300*300+n100*100)/((n300+n100+n0)*300)*100.0;
+	float acc = std::max(0.0, (float)(n300*300+n100*100)/((n300+n100+n0)*300)*100.0);
     std::string s = std::to_string(acc);
     s.erase(s.begin()+5,s.end());
     s += "%";
 	return s.c_str();
+}
+
+int getRank(int n300, int n100, int n0)
+{
+    float acc = std::max(0.0, (float)(n300*300+n100*100)/((n300+n100+n0)*300)*100.0);
+    // 0 = S, 1 = A, 2 = B, 3 = C, 4 = D
+    if (acc > 97.0) return 0;
+    if (acc > 90.0) return 1;
+    if (acc > 80.0) return 2;
+    if (acc > 60.0) return 3;
+    return -1;
 }
 
 std::vector<const char*> getText(const char* str, int number, const char* str1)

@@ -1,5 +1,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
 
 #include "Math.hpp"
 #include "Entity.hpp"
@@ -11,6 +13,7 @@ Button::Button(RenderWindow& p_window, const char* p_text, TTF_Font* p_font, SDL
 {
    m_texture = p_texture;
    m_size = {255, 62};
+   hoveredSfx = Mix_LoadWAV("res/sounds/button-hover.wav");
 }
 
 void Button::setSize(Vector2f p_size)
@@ -26,7 +29,8 @@ void Button::update()
     if (mouseX >= getPos().getX() && mouseX <= getPos().getX() + m_size.getX()
         && mouseY >= getPos().getY() && mouseY <= getPos().getY() + m_size.getY())
     {
-        m_hovered = true;
+        if (m_hovered == false) Mix_PlayChannel(-1, hoveredSfx, 0);
+        m_hovered = true;  
     }
     else
     {
@@ -55,3 +59,5 @@ void Button::render()
     }
 
 }
+
+

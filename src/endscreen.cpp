@@ -40,6 +40,25 @@ EndScreen::EndScreen(RenderWindow p_window, int p_score, int p_maxcombo, int p_r
 	Mix_PlayChannel(-1, applause, 0);
 }
 
+EndScreen::~EndScreen()
+{
+    SDL_DestroyTexture(screenTexture);
+    SDL_DestroyTexture(buttonTexture);
+    Mix_FreeChunk(applause);
+    for (auto i: rankTextures) {
+        SDL_DestroyTexture(i);
+    }
+    TTF_CloseFont(font64);
+    TTF_CloseFont(font64_outline);
+    TTF_CloseFont(font32);
+    TTF_CloseFont(font32_outline);
+    TTF_CloseFont(font24);
+    TTF_CloseFont(font16);
+    for (auto i: button) {
+        delete i;
+    }
+}
+
 void EndScreen::update()
 {
 	button[RESTART]->update();
@@ -84,6 +103,9 @@ void EndScreen::render()
 		break;
 	case 3:
 		window.render(Vector2f(870, 225), rankTextures[3]);
+		break;
+	case 4:
+		window.render(Vector2f(870, 225), rankTextures[4]);
 		break;
 	default:
 		window.render(Vector2f(870, 225), rankTextures[4]);

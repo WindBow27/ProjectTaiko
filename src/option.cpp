@@ -21,6 +21,8 @@ Option::Option(RenderWindow p_window) : window(p_window)
 {
 	screenTexture = window.loadTexture("res/textures/option/option.png");
 	buttonTexture = window.loadTexture("res/textures/button.png");
+	sliderTexture = window.loadTexture("res/textures/option/slider.png");
+	sliderButtonTexture = window.loadTexture("res/textures/option/slider_button.png");
 	font32 = TTF_OpenFont("res/fonts/taikofont.ttf", 32);
 	font32_outline = TTF_OpenFont("res/fonts/taikofont.ttf", 32);
 	TTF_SetFontOutline(font32_outline, 1);

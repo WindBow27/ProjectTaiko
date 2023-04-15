@@ -22,6 +22,7 @@ class Manual
 {
 public:
 	Manual(RenderWindow p_window);
+	~Manual();
 	void update();
 	void render();
 	Button* getButton();

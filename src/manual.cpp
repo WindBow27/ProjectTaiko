@@ -27,6 +27,10 @@ Manual::Manual(RenderWindow p_window) : window(p_window)
 	button = new Button(window, "Got it!", font32, black, buttonTexture, Vector2f(512.5, 550));
 }
 
+Manual::~Manual()
+{
+}
+
 void Manual::update()
 {
 	button->update();

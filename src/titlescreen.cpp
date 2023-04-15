@@ -39,10 +39,7 @@ void TitleScreen::init()
 
 void TitleScreen::update()
 {
-	button[START]->update();
-	button[MANUAL]->update();
-	button[OPTION]->update();
-	button[QUIT]->update();
+	for (auto i:button) i->update();
 }
 
 void TitleScreen::render()
@@ -50,10 +47,7 @@ void TitleScreen::render()
 	window.clear();
 	window.render(Vector2f(0, 0), screenTexture);
 	window.render(Vector2f(0, sin(SDL_GetTicks()/200) * 2 - 4), titleTexture);
-	button[START]->render();
-	button[MANUAL]->render();
-	button[OPTION]->render();
-	button[QUIT]->render();
+	for (auto i:button) i->render();
 	window.display();
 }
 

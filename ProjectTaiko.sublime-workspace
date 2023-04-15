@@ -4,6 +4,98 @@
 		"selected_items":
 		[
 			[
+				"slider",
+				"sliderButtonTexture"
+			],
+			[
+				"temp",
+				"tempScores"
+			],
+			[
+				"if",
+				"ifstream"
+			],
+			[
+				"set",
+				"setRank"
+			],
+			[
+				"m",
+				"m_hoverTexture"
+			],
+			[
+				"m_ho",
+				"m_hoverTexture"
+			],
+			[
+				"m_hover",
+				"m_hoverTexture"
+			],
+			[
+				"SDL",
+				"SDL_Texture"
+			],
+			[
+				"en",
+				"endscreen"
+			],
+			[
+				"bin",
+				"bindingLight"
+			],
+			[
+				"blight",
+				"arisBlindingLight"
+			],
+			[
+				"bind",
+				"bindingLight"
+			],
+			[
+				"SUDD",
+				"suddendeath1Texture"
+			],
+			[
+				"res",
+				"result_str"
+			],
+			[
+				"back",
+				"backGround"
+			],
+			[
+				"bigDon",
+				"bigDonSfx"
+			],
+			[
+				"Big",
+				"bigDonTexture"
+			],
+			[
+				"big",
+				"bigDonTexture"
+			],
+			[
+				"SPAWN",
+				"SPAWN_POINT_BIG"
+			],
+			[
+				"game",
+				"gameState"
+			],
+			[
+				"Selec",
+				"Selection"
+			],
+			[
+				"selec",
+				"selectionscreen"
+			],
+			[
+				"d",
+				"difficulty"
+			],
+			[
 				"option",
 				"optionscreen"
 			],
@@ -14,10 +106,6 @@
 			[
 				"optio",
 				"optionscreen"
-			],
-			[
-				"game",
-				"gamescreen"
 			],
 			[
 				"title",
@@ -36,16 +124,8 @@
 				"getHovered"
 			],
 			[
-				"SDL",
-				"SDL_Texture"
-			],
-			[
 				"games",
 				"gamescreen"
-			],
-			[
-				"back",
-				"backGround"
 			],
 			[
 				"Gam",
@@ -224,400 +304,10 @@
 	"buffers":
 	[
 		{
-			"file": "include/Option.hpp",
+			"file": "src/option.cpp",
 			"settings":
 			{
-				"buffer_size": 647,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			},
-			"undo_stack":
-			[
-				[
-					2,
-					1,
-					"paste",
-					null,
-					"AQAAAAAAAAAAAAAAMgMAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					5,
-					2,
-					"left_delete",
-					null,
-					"AgAAAF8BAAAAAAAAXwEAAAAAAABUAAAAZW51bSBUaXRsZVNjcmVlbkJ1dHRvbkRldGFpbAp7CglTVEFSVCA9IDAsCglNQU5VQUwgPSAxLCAKCU9QVElPTiA9IDIsCglRVUlUID0gMywKfTsKXgEAAAAAAABeAQAAAAAAAAEAAAAK",
-					"AQAAAAAAAAABAAAAswEAAAAAAABfAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					8,
-					1,
-					"insert",
-					{
-						"characters": "Options"
-					},
-					"CAAAAGUBAAAAAAAAZgEAAAAAAAAAAAAAZgEAAAAAAABmAQAAAAAAAAsAAABUaXRsZVNjcmVlbmYBAAAAAAAAZwEAAAAAAAAAAAAAZwEAAAAAAABoAQAAAAAAAAAAAABoAQAAAAAAAGkBAAAAAAAAAAAAAGkBAAAAAAAAagEAAAAAAAAAAAAAagEAAAAAAABrAQAAAAAAAAAAAABrAQAAAAAAAGwBAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAZQEAAAAAAABwAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					9,
-					1,
-					"left_delete",
-					null,
-					"AQAAAGsBAAAAAAAAawEAAAAAAAABAAAAcw",
-					"AQAAAAAAAAABAAAAbAEAAAAAAABsAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					12,
-					1,
-					"insert",
-					{
-						"characters": "Option"
-					},
-					"BwAAAHcBAAAAAAAAeAEAAAAAAAAAAAAAeAEAAAAAAAB4AQAAAAAAAAsAAABUaXRsZVNjcmVlbngBAAAAAAAAeQEAAAAAAAAAAAAAeQEAAAAAAAB6AQAAAAAAAAAAAAB6AQAAAAAAAHsBAAAAAAAAAAAAAHsBAAAAAAAAfAEAAAAAAAAAAAAAfAEAAAAAAAB9AQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAdwEAAAAAAACCAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					17,
-					1,
-					"left_delete",
-					null,
-					"AQAAAH0CAAAAAAAAfQIAAAAAAAADAAAAWzRd",
-					"AQAAAAAAAAABAAAAfQIAAAAAAACAAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					23,
-					2,
-					"left_delete",
-					null,
-					"AgAAAB0CAAAAAAAAHQIAAAAAAAAbAAAACVNETF9UZXh0dXJlKiB0aXRsZVRleHR1cmU7HAIAAAAAAAAcAgAAAAAAAAEAAAAK",
-					"AQAAAAAAAAABAAAAOAIAAAAAAAAdAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					26,
-					2,
-					"left_delete",
-					null,
-					"AgAAADoCAAAAAAAAOgIAAAAAAAAXAAAACU1peF9NdXNpYyogdGl0bGVNdXNpYzs5AgAAAAAAADkCAAAAAAAAAQAAAAo",
-					"AQAAAAAAAAABAAAAUQIAAAAAAAA6AgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					34,
-					1,
-					"insert",
-					{
-						"characters": "\n\n"
-					},
-					"BQAAAJgCAAAAAAAAmQIAAAAAAAAAAAAAmQIAAAAAAACaAgAAAAAAAAAAAACaAgAAAAAAAJsCAAAAAAAAAAAAAJsCAAAAAAAAnAIAAAAAAAAAAAAAmQIAAAAAAACZAgAAAAAAAAEAAAAJ",
-					"AQAAAAAAAAABAAAAmAIAAAAAAACYAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					35,
-					1,
-					"paste",
-					null,
-					"AQAAAJsCAAAAAAAALgMAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAmwIAAAAAAACbAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					38,
-					1,
-					"insert",
-					{
-						"characters": "SDL_TEx"
-					},
-					"BwAAAJsCAAAAAAAAnAIAAAAAAAAAAAAAnAIAAAAAAACdAgAAAAAAAAAAAACdAgAAAAAAAJ4CAAAAAAAAAAAAAJ4CAAAAAAAAnwIAAAAAAAAAAAAAnwIAAAAAAACgAgAAAAAAAAAAAACgAgAAAAAAAKECAAAAAAAAAAAAAKECAAAAAAAAogIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAmwIAAAAAAACbAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					39,
-					1,
-					"left_delete",
-					null,
-					"AQAAAKECAAAAAAAAoQIAAAAAAAABAAAAeA",
-					"AQAAAAAAAAABAAAAogIAAAAAAACiAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					40,
-					1,
-					"insert",
-					{
-						"characters": "e"
-					},
-					"AQAAAKECAAAAAAAAogIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAoQIAAAAAAAChAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					41,
-					1,
-					"left_delete",
-					null,
-					"AQAAAKECAAAAAAAAoQIAAAAAAAABAAAAZQ",
-					"AQAAAAAAAAABAAAAogIAAAAAAACiAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					42,
-					1,
-					"insert",
-					{
-						"characters": "xtu"
-					},
-					"AwAAAKECAAAAAAAAogIAAAAAAAAAAAAAogIAAAAAAACjAgAAAAAAAAAAAACjAgAAAAAAAKQCAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAoQIAAAAAAAChAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					43,
-					4,
-					"left_delete",
-					null,
-					"BAAAAKMCAAAAAAAAowIAAAAAAAABAAAAdaICAAAAAAAAogIAAAAAAAABAAAAdKECAAAAAAAAoQIAAAAAAAABAAAAeKACAAAAAAAAoAIAAAAAAAABAAAARQ",
-					"AQAAAAAAAAABAAAApAIAAAAAAACkAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					44,
-					1,
-					"insert",
-					{
-						"characters": "exture"
-					},
-					"BgAAAKACAAAAAAAAoQIAAAAAAAAAAAAAoQIAAAAAAACiAgAAAAAAAAAAAACiAgAAAAAAAKMCAAAAAAAAAAAAAKMCAAAAAAAApAIAAAAAAAAAAAAApAIAAAAAAAClAgAAAAAAAAAAAAClAgAAAAAAAKYCAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAoAIAAAAAAACgAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					45,
-					1,
-					"insert",
-					{
-						"characters": "*"
-					},
-					"AQAAAKYCAAAAAAAApwIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAApgIAAAAAAACmAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					46,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAAKcCAAAAAAAAqAIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAApwIAAAAAAACnAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					52,
-					1,
-					"paste",
-					null,
-					"AQAAAOoCAAAAAAAA9gIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA6gIAAAAAAADqAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					53,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAAPYCAAAAAAAA9wIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA9gIAAAAAAAD2AgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					56,
-					2,
-					"left_delete",
-					null,
-					"AgAAALsCAAAAAAAAuwIAAAAAAAAtAAAAPSB3aW5kb3cubG9hZFRleHR1cmUoInJlcy90ZXh0dXJlcy9kb24ucG5nIik7ugIAAAAAAAC6AgAAAAAAAAEAAAAg",
-					"AQAAAAAAAAABAAAAuwIAAAAAAADoAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					59,
-					2,
-					"left_delete",
-					null,
-					"AgAAAN0CAAAAAAAA3QIAAAAAAAA8AAAAPSB3aW5kb3cubG9hZFRleHR1cmUoInJlcy90ZXh0dXJlcy9lbmRzY3JlZW4vZW5kc2NyZWVuLnBuZyIp3AIAAAAAAADcAgAAAAAAAAEAAAAg",
-					"AQAAAAAAAAABAAAA3QIAAAAAAAAZAwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					62,
-					1,
-					"insert",
-					{
-						"characters": ";"
-					},
-					"AQAAALoCAAAAAAAAuwIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAugIAAAAAAAC6AgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					65,
-					1,
-					"insert",
-					{
-						"characters": "\n"
-					},
-					"AgAAAN4CAAAAAAAA3wIAAAAAAAAAAAAA3wIAAAAAAADgAgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA3gIAAAAAAADeAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					66,
-					1,
-					"paste",
-					null,
-					"AQAAAOACAAAAAAAA6QIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA4AIAAAAAAADgAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					67,
-					1,
-					"insert",
-					{
-						"characters": "\n"
-					},
-					"AgAAAOkCAAAAAAAA6gIAAAAAAAAAAAAA6gIAAAAAAADrAgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA6QIAAAAAAADpAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					68,
-					1,
-					"paste",
-					null,
-					"AQAAAOsCAAAAAAAA9AIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA6wIAAAAAAADrAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					69,
-					3,
-					"left_delete",
-					null,
-					"AwAAAPMCAAAAAAAA8wIAAAAAAAABAAAAc/ICAAAAAAAA8gIAAAAAAAABAAAAb/ECAAAAAAAA8QIAAAAAAAABAAAAUA",
-					"AQAAAAAAAAABAAAA9AIAAAAAAAD0AgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					70,
-					1,
-					"insert",
-					{
-						"characters": "Rect;"
-					},
-					"BQAAAPECAAAAAAAA8gIAAAAAAAAAAAAA8gIAAAAAAADzAgAAAAAAAAAAAADzAgAAAAAAAPQCAAAAAAAAAAAAAPQCAAAAAAAA9QIAAAAAAAAAAAAA9QIAAAAAAAD2AgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA8QIAAAAAAADxAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					72,
-					1,
-					"insert",
-					{
-						"characters": ";"
-					},
-					"AQAAAOkCAAAAAAAA6gIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA6QIAAAAAAADpAgAAAAAAAAAAAAAAgGFA"
-				],
-				[
-					75,
-					1,
-					"insert",
-					{
-						"characters": "int"
-					},
-					"AwAAAOACAAAAAAAA4QIAAAAAAAAAAAAA4QIAAAAAAADiAgAAAAAAAAAAAADiAgAAAAAAAOMCAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA4AIAAAAAAADgAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					76,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAAOMCAAAAAAAA5AIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA4wIAAAAAAADjAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					79,
-					1,
-					"insert",
-					{
-						"characters": "SDL_REc"
-					},
-					"BwAAAPACAAAAAAAA8QIAAAAAAAAAAAAA8QIAAAAAAADyAgAAAAAAAAAAAADyAgAAAAAAAPMCAAAAAAAAAAAAAPMCAAAAAAAA9AIAAAAAAAAAAAAA9AIAAAAAAAD1AgAAAAAAAAAAAAD1AgAAAAAAAPYCAAAAAAAAAAAAAPYCAAAAAAAA9wIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA8AIAAAAAAADwAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					80,
-					2,
-					"left_delete",
-					null,
-					"AgAAAPYCAAAAAAAA9gIAAAAAAAABAAAAY/UCAAAAAAAA9QIAAAAAAAABAAAARQ",
-					"AQAAAAAAAAABAAAA9wIAAAAAAAD3AgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					81,
-					1,
-					"insert",
-					{
-						"characters": "ect*"
-					},
-					"BAAAAPUCAAAAAAAA9gIAAAAAAAAAAAAA9gIAAAAAAAD3AgAAAAAAAAAAAAD3AgAAAAAAAPgCAAAAAAAAAAAAAPgCAAAAAAAA+QIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA9QIAAAAAAAD1AgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					82,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAAPkCAAAAAAAA+gIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA+QIAAAAAAAD5AgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					83,
-					2,
-					"left_delete",
-					null,
-					"AgAAAPkCAAAAAAAA+QIAAAAAAAABAAAAIPgCAAAAAAAA+AIAAAAAAAABAAAAKg",
-					"AQAAAAAAAAABAAAA+gIAAAAAAAD6AgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					84,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAAPgCAAAAAAAA+QIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA+AIAAAAAAAD4AgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					87,
-					3,
-					"left_delete",
-					null,
-					"AwAAAJoCAAAAAAAAmgIAAAAAAABqAAAACVNETF9UZXh0dXJlKiBzbGlkZXJUcmFja1RleHR1cmU7CglTRExfVGV4dHVyZSogc2xpZGVySGFuZGxlVGV4dHVyZTsKCWludCBzbGlkZXJQb3M7CglTRExfUmVjdCBzbGlkZXJSZWN0O5kCAAAAAAAAmQIAAAAAAAABAAAACpgCAAAAAAAAmAIAAAAAAAABAAAACg",
-					"AQAAAAAAAAABAAAABAMAAAAAAACaAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					94,
-					2,
-					"left_delete",
-					null,
-					"AgAAAJYBAAAAAAAAlgEAAAAAAAANAAAACXZvaWQgaW5pdCgpO5UBAAAAAAAAlQEAAAAAAAABAAAACg",
-					"AQAAAAAAAAABAAAAowEAAAAAAACWAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					97,
-					2,
-					"left_delete",
-					null,
-					"AgAAAMoBAAAAAAAAygEAAAAAAAAGAAAAbnQgbnVtyQEAAAAAAADJAQAAAAAAAAEAAABp",
-					"AQAAAAAAAAABAAAAygEAAAAAAADQAQAAAAAAAAAAAAAAAPC/"
-				]
-			]
-		},
-		{
-			"file": "include/Game.hpp",
-			"settings":
-			{
-				"buffer_size": 909,
+				"buffer_size": 1351,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			},
@@ -628,645 +318,1586 @@
 					1,
 					"insert",
 					{
-						"characters": "\n#include"
+						"characters": "\nSlider"
 					},
-					"CQAAAL8BAAAAAAAAwAEAAAAAAAAAAAAAwAEAAAAAAADBAQAAAAAAAAAAAADBAQAAAAAAAMIBAAAAAAAAAAAAAMIBAAAAAAAAwwEAAAAAAAAAAAAAwwEAAAAAAADEAQAAAAAAAAAAAADEAQAAAAAAAMUBAAAAAAAAAAAAAMUBAAAAAAAAxgEAAAAAAAAAAAAAxgEAAAAAAADHAQAAAAAAAAAAAADHAQAAAAAAAMgBAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAvwEAAAAAAAC/AQAAAAAAAAAAAAAAAPC/"
+					"CAAAAB4DAAAAAAAAHwMAAAAAAAAAAAAAHwMAAAAAAAAgAwAAAAAAAAAAAAAgAwAAAAAAACEDAAAAAAAAAAAAACEDAAAAAAAAIgMAAAAAAAAAAAAAIgMAAAAAAAAjAwAAAAAAAAAAAAAjAwAAAAAAACQDAAAAAAAAAAAAACQDAAAAAAAAJQMAAAAAAAAAAAAAJQMAAAAAAAAmAwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAHgMAAAAAAAAeAwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					4,
 					1,
 					"insert",
 					{
-						"characters": " "
+						"characters": " slider"
 					},
-					"AQAAAMgBAAAAAAAAyQEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAyAEAAAAAAADIAQAAAAAAAAAAAAAAAPC/"
+					"BwAAACYDAAAAAAAAJwMAAAAAAAAAAAAAJwMAAAAAAAAoAwAAAAAAAAAAAAAoAwAAAAAAACkDAAAAAAAAAAAAACkDAAAAAAAAKgMAAAAAAAAAAAAAKgMAAAAAAAArAwAAAAAAAAAAAAArAwAAAAAAACwDAAAAAAAAAAAAACwDAAAAAAAALQMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAJgMAAAAAAAAmAwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					5,
 					1,
-					"insert_snippet",
+					"insert",
 					{
-						"contents": "\"$0\""
+						"characters": " ="
 					},
-					"AQAAAMkBAAAAAAAAywEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAyQEAAAAAAADJAQAAAAAAAAAAAAAAAPC/"
+					"AgAAAC0DAAAAAAAALgMAAAAAAAAAAAAALgMAAAAAAAAvAwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAALQMAAAAAAAAtAwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					6,
 					1,
 					"insert",
 					{
-						"characters": "Option.hpp"
+						"characters": " new"
 					},
-					"CgAAAMoBAAAAAAAAywEAAAAAAAAAAAAAywEAAAAAAADMAQAAAAAAAAAAAADMAQAAAAAAAM0BAAAAAAAAAAAAAM0BAAAAAAAAzgEAAAAAAAAAAAAAzgEAAAAAAADPAQAAAAAAAAAAAADPAQAAAAAAANABAAAAAAAAAAAAANABAAAAAAAA0QEAAAAAAAAAAAAA0QEAAAAAAADSAQAAAAAAAAAAAADSAQAAAAAAANMBAAAAAAAAAAAAANMBAAAAAAAA1AEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAygEAAAAAAADKAQAAAAAAAAAAAAAAAPC/"
-				]
-			]
-		},
-		{
-			"file": "src/gameplay.cpp",
-			"settings":
-			{
-				"buffer_size": 8915,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			},
-			"undo_stack":
-			[
-				[
-					3,
-					1,
-					"insert",
-					{
-						"characters": "30"
-					},
-					"AwAAAAQPAAAAAAAABQ8AAAAAAAAAAAAABQ8AAAAAAAAFDwAAAAAAAAIAAAA0MAUPAAAAAAAABg8AAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAABA8AAAAAAAAGDwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					6,
-					1,
-					"insert",
-					{
-						"characters": "60"
-					},
-					"AwAAAK0PAAAAAAAArg8AAAAAAAAAAAAArg8AAAAAAACuDwAAAAAAAAIAAAA3MK4PAAAAAAAArw8AAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAArQ8AAAAAAACvDwAAAAAAAAAAAAAAAPC/"
-				]
-			]
-		},
-		{
-			"contents": "#include \"Game.hpp\"\n#include \"RenderWindow.hpp\"\n\n#include <iostream>\n\nTitleScreen* titlescreen = NULL;\nGameplay* gamescreen = NULL;\nEndScreen* endscreen = NULL;\nManual* manualscreen = NULL;\nOption* optionscreen = NULL;\n\nRenderWindow window;\n\nGame::Game()\n{\n\n}\n\nGame::~Game()\n{\n\n}\n\nenum State\n{\n\tTitleState = 0,\n\tIngameState = 1,\n\tEndState = 2,\n\tManualState = 3,\n\tOptionState = 4,\n\tDifChooseState = 5\n};\n\nvoid Game::init()\n{\n\tif (SDL_Init(SDL_INIT_VIDEO) > 0) \n\t\tstd::cout << \"SDL_Init failed. Error: \" << SDL_GetError() << std::endl;\n\tif (!(IMG_Init(IMG_INIT_PNG)))\n\t\tstd::cout << \"IMG_Init failed. Error: \" << SDL_GetError() << std::endl;\n\tif (Mix_Init(MIX_INIT_MP3) < 0)\n\t\tstd::cout << \"Mix_Init failed. Error: \" << SDL_GetError() << std::endl;\n\tif (Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 1024) == -1)\n\t\tstd::cout << \"Mix_OpenAudio failed. Error: \" << SDL_GetError() << std::endl;\n\tif (TTF_Init())\n\t\tstd::cout << \"TTF_init has failed. Error: \" << SDL_GetError() << std::endl;\n\tclickSfx = Mix_LoadWAV(\"res/sounds/button-click.wav\");\n\tbackSfx = Mix_LoadWAV(\"res/sounds/title-screen-back.wav\");\n\twindow.create(\"Project Taiko\", 1280, 720);\n\n\tgameState = TitleState;\n\ttitlescreen = new TitleScreen(window);\n\ttitlescreen->render();\n\ttitlescreen->init();\n\tgamescreen = new Gameplay(window);\n\n\tisRunning = true;\n}\n\nvoid Game::update() {\n\tswitch (gameState)\n\t{\n\tcase TitleState:\n\t\ttitlescreen->update();\n\t\tbreak;\n\tcase IngameState:\n\t\tgamescreen->update();\n\t\tif (gamescreen->getEnd() == END_POINT)\n\t\t{\n\t\t\tMix_HaltMusic();\n\t\t\tgameState = EndState;\n\t\t\tendscreen = new EndScreen(window, gamescreen->getTotalScore(), gamescreen->getMaxCombo(), gamescreen->getRanking(), gamescreen->getAcc());\n\t\t}\n\t\tbreak;\n\tcase EndState:\n\t\tendscreen->update();\n\t\tbreak;\n\tcase ManualState:\n\t\tmanualscreen->update();\n\t\tbreak;\n\tcase OptionState:\n\t\toptionscreen->update();\n\t\tbreak;\n\tdefault:\n\t\tbreak;\n\t}\n}\n\nvoid Game::handleEvents()\n{\n    SDL_Event e;\n    Uint32 escPressedTime;\n    Uint32 rPressedTime;\n\n    while (SDL_PollEvent(&e))\n    {\n        switch (e.type)\n        {\n            case SDL_QUIT:\n                isRunning = false;\n                break;\n            case SDL_MOUSEBUTTONDOWN:\n            \tswitch (gameState)\n            \t{\n            \tcase TitleState:\n            \t\tif (titlescreen->getButton(START)->getHovered())\n                    {\n                    \tMix_PlayChannel(-1, clickSfx, 0);\n                        gameState = IngameState;\n                        gamescreen->init();\n                        return;\n                    }\n                    if (titlescreen->getButton(MANUAL)->getHovered())\n                    {\n                    \tMix_PlayChannel(-1, clickSfx, 0);\n                        gameState = ManualState;\n                        manualscreen = new Manual(window);\n                        return;\n                    }\n                    if (titlescreen->getButton(OPTION)->getHovered())\n                    {\n                    \tMix_PlayChannel(-1, clickSfx, 0);\n                        gameState = OptionState;\n                        optionscreen = new Option(window);\n                        return;\n                    }\n                    if (titlescreen->getButton(QUIT)->getHovered())\n                    {\n                    \tMix_PlayChannel(-1, clickSfx, 0);\n                        isRunning = false;\n                        return;\n                    }\n                    break;\n\n                case IngameState:\n                \tbreak;\n\n                case EndState:\n                \tif (endscreen->getButton(RESTART)->getHovered())\n                \t{\n                \t\tMix_PlayChannel(-1, clickSfx, 0);\n                \t\tMix_HaltMusic();\n                \t\tgameState = IngameState;\n                \t\tgamescreen->init();\n                \t\treturn;\n                \t}\n                \tif (endscreen->getButton(TITLE)->getHovered())\n                \t{\n                \t\tMix_PlayChannel(-1, clickSfx, 0);\n                \t\tMix_HaltMusic();\n                \t\tgameState = TitleState;\n                \t\ttitlescreen->init();\n                \t\treturn;\n                \t}\n                \tbreak;\n\n                case ManualState:\n                \tif (manualscreen->getButton()->getHovered())\n                \t{\n                \t\tMix_PlayChannel(-1, clickSfx, 0);\n                \t\tgameState = TitleState;\n                \t\treturn;\n                \t}\n                \tbreak;\n\n               \tcase OptionState:\n               \t\tif (optionscreen->getButton()->getHovered())\n               \t\t{\n               \t\t\tMix_PlayChannel(-1, clickSfx, 0);\n                \t\tgameState = TitleState;\n                \t\treturn;\n               \t\t}\n               \t\tbreak;\n\n            \t}\n\n            case SDL_KEYDOWN:\n                if (gameState == IngameState)\n                {\n                \tgamescreen->handleEvents(e);\n                \tswitch (e.key.keysym.sym) {\n                \tcase SDLK_ESCAPE:\n                \t\tif (e.key.repeat == 0)\n                        {\n                            escPressedTime = SDL_GetTicks();\n                            Mix_PlayChannel(-1, backSfx, 0);\n                        }\n                        else if (SDL_GetTicks() - escPressedTime >= 500)\n                        {\n                        \tMix_HaltMusic();\n                            gameState = TitleState;\n   \t\t\t\t\t\t\ttitlescreen->init();                         \n                        }\n                        break;\n                \tcase SDLK_r:\n                \t\tif (e.key.repeat == 0)\n                        {\n                            rPressedTime = SDL_GetTicks();\n                            Mix_PlayChannel(-1, backSfx, 0);\n                        }\n                        else if (SDL_GetTicks() - rPressedTime >= 500)\n                        {\n                            gamescreen->init();\n                        }\n                        break;\n                \t}\n                }\n                break;\n        }\n    }\n}\n\nvoid Game::clean()\n{\n\twindow.cleanUp();\n\tSDL_Quit();\n}\n\nvoid Game::render()\n{\n\tswitch(gameState)\n\t{\n\tcase TitleState:\n\t\ttitlescreen->render();\n\t\tbreak;\n\tcase IngameState:\n\t\tgamescreen->render();\n\t\tbreak;\n\tcase EndState:\n\t\tendscreen->render();\n\t\tbreak;\n\tcase ManualState:\n\t\tmanualscreen->render();\n\t\tbreak;\n\tcase OptionState:\n\t\toptionscreen->render();\n\t\tbreak;\n\tdefault:\n\t\tbreak;\n\t}\n}\n\nbool Game::running() {\n\treturn isRunning;\n}",
-			"file": "src/game.cpp",
-			"file_size": 6636,
-			"file_write_time": 133250814629612544,
-			"settings":
-			{
-				"buffer_size": 6415,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			},
-			"undo_stack":
-			[
-				[
-					3,
-					1,
-					"insert",
-					{
-						"characters": "\nOption"
-					},
-					"BwAAAL0AAAAAAAAAvgAAAAAAAAAAAAAAvgAAAAAAAAC/AAAAAAAAAAAAAAC/AAAAAAAAAMAAAAAAAAAAAAAAAMAAAAAAAAAAwQAAAAAAAAAAAAAAwQAAAAAAAADCAAAAAAAAAAAAAADCAAAAAAAAAMMAAAAAAAAAAAAAAMMAAAAAAAAAxAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAvQAAAAAAAAC9AAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					4,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAAMQAAAAAAAAAxQAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAxAAAAAAAAADEAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					5,
-					1,
-					"left_delete",
-					null,
-					"AQAAAMQAAAAAAAAAxAAAAAAAAAABAAAAIA",
-					"AQAAAAAAAAABAAAAxQAAAAAAAADFAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					6,
-					1,
-					"insert",
-					{
-						"characters": "*"
-					},
-					"AQAAAMQAAAAAAAAAxQAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAxAAAAAAAAADEAAAAAAAAAAAAAAAAAPC/"
+					"BAAAAC8DAAAAAAAAMAMAAAAAAAAAAAAAMAMAAAAAAAAxAwAAAAAAAAAAAAAxAwAAAAAAADIDAAAAAAAAAAAAADIDAAAAAAAAMwMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAALwMAAAAAAAAvAwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					7,
 					1,
 					"insert",
 					{
-						"characters": " optionscree"
+						"characters": " Slider"
 					},
-					"DAAAAMUAAAAAAAAAxgAAAAAAAAAAAAAAxgAAAAAAAADHAAAAAAAAAAAAAADHAAAAAAAAAMgAAAAAAAAAAAAAAMgAAAAAAAAAyQAAAAAAAAAAAAAAyQAAAAAAAADKAAAAAAAAAAAAAADKAAAAAAAAAMsAAAAAAAAAAAAAAMsAAAAAAAAAzAAAAAAAAAAAAAAAzAAAAAAAAADNAAAAAAAAAAAAAADNAAAAAAAAAM4AAAAAAAAAAAAAAM4AAAAAAAAAzwAAAAAAAAAAAAAAzwAAAAAAAADQAAAAAAAAAAAAAADQAAAAAAAAANEAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAxQAAAAAAAADFAAAAAAAAAAAAAAAAAPC/"
+					"BwAAADMDAAAAAAAANAMAAAAAAAAAAAAANAMAAAAAAAA1AwAAAAAAAAAAAAA1AwAAAAAAADYDAAAAAAAAAAAAADYDAAAAAAAANwMAAAAAAAAAAAAANwMAAAAAAAA4AwAAAAAAAAAAAAA4AwAAAAAAADkDAAAAAAAAAAAAADkDAAAAAAAAOgMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAMwMAAAAAAAAzAwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					8,
 					1,
-					"insert",
+					"insert_snippet",
 					{
-						"characters": "n"
+						"contents": "($0)"
 					},
-					"AQAAANEAAAAAAAAA0gAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA0QAAAAAAAADRAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					9,
-					1,
-					"insert",
-					{
-						"characters": " ="
-					},
-					"AgAAANIAAAAAAAAA0wAAAAAAAAAAAAAA0wAAAAAAAADUAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA0gAAAAAAAADSAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					10,
-					1,
-					"insert",
-					{
-						"characters": " NULL;"
-					},
-					"BgAAANQAAAAAAAAA1QAAAAAAAAAAAAAA1QAAAAAAAADWAAAAAAAAAAAAAADWAAAAAAAAANcAAAAAAAAAAAAAANcAAAAAAAAA2AAAAAAAAAAAAAAA2AAAAAAAAADZAAAAAAAAAAAAAADZAAAAAAAAANoAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA1AAAAAAAAADUAAAAAAAAAAAAAAAAAPC/"
+					"AQAAADoDAAAAAAAAPAMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAOgMAAAAAAAA6AwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					15,
 					1,
 					"insert",
 					{
-						"characters": "\n"
+						"characters": "\n#$"
 					},
-					"AgAAAAMHAAAAAAAABAcAAAAAAAAAAAAABAcAAAAAAAAGBwAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAAwcAAAAAAAADBwAAAAAAAAAAAAAAAPC/"
+					"AwAAAGABAAAAAAAAYQEAAAAAAAAAAAAAYQEAAAAAAABiAQAAAAAAAAAAAABiAQAAAAAAAGMBAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAYAEAAAAAAABgAQAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					16,
 					1,
 					"left_delete",
 					null,
-					"AQAAAAUHAAAAAAAABQcAAAAAAAABAAAACQ",
-					"AQAAAAAAAAABAAAABgcAAAAAAAAGBwAAAAAAAAAAAAAAAPC/"
+					"AQAAAGIBAAAAAAAAYgEAAAAAAAABAAAAJA",
+					"AQAAAAAAAAABAAAAYwEAAAAAAABjAQAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					17,
 					1,
-					"paste",
+					"insert",
+					{
+						"characters": "includer"
+					},
+					"CAAAAGIBAAAAAAAAYwEAAAAAAAAAAAAAYwEAAAAAAABkAQAAAAAAAAAAAABkAQAAAAAAAGUBAAAAAAAAAAAAAGUBAAAAAAAAZgEAAAAAAAAAAAAAZgEAAAAAAABnAQAAAAAAAAAAAABnAQAAAAAAAGgBAAAAAAAAAAAAAGgBAAAAAAAAaQEAAAAAAAAAAAAAaQEAAAAAAABqAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAYgEAAAAAAABiAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					18,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAGoBAAAAAAAAawEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAagEAAAAAAABqAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					19,
+					1,
+					"insert_snippet",
+					{
+						"contents": "\"$0\""
+					},
+					"AQAAAGsBAAAAAAAAbQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAawEAAAAAAABrAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					20,
+					1,
+					"run_macro_file",
+					{
+						"file": "res://Packages/Default/Delete Left Right.sublime-macro"
+					},
+					"AgAAAGsBAAAAAAAAawEAAAAAAAABAAAAImsBAAAAAAAAawEAAAAAAAABAAAAIg",
+					"AQAAAAAAAAABAAAAbAEAAAAAAABsAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					21,
+					3,
+					"left_delete",
 					null,
-					"AQAAAAUHAAAAAAAAOQcAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAABQcAAAAAAAAFBwAAAAAAAAAAAAAAAPC/"
+					"AwAAAGoBAAAAAAAAagEAAAAAAAABAAAAIGkBAAAAAAAAaQEAAAAAAAABAAAAcmgBAAAAAAAAaAEAAAAAAAABAAAAZQ",
+					"AQAAAAAAAAABAAAAawEAAAAAAABrAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					22,
+					1,
+					"insert",
+					{
+						"characters": "e"
+					},
+					"AQAAAGgBAAAAAAAAaQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAaAEAAAAAAABoAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					23,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAGkBAAAAAAAAagEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAaQEAAAAAAABpAQAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					24,
 					1,
-					"insert",
+					"insert_snippet",
 					{
-						"characters": "Option"
+						"contents": "\"$0\""
 					},
-					"BwAAAAoHAAAAAAAACwcAAAAAAAAAAAAACwcAAAAAAAALBwAAAAAAAAYAAABNYW51YWwLBwAAAAAAAAwHAAAAAAAAAAAAAAwHAAAAAAAADQcAAAAAAAAAAAAADQcAAAAAAAAOBwAAAAAAAAAAAAAOBwAAAAAAAA8HAAAAAAAAAAAAAA8HAAAAAAAAEAcAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAACgcAAAAAAAAQBwAAAAAAAAAAAAAAAPC/"
+					"AQAAAGoBAAAAAAAAbAEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAagEAAAAAAABqAQAAAAAAAAAAAAAAAPC/"
 				],
 				[
-					27,
+					25,
 					1,
 					"insert",
 					{
-						"characters": "option"
+						"characters": "Slider.hpp"
 					},
-					"BwAAABkHAAAAAAAAGgcAAAAAAAAAAAAAGgcAAAAAAAAaBwAAAAAAAAYAAABtYW51YWwaBwAAAAAAABsHAAAAAAAAAAAAABsHAAAAAAAAHAcAAAAAAAAAAAAAHAcAAAAAAAAdBwAAAAAAAAAAAAAdBwAAAAAAAB4HAAAAAAAAAAAAAB4HAAAAAAAAHwcAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAGQcAAAAAAAAfBwAAAAAAAAAAAAAAAPC/"
+					"CgAAAGsBAAAAAAAAbAEAAAAAAAAAAAAAbAEAAAAAAABtAQAAAAAAAAAAAABtAQAAAAAAAG4BAAAAAAAAAAAAAG4BAAAAAAAAbwEAAAAAAAAAAAAAbwEAAAAAAABwAQAAAAAAAAAAAABwAQAAAAAAAHEBAAAAAAAAAAAAAHEBAAAAAAAAcgEAAAAAAAAAAAAAcgEAAAAAAABzAQAAAAAAAAAAAABzAQAAAAAAAHQBAAAAAAAAAAAAAHQBAAAAAAAAdQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAawEAAAAAAABrAQAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					30,
 					1,
 					"insert",
 					{
-						"characters": "\noptio"
+						"characters": "windo"
 					},
-					"BwAAANoLAAAAAAAA2wsAAAAAAAAAAAAA2wsAAAAAAADzCwAAAAAAAAAAAADzCwAAAAAAAPQLAAAAAAAAAAAAAPQLAAAAAAAA9QsAAAAAAAAAAAAA9QsAAAAAAAD2CwAAAAAAAAAAAAD2CwAAAAAAAPcLAAAAAAAAAAAAAPcLAAAAAAAA+AsAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA2gsAAAAAAADaCwAAAAAAAAAAAAAAAPC/"
+					"BQAAAFEDAAAAAAAAUgMAAAAAAAAAAAAAUgMAAAAAAABTAwAAAAAAAAAAAABTAwAAAAAAAFQDAAAAAAAAAAAAAFQDAAAAAAAAVQMAAAAAAAAAAAAAVQMAAAAAAABWAwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAUQMAAAAAAABRAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					31,
+					1,
+					"insert_completion",
+					{
+						"completion": "window",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "window"
+					},
+					"AgAAAFEDAAAAAAAAUQMAAAAAAAAFAAAAd2luZG9RAwAAAAAAAFcDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAVgMAAAAAAABWAwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					32,
 					1,
-					"insert_completion",
+					"insert",
 					{
-						"completion": "optionscreen",
-						"format": "text",
-						"keep_prefix": false,
-						"must_insert": false,
-						"trigger": "optionscreen"
+						"characters": ","
 					},
-					"AgAAAPMLAAAAAAAA8wsAAAAAAAAFAAAAb3B0aW/zCwAAAAAAAP8LAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA+AsAAAAAAAD4CwAAAAAAAAAAAAAAAPC/"
+					"AQAAAFcDAAAAAAAAWAMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAVwMAAAAAAABXAwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					33,
 					1,
 					"insert",
 					{
-						"characters": "="
+						"characters": " Vec"
 					},
-					"AQAAAP8LAAAAAAAAAAwAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA/wsAAAAAAAD/CwAAAAAAAAAAAAAAAPC/"
+					"BAAAAFgDAAAAAAAAWQMAAAAAAAAAAAAAWQMAAAAAAABaAwAAAAAAAAAAAABaAwAAAAAAAFsDAAAAAAAAAAAAAFsDAAAAAAAAXAMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAWAMAAAAAAABYAwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					34,
 					1,
-					"insert",
+					"insert_completion",
 					{
-						"characters": " "
+						"completion": "Vector2f",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "Vector2f"
 					},
-					"AQAAAAAMAAAAAAAAAQwAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAAAwAAAAAAAAADAAAAAAAAAAAAAAAAPC/"
+					"AgAAAFkDAAAAAAAAWQMAAAAAAAADAAAAVmVjWQMAAAAAAABhAwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAXAMAAAAAAABcAwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					35,
-					2,
-					"left_delete",
-					null,
-					"AgAAAAAMAAAAAAAAAAwAAAAAAAABAAAAIP8LAAAAAAAA/wsAAAAAAAABAAAAPQ",
-					"AQAAAAAAAAABAAAAAQwAAAAAAAABDAAAAAAAAAAAAAAAAPC/"
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAGEDAAAAAAAAYwMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAYQMAAAAAAABhAwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					36,
 					1,
 					"insert",
 					{
-						"characters": " ="
+						"characters": "200,00"
 					},
-					"AgAAAP8LAAAAAAAAAAwAAAAAAAAAAAAAAAwAAAAAAAABDAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA/wsAAAAAAAD/CwAAAAAAAAAAAAAAAPC/"
+					"BgAAAGIDAAAAAAAAYwMAAAAAAAAAAAAAYwMAAAAAAABkAwAAAAAAAAAAAABkAwAAAAAAAGUDAAAAAAAAAAAAAGUDAAAAAAAAZgMAAAAAAAAAAAAAZgMAAAAAAABnAwAAAAAAAAAAAABnAwAAAAAAAGgDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAYgMAAAAAAABiAwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					37,
-					1,
-					"insert",
-					{
-						"characters": " new"
-					},
-					"BAAAAAEMAAAAAAAAAgwAAAAAAAAAAAAAAgwAAAAAAAADDAAAAAAAAAAAAAADDAAAAAAAAAQMAAAAAAAAAAAAAAQMAAAAAAAABQwAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAAQwAAAAAAAABDAAAAAAAAAAAAAAAAPC/"
+					2,
+					"left_delete",
+					null,
+					"AgAAAGcDAAAAAAAAZwMAAAAAAAABAAAAMGYDAAAAAAAAZgMAAAAAAAABAAAAMA",
+					"AQAAAAAAAAABAAAAaAMAAAAAAABoAwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					38,
 					1,
 					"insert",
 					{
-						"characters": " Op"
+						"characters": "200"
 					},
-					"AwAAAAUMAAAAAAAABgwAAAAAAAAAAAAABgwAAAAAAAAHDAAAAAAAAAAAAAAHDAAAAAAAAAgMAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAABQwAAAAAAAAFDAAAAAAAAAAAAAAAAPC/"
+					"AwAAAGYDAAAAAAAAZwMAAAAAAAAAAAAAZwMAAAAAAABoAwAAAAAAAAAAAABoAwAAAAAAAGkDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAZgMAAAAAAABmAwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					40,
 					1,
-					"insert_completion",
+					"insert",
 					{
-						"completion": "Option",
-						"format": "text",
-						"keep_prefix": false,
-						"must_insert": false,
-						"trigger": "Option"
+						"characters": ","
 					},
-					"AgAAAAYMAAAAAAAABgwAAAAAAAACAAAAT3AGDAAAAAAAAAwMAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAACAwAAAAAAAAIDAAAAAAAAAAAAAAAAPC/"
+					"AQAAAGoDAAAAAAAAawMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAagMAAAAAAABqAwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					41,
 					1,
-					"insert_snippet",
+					"insert",
 					{
-						"contents": "($0)"
+						"characters": " "
 					},
-					"AQAAAAwMAAAAAAAADgwAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAADAwAAAAAAAAMDAAAAAAAAAAAAAAAAPC/"
+					"AQAAAGsDAAAAAAAAbAMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAawMAAAAAAABrAwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					42,
 					1,
 					"insert",
 					{
-						"characters": "window"
+						"characters": "Vec"
 					},
-					"BgAAAA0MAAAAAAAADgwAAAAAAAAAAAAADgwAAAAAAAAPDAAAAAAAAAAAAAAPDAAAAAAAABAMAAAAAAAAAAAAABAMAAAAAAAAEQwAAAAAAAAAAAAAEQwAAAAAAAASDAAAAAAAAAAAAAASDAAAAAAAABMMAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAADQwAAAAAAAANDAAAAAAAAAAAAAAAAPC/"
+					"AwAAAGwDAAAAAAAAbQMAAAAAAAAAAAAAbQMAAAAAAABuAwAAAAAAAAAAAABuAwAAAAAAAG8DAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAbAMAAAAAAABsAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					43,
+					1,
+					"insert_completion",
+					{
+						"completion": "Vector2f",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "Vector2f"
+					},
+					"AgAAAGwDAAAAAAAAbAMAAAAAAAADAAAAVmVjbAMAAAAAAAB0AwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAbwMAAAAAAABvAwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					44,
 					1,
 					"insert",
 					{
-						"characters": ";"
+						"characters": "*"
 					},
-					"AQAAABQMAAAAAAAAFQwAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAFAwAAAAAAAAUDAAAAAAAAAAAAAAAAPC/"
+					"AQAAAHQDAAAAAAAAdQMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAdAMAAAAAAAB0AwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					45,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAHUDAAAAAAAAdwMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAdQMAAAAAAAB1AwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					46,
+					1,
+					"run_macro_file",
+					{
+						"file": "res://Packages/Default/Delete Left Right.sublime-macro"
+					},
+					"AgAAAHUDAAAAAAAAdQMAAAAAAAABAAAAKHUDAAAAAAAAdQMAAAAAAAABAAAAKQ",
+					"AQAAAAAAAAABAAAAdgMAAAAAAAB2AwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					47,
+					1,
+					"left_delete",
+					null,
+					"AQAAAHQDAAAAAAAAdAMAAAAAAAABAAAAKg",
+					"AQAAAAAAAAABAAAAdQMAAAAAAAB1AwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					48,
+					1,
+					"insert",
+					{
+						"characters": "*"
+					},
+					"AQAAAHQDAAAAAAAAdQMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAdAMAAAAAAAB0AwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					49,
 					1,
-					"insert",
-					{
-						"characters": "\nuf"
-					},
-					"BQAAAFcRAAAAAAAAWBEAAAAAAAAAAAAAWBEAAAAAAABoEQAAAAAAAAAAAABoEQAAAAAAAGkRAAAAAAAAAAAAAGkRAAAAAAAAahEAAAAAAAAAAAAAahEAAAAAAABrEQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAVxEAAAAAAABXEQAAAAAAAAAAAAAAAPC/"
+					"left_delete",
+					null,
+					"AQAAAHQDAAAAAAAAdAMAAAAAAAABAAAAKg",
+					"AQAAAAAAAAABAAAAdQMAAAAAAAB1AwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					50,
-					2,
-					"left_delete",
-					null,
-					"AgAAAGoRAAAAAAAAahEAAAAAAAABAAAAZmkRAAAAAAAAaREAAAAAAAABAAAAdQ",
-					"AQAAAAAAAAABAAAAaxEAAAAAAABrEQAAAAAAAAAAAAAAAPC/"
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAHQDAAAAAAAAdgMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAdAMAAAAAAAB0AwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					51,
 					1,
 					"insert",
 					{
-						"characters": "if"
+						"characters": "200,100"
 					},
-					"AgAAAGkRAAAAAAAAahEAAAAAAAAAAAAAahEAAAAAAABrEQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAaREAAAAAAABpEQAAAAAAAAAAAAAAAPC/"
+					"BwAAAHUDAAAAAAAAdgMAAAAAAAAAAAAAdgMAAAAAAAB3AwAAAAAAAAAAAAB3AwAAAAAAAHgDAAAAAAAAAAAAAHgDAAAAAAAAeQMAAAAAAAAAAAAAeQMAAAAAAAB6AwAAAAAAAAAAAAB6AwAAAAAAAHsDAAAAAAAAAAAAAHsDAAAAAAAAfAMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAdQMAAAAAAAB1AwAAAAAAAAAAAAAAAPC/"
 				],
 				[
-					52,
+					55,
+					2,
+					"left_delete",
+					null,
+					"AgAAAHoDAAAAAAAAegMAAAAAAAABAAAAMHkDAAAAAAAAeQMAAAAAAAABAAAAMQ",
+					"AQAAAAAAAAABAAAAewMAAAAAAAB7AwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					56,
+					1,
+					"insert",
+					{
+						"characters": "5"
+					},
+					"AQAAAHkDAAAAAAAAegMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAeQMAAAAAAAB5AwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					58,
 					1,
 					"insert",
 					{
 						"characters": " "
 					},
-					"AQAAAGsRAAAAAAAAbBEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAaxEAAAAAAABrEQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					53,
-					1,
-					"insert_snippet",
-					{
-						"contents": "($0)"
-					},
-					"AQAAAGwRAAAAAAAAbhEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAbBEAAAAAAABsEQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					54,
-					1,
-					"insert",
-					{
-						"characters": "option"
-					},
-					"BgAAAG0RAAAAAAAAbhEAAAAAAAAAAAAAbhEAAAAAAABvEQAAAAAAAAAAAABvEQAAAAAAAHARAAAAAAAAAAAAAHARAAAAAAAAcREAAAAAAAAAAAAAcREAAAAAAAByEQAAAAAAAAAAAAByEQAAAAAAAHMRAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAbREAAAAAAABtEQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					56,
-					1,
-					"insert_completion",
-					{
-						"completion": "optionscreen",
-						"format": "text",
-						"keep_prefix": false,
-						"must_insert": false,
-						"trigger": "optionscreen"
-					},
-					"AgAAAG0RAAAAAAAAbREAAAAAAAAGAAAAb3B0aW9ubREAAAAAAAB5EQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAcxEAAAAAAABzEQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					57,
-					1,
-					"insert",
-					{
-						"characters": "->get"
-					},
-					"BQAAAHkRAAAAAAAAehEAAAAAAAAAAAAAehEAAAAAAAB7EQAAAAAAAAAAAAB7EQAAAAAAAHwRAAAAAAAAAAAAAHwRAAAAAAAAfREAAAAAAAAAAAAAfREAAAAAAAB+EQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAeREAAAAAAAB5EQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					58,
-					1,
-					"insert_completion",
-					{
-						"completion": "getButton",
-						"format": "text",
-						"keep_prefix": false,
-						"must_insert": false,
-						"trigger": "getButton"
-					},
-					"AgAAAHsRAAAAAAAAexEAAAAAAAADAAAAZ2V0exEAAAAAAACEEQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAfhEAAAAAAAB+EQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					59,
-					1,
-					"insert_snippet",
-					{
-						"contents": "($0)"
-					},
-					"AQAAAIQRAAAAAAAAhhEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAhBEAAAAAAACEEQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					61,
-					1,
-					"insert",
-					{
-						"characters": "->get"
-					},
-					"BQAAAIYRAAAAAAAAhxEAAAAAAAAAAAAAhxEAAAAAAACIEQAAAAAAAAAAAACIEQAAAAAAAIkRAAAAAAAAAAAAAIkRAAAAAAAAihEAAAAAAAAAAAAAihEAAAAAAACLEQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAhhEAAAAAAACGEQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					62,
-					1,
-					"insert_completion",
-					{
-						"completion": "getHovered",
-						"format": "text",
-						"keep_prefix": false,
-						"must_insert": false,
-						"trigger": "getHovered"
-					},
-					"AgAAAIgRAAAAAAAAiBEAAAAAAAADAAAAZ2V0iBEAAAAAAACSEQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAixEAAAAAAACLEQAAAAAAAAAAAAAAAPC/"
+					"AQAAAHkDAAAAAAAAegMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAeQMAAAAAAAB5AwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					65,
-					1,
-					"insert_snippet",
-					{
-						"contents": "($0)"
-					},
-					"AQAAAJIRAAAAAAAAlBEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAkhEAAAAAAACSEQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					67,
 					1,
 					"insert",
 					{
 						"characters": "\n"
 					},
-					"BAAAAJURAAAAAAAAlhEAAAAAAAAAAAAAlhEAAAAAAACnEQAAAAAAAAAAAACWEQAAAAAAAJYRAAAAAAAAEQAAACAgICAgICAgICAgICAgIAkJlhEAAAAAAACoEQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAlREAAAAAAACVEQAAAAAAAAAAAAAAAPC/"
+					"AgAAADkCAAAAAAAAOgIAAAAAAAAAAAAAOgIAAAAAAAA7AgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAOQIAAAAAAAA5AgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					66,
+					1,
+					"insert",
+					{
+						"characters": "slider)"
+					},
+					"BwAAADsCAAAAAAAAPAIAAAAAAAAAAAAAPAIAAAAAAAA9AgAAAAAAAAAAAAA9AgAAAAAAAD4CAAAAAAAAAAAAAD4CAAAAAAAAPwIAAAAAAAAAAAAAPwIAAAAAAABAAgAAAAAAAAAAAABAAgAAAAAAAEECAAAAAAAAAAAAAEECAAAAAAAAQgIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAOwIAAAAAAAA7AgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					67,
+					1,
+					"left_delete",
+					null,
+					"AQAAAEECAAAAAAAAQQIAAAAAAAABAAAAKQ",
+					"AQAAAAAAAAABAAAAQgIAAAAAAABCAgAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					68,
 					1,
-					"left_delete",
-					null,
-					"AQAAAKcRAAAAAAAApxEAAAAAAAABAAAACQ",
-					"AQAAAAAAAAABAAAAqBEAAAAAAACoEQAAAAAAAAAAAAAAAPC/"
+					"insert",
+					{
+						"characters": "b"
+					},
+					"AQAAAEECAAAAAAAAQgIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQQIAAAAAAABBAgAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					69,
 					1,
-					"insert_snippet",
-					{
-						"contents": "{$0}"
-					},
-					"AQAAAKcRAAAAAAAAqREAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAApxEAAAAAAACnEQAAAAAAAAAAAAAAAPC/"
+					"left_delete",
+					null,
+					"AQAAAEECAAAAAAAAQQIAAAAAAAABAAAAYg",
+					"AQAAAAAAAAABAAAAQgIAAAAAAABCAgAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					70,
 					1,
-					"run_macro_file",
+					"insert",
 					{
-						"file": "res://Packages/Default/Add Line in Braces.sublime-macro"
+						"characters": "BackGround"
 					},
-					"BgAAAKgRAAAAAAAAqREAAAAAAAAAAAAAqREAAAAAAAC6EQAAAAAAAAAAAAC6EQAAAAAAALsRAAAAAAAAAAAAALsRAAAAAAAAzBEAAAAAAAAAAAAAqREAAAAAAACpEQAAAAAAABEAAAAgICAgICAgICAgICAgICAJCakRAAAAAAAAuxEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAqBEAAAAAAACoEQAAAAAAAAAAAAAAAPC/"
+					"CgAAAEECAAAAAAAAQgIAAAAAAAAAAAAAQgIAAAAAAABDAgAAAAAAAAAAAABDAgAAAAAAAEQCAAAAAAAAAAAAAEQCAAAAAAAARQIAAAAAAAAAAAAARQIAAAAAAABGAgAAAAAAAAAAAABGAgAAAAAAAEcCAAAAAAAAAAAAAEcCAAAAAAAASAIAAAAAAAAAAAAASAIAAAAAAABJAgAAAAAAAAAAAABJAgAAAAAAAEoCAAAAAAAAAAAAAEoCAAAAAAAASwIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQQIAAAAAAABBAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					71,
+					1,
+					"insert",
+					{
+						"characters": "Texture"
+					},
+					"BwAAAEsCAAAAAAAATAIAAAAAAAAAAAAATAIAAAAAAABNAgAAAAAAAAAAAABNAgAAAAAAAE4CAAAAAAAAAAAAAE4CAAAAAAAATwIAAAAAAAAAAAAATwIAAAAAAABQAgAAAAAAAAAAAABQAgAAAAAAAFECAAAAAAAAAAAAAFECAAAAAAAAUgIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAASwIAAAAAAABLAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					72,
+					1,
+					"insert",
+					{
+						"characters": " ="
+					},
+					"AgAAAFICAAAAAAAAUwIAAAAAAAAAAAAAUwIAAAAAAABUAgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAUgIAAAAAAABSAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					73,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAFQCAAAAAAAAVQIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAVAIAAAAAAABUAgAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					76,
-					1,
-					"paste",
+					10,
+					"left_delete",
 					null,
-					"AQAAALsRAAAAAAAAIBIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAuxEAAAAAAAC7EQAAAAAAAAAAAAAAAPC/"
+					"CgAAAEoCAAAAAAAASgIAAAAAAAABAAAAZEkCAAAAAAAASQIAAAAAAAABAAAAbkgCAAAAAAAASAIAAAAAAAABAAAAdUcCAAAAAAAARwIAAAAAAAABAAAAb0YCAAAAAAAARgIAAAAAAAABAAAAckUCAAAAAAAARQIAAAAAAAABAAAAR0QCAAAAAAAARAIAAAAAAAABAAAAa0MCAAAAAAAAQwIAAAAAAAABAAAAY0ICAAAAAAAAQgIAAAAAAAABAAAAYUECAAAAAAAAQQIAAAAAAAABAAAAQg",
+					"AQAAAAAAAAABAAAASwIAAAAAAABLAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					77,
+					1,
+					"insert",
+					{
+						"characters": "BG"
+					},
+					"AgAAAEECAAAAAAAAQgIAAAAAAAAAAAAAQgIAAAAAAABDAgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQQIAAAAAAABBAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					78,
+					2,
+					"left_delete",
+					null,
+					"AgAAAEICAAAAAAAAQgIAAAAAAAABAAAAR0ECAAAAAAAAQQIAAAAAAAABAAAAQg",
+					"AQAAAAAAAAABAAAAQwIAAAAAAABDAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					81,
+					1,
+					"insert",
+					{
+						"characters": "\nsliderButton"
+					},
+					"DgAAAEsCAAAAAAAATAIAAAAAAAAAAAAATAIAAAAAAABNAgAAAAAAAAAAAABNAgAAAAAAAE4CAAAAAAAAAAAAAE4CAAAAAAAATwIAAAAAAAAAAAAATwIAAAAAAABQAgAAAAAAAAAAAABQAgAAAAAAAFECAAAAAAAAAAAAAFECAAAAAAAAUgIAAAAAAAAAAAAAUgIAAAAAAABTAgAAAAAAAAAAAABTAgAAAAAAAFQCAAAAAAAAAAAAAFQCAAAAAAAAVQIAAAAAAAAAAAAAVQIAAAAAAABWAgAAAAAAAAAAAABWAgAAAAAAAFcCAAAAAAAAAAAAAFcCAAAAAAAAWAIAAAAAAAAAAAAAWAIAAAAAAABZAgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAASwIAAAAAAABLAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					82,
+					1,
+					"insert",
+					{
+						"characters": "Texture"
+					},
+					"BwAAAFkCAAAAAAAAWgIAAAAAAAAAAAAAWgIAAAAAAABbAgAAAAAAAAAAAABbAgAAAAAAAFwCAAAAAAAAAAAAAFwCAAAAAAAAXQIAAAAAAAAAAAAAXQIAAAAAAABeAgAAAAAAAAAAAABeAgAAAAAAAF8CAAAAAAAAAAAAAF8CAAAAAAAAYAIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAWQIAAAAAAABZAgAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					83,
 					1,
 					"insert",
 					{
-						"characters": "\n"
+						"characters": " ="
 					},
-					"AgAAAH8YAAAAAAAAgBgAAAAAAAAAAAAAgBgAAAAAAACCGAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAfxgAAAAAAAB/GAAAAAAAAAAAAAAAAPC/"
+					"AgAAAGACAAAAAAAAYQIAAAAAAAAAAAAAYQIAAAAAAABiAgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAYAIAAAAAAABgAgAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					84,
 					1,
-					"left_delete",
-					null,
-					"AQAAAIEYAAAAAAAAgRgAAAAAAAABAAAACQ",
-					"AQAAAAAAAAABAAAAghgAAAAAAACCGAAAAAAAAAAAAAAAAPC/"
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAGICAAAAAAAAYwIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAYgIAAAAAAABiAgAAAAAAAAAAAAAAAPC/"
 				],
 				[
-					85,
+					90,
 					1,
 					"paste",
 					null,
-					"AQAAAIEYAAAAAAAAtRgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAgRgAAAAAAACBGAAAAAAAAAAAAAAAAPC/"
+					"AQAAAEsCAAAAAAAAeQIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAASwIAAAAAAABLAgAAAAAAAAAAAAAAAPC/"
 				],
 				[
-					88,
+					93,
 					1,
-					"insert",
-					{
-						"characters": "Option"
-					},
-					"BwAAAIYYAAAAAAAAhxgAAAAAAAAAAAAAhxgAAAAAAACHGAAAAAAAAAYAAABNYW51YWyHGAAAAAAAAIgYAAAAAAAAAAAAAIgYAAAAAAAAiRgAAAAAAAAAAAAAiRgAAAAAAACKGAAAAAAAAAAAAACKGAAAAAAAAIsYAAAAAAAAAAAAAIsYAAAAAAAAjBgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAhhgAAAAAAACMGAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					91,
-					1,
-					"insert",
-					{
-						"characters": "option"
-					},
-					"BwAAAJUYAAAAAAAAlhgAAAAAAAAAAAAAlhgAAAAAAACWGAAAAAAAAAYAAABtYW51YWyWGAAAAAAAAJcYAAAAAAAAAAAAAJcYAAAAAAAAmBgAAAAAAAAAAAAAmBgAAAAAAACZGAAAAAAAAAAAAACZGAAAAAAAAJoYAAAAAAAAAAAAAJoYAAAAAAAAmxgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAlRgAAAAAAACbGAAAAAAAAAAAAAAAAPC/"
+					"paste",
+					null,
+					"AQAAAJECAAAAAAAAvwIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAkQIAAAAAAACRAgAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					96,
-					1,
-					"insert",
-					{
-						"characters": "\nDif"
-					},
-					"BQAAAHoBAAAAAAAAewEAAAAAAAAAAAAAewEAAAAAAAB8AQAAAAAAAAAAAAB8AQAAAAAAAH0BAAAAAAAAAAAAAH0BAAAAAAAAfgEAAAAAAAAAAAAAfgEAAAAAAAB/AQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAegEAAAAAAAB6AQAAAAAAAAAAAAAAAPC/"
+					2,
+					"left_delete",
+					null,
+					"AgAAAG0CAAAAAAAAbQIAAAAAAAAFAAAAdXR0b25sAgAAAAAAAGwCAAAAAAAAAQAAAGI",
+					"AQAAAAAAAAABAAAAbQIAAAAAAAByAgAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					97,
 					1,
 					"insert",
 					{
-						"characters": "State"
+						"characters": "option/"
 					},
-					"BQAAAH8BAAAAAAAAgAEAAAAAAAAAAAAAgAEAAAAAAACBAQAAAAAAAAAAAACBAQAAAAAAAIIBAAAAAAAAAAAAAIIBAAAAAAAAgwEAAAAAAAAAAAAAgwEAAAAAAACEAQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAfwEAAAAAAAB/AQAAAAAAAAAAAAAAAPC/"
+					"BwAAAGwCAAAAAAAAbQIAAAAAAAAAAAAAbQIAAAAAAABuAgAAAAAAAAAAAABuAgAAAAAAAG8CAAAAAAAAAAAAAG8CAAAAAAAAcAIAAAAAAAAAAAAAcAIAAAAAAABxAgAAAAAAAAAAAABxAgAAAAAAAHICAAAAAAAAAAAAAHICAAAAAAAAcwIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAbAIAAAAAAABsAgAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					98,
 					1,
 					"insert",
 					{
-						"characters": " ="
+						"characters": "slider"
 					},
-					"AgAAAIQBAAAAAAAAhQEAAAAAAAAAAAAAhQEAAAAAAACGAQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAhAEAAAAAAACEAQAAAAAAAAAAAAAAAPC/"
+					"BgAAAHMCAAAAAAAAdAIAAAAAAAAAAAAAdAIAAAAAAAB1AgAAAAAAAAAAAAB1AgAAAAAAAHYCAAAAAAAAAAAAAHYCAAAAAAAAdwIAAAAAAAAAAAAAdwIAAAAAAAB4AgAAAAAAAAAAAAB4AgAAAAAAAHkCAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAcwIAAAAAAABzAgAAAAAAAAAAAAAAAPC/"
 				],
 				[
-					99,
+					103,
 					1,
 					"insert",
 					{
-						"characters": " 5,"
+						"characters": "option/"
 					},
-					"AwAAAIYBAAAAAAAAhwEAAAAAAAAAAAAAhwEAAAAAAACIAQAAAAAAAAAAAACIAQAAAAAAAIkBAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAhgEAAAAAAACGAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					102,
-					1,
-					"insert",
-					{
-						"characters": ","
-					},
-					"AQAAAHoBAAAAAAAAewEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAegEAAAAAAAB6AQAAAAAAAAAAAAAAAPC/"
+					"BwAAALkCAAAAAAAAugIAAAAAAAAAAAAAugIAAAAAAAC7AgAAAAAAAAAAAAC7AgAAAAAAALwCAAAAAAAAAAAAALwCAAAAAAAAvQIAAAAAAAAAAAAAvQIAAAAAAAC+AgAAAAAAAAAAAAC+AgAAAAAAAL8CAAAAAAAAAAAAAL8CAAAAAAAAwAIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAuQIAAAAAAAC5AgAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					104,
 					1,
+					"insert",
+					{
+						"characters": "slider)"
+					},
+					"BwAAAMACAAAAAAAAwQIAAAAAAAAAAAAAwQIAAAAAAADCAgAAAAAAAAAAAADCAgAAAAAAAMMCAAAAAAAAAAAAAMMCAAAAAAAAxAIAAAAAAAAAAAAAxAIAAAAAAADFAgAAAAAAAAAAAADFAgAAAAAAAMYCAAAAAAAAAAAAAMYCAAAAAAAAxwIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAwAIAAAAAAADAAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					105,
+					1,
 					"left_delete",
 					null,
-					"AQAAAIkBAAAAAAAAiQEAAAAAAAABAAAALA",
-					"AQAAAAAAAAABAAAAigEAAAAAAACKAQAAAAAAAAAAAAAAYGdA"
+					"AQAAAMYCAAAAAAAAxgIAAAAAAAABAAAAKQ",
+					"AQAAAAAAAAABAAAAxwIAAAAAAADHAgAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					106,
 					1,
 					"insert",
 					{
-						"characters": "Choose"
+						"characters": ")"
 					},
-					"BgAAAIABAAAAAAAAgQEAAAAAAAAAAAAAgQEAAAAAAACCAQAAAAAAAAAAAACCAQAAAAAAAIMBAAAAAAAAAAAAAIMBAAAAAAAAhAEAAAAAAAAAAAAAhAEAAAAAAACFAQAAAAAAAAAAAACFAQAAAAAAAIYBAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAgAEAAAAAAACAAQAAAAAAAAAAAAAAAPC/"
+					"AQAAAMYCAAAAAAAAxwIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAxgIAAAAAAADGAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					107,
+					1,
+					"left_delete",
+					null,
+					"AQAAAMYCAAAAAAAAxgIAAAAAAAABAAAAKQ",
+					"AQAAAAAAAAABAAAAxwIAAAAAAADHAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					108,
+					1,
+					"insert",
+					{
+						"characters": ")"
+					},
+					"AQAAAMYCAAAAAAAAxwIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAxgIAAAAAAADGAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					109,
+					1,
+					"left_delete",
+					null,
+					"AQAAAMYCAAAAAAAAxgIAAAAAAAABAAAAKQ",
+					"AQAAAAAAAAABAAAAxwIAAAAAAADHAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					110,
+					1,
+					"insert",
+					{
+						"characters": "_"
+					},
+					"AQAAAMYCAAAAAAAAxwIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAxgIAAAAAAADGAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					118,
+					1,
+					"insert",
+					{
+						"characters": ","
+					},
+					"AQAAABgEAAAAAAAAGQQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAGAQAAAAAAAAYBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					119,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAABkEAAAAAAAAGgQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAGQQAAAAAAAAZBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					120,
+					1,
+					"insert",
+					{
+						"characters": "slider"
+					},
+					"BgAAABoEAAAAAAAAGwQAAAAAAAAAAAAAGwQAAAAAAAAcBAAAAAAAAAAAAAAcBAAAAAAAAB0EAAAAAAAAAAAAAB0EAAAAAAAAHgQAAAAAAAAAAAAAHgQAAAAAAAAfBAAAAAAAAAAAAAAfBAAAAAAAACAEAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAGgQAAAAAAAAaBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					121,
+					1,
+					"insert_completion",
+					{
+						"completion": "sliderTexture",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "sliderTexture"
+					},
+					"AgAAABoEAAAAAAAAGgQAAAAAAAAGAAAAc2xpZGVyGgQAAAAAAAAnBAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAIAQAAAAAAAAgBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					122,
+					1,
+					"insert",
+					{
+						"characters": ","
+					},
+					"AQAAACcEAAAAAAAAKAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAJwQAAAAAAAAnBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					123,
+					1,
+					"insert",
+					{
+						"characters": " slider"
+					},
+					"BwAAACgEAAAAAAAAKQQAAAAAAAAAAAAAKQQAAAAAAAAqBAAAAAAAAAAAAAAqBAAAAAAAACsEAAAAAAAAAAAAACsEAAAAAAAALAQAAAAAAAAAAAAALAQAAAAAAAAtBAAAAAAAAAAAAAAtBAAAAAAAAC4EAAAAAAAAAAAAAC4EAAAAAAAALwQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAKAQAAAAAAAAoBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					125,
+					1,
+					"insert_completion",
+					{
+						"completion": "sliderButtonTexture",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "sliderButtonTexture"
+					},
+					"AgAAACkEAAAAAAAAKQQAAAAAAAAGAAAAc2xpZGVyKQQAAAAAAAA8BAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAALwQAAAAAAAAvBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					126,
+					1,
+					"insert",
+					{
+						"characters": ","
+					},
+					"AQAAADwEAAAAAAAAPQQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAPAQAAAAAAAA8BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					127,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAD0EAAAAAAAAPgQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAPQQAAAAAAAA9BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					132,
+					1,
+					"insert",
+					{
+						"characters": "\nslider-<"
+					},
+					"CgAAAG0EAAAAAAAAbgQAAAAAAAAAAAAAbgQAAAAAAABvBAAAAAAAAAAAAABvBAAAAAAAAHAEAAAAAAAAAAAAAHAEAAAAAAAAcQQAAAAAAAAAAAAAcQQAAAAAAAByBAAAAAAAAAAAAAByBAAAAAAAAHMEAAAAAAAAAAAAAHMEAAAAAAAAdAQAAAAAAAAAAAAAdAQAAAAAAAB1BAAAAAAAAAAAAAB1BAAAAAAAAHYEAAAAAAAAAAAAAHYEAAAAAAAAdwQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAbQQAAAAAAABtBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					133,
+					1,
+					"left_delete",
+					null,
+					"AQAAAHYEAAAAAAAAdgQAAAAAAAABAAAAPA",
+					"AQAAAAAAAAABAAAAdwQAAAAAAAB3BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					134,
+					1,
+					"insert",
+					{
+						"characters": "."
+					},
+					"AQAAAHYEAAAAAAAAdwQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAdgQAAAAAAAB2BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					135,
+					1,
+					"left_delete",
+					null,
+					"AQAAAHYEAAAAAAAAdgQAAAAAAAABAAAALg",
+					"AQAAAAAAAAABAAAAdwQAAAAAAAB3BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					136,
+					1,
+					"insert",
+					{
+						"characters": ">upd"
+					},
+					"BAAAAHYEAAAAAAAAdwQAAAAAAAAAAAAAdwQAAAAAAAB4BAAAAAAAAAAAAAB4BAAAAAAAAHkEAAAAAAAAAAAAAHkEAAAAAAAAegQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAdgQAAAAAAAB2BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					137,
+					1,
+					"insert_completion",
+					{
+						"completion": "update",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "update"
+					},
+					"AgAAAHcEAAAAAAAAdwQAAAAAAAADAAAAdXBkdwQAAAAAAAB9BAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAegQAAAAAAAB6BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					138,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAAH0EAAAAAAAAfgQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAfQQAAAAAAAB9BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					139,
+					1,
+					"left_delete",
+					null,
+					"AQAAAH0EAAAAAAAAfQQAAAAAAAABAAAAOw",
+					"AQAAAAAAAAABAAAAfgQAAAAAAAB+BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					140,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAH0EAAAAAAAAfwQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAfQQAAAAAAAB9BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					142,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAAH8EAAAAAAAAgAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAfwQAAAAAAAB/BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					145,
+					1,
+					"insert",
+					{
+						"characters": "\nslider->re"
+					},
+					"DAAAAO4EAAAAAAAA7wQAAAAAAAAAAAAA7wQAAAAAAADwBAAAAAAAAAAAAADwBAAAAAAAAPEEAAAAAAAAAAAAAPEEAAAAAAAA8gQAAAAAAAAAAAAA8gQAAAAAAADzBAAAAAAAAAAAAADzBAAAAAAAAPQEAAAAAAAAAAAAAPQEAAAAAAAA9QQAAAAAAAAAAAAA9QQAAAAAAAD2BAAAAAAAAAAAAAD2BAAAAAAAAPcEAAAAAAAAAAAAAPcEAAAAAAAA+AQAAAAAAAAAAAAA+AQAAAAAAAD5BAAAAAAAAAAAAAD5BAAAAAAAAPoEAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA7gQAAAAAAADuBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					146,
+					1,
+					"insert",
+					{
+						"characters": "nd"
+					},
+					"AgAAAPoEAAAAAAAA+wQAAAAAAAAAAAAA+wQAAAAAAAD8BAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA+gQAAAAAAAD6BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					147,
+					1,
+					"insert_completion",
+					{
+						"completion": "render",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "render"
+					},
+					"AgAAAPgEAAAAAAAA+AQAAAAAAAAEAAAAcmVuZPgEAAAAAAAA/gQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA/AQAAAAAAAD8BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					148,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAP4EAAAAAAAAAAUAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA/gQAAAAAAAD+BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					150,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAAAAFAAAAAAAAAQUAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAAUAAAAAAAAABQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					157,
+					2,
+					"left_delete",
+					null,
+					"AgAAAD0EAAAAAAAAPQQAAAAAAAABAAAAIDwEAAAAAAAAPAQAAAAAAAABAAAALA",
+					"AQAAAAAAAAABAAAAPgQAAAAAAAA+BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					159,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAAD0EAAAAAAAAPgQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAPQQAAAAAAAA9BAAAAAAAAAAAAAAAAPC/"
 				]
 			]
 		},
 		{
-			"file": "src/option.cpp",
+			"file": "include/Slider.hpp",
 			"settings":
 			{
-				"buffer_size": 1025,
+				"buffer_size": 2410,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					14,
+					1,
+					"insert",
+					{
+						"characters": "wi"
+					},
+					"AwAAAFUAAAAAAAAAVgAAAAAAAAAAAAAAVgAAAAAAAABWAAAAAAAAACUAAABTRExfUmVuZGVyZXIqIHJlbmRlcmVyLCBTRExfUmVjdCByZWN0VgAAAAAAAABXAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAVQAAAAAAAAB6AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					15,
+					2,
+					"left_delete",
+					null,
+					"AgAAAFYAAAAAAAAAVgAAAAAAAAABAAAAaVUAAAAAAAAAVQAAAAAAAAABAAAAdw",
+					"AQAAAAAAAAABAAAAVwAAAAAAAABXAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					16,
+					1,
+					"insert",
+					{
+						"characters": "REnder"
+					},
+					"BgAAAFUAAAAAAAAAVgAAAAAAAAAAAAAAVgAAAAAAAABXAAAAAAAAAAAAAABXAAAAAAAAAFgAAAAAAAAAAAAAAFgAAAAAAAAAWQAAAAAAAAAAAAAAWQAAAAAAAABaAAAAAAAAAAAAAABaAAAAAAAAAFsAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAVQAAAAAAAABVAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					17,
+					1,
+					"insert_completion",
+					{
+						"completion": "RenderWindow",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "RenderWindow"
+					},
+					"AgAAAFUAAAAAAAAAVQAAAAAAAAAGAAAAUkVuZGVyVQAAAAAAAABhAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAWwAAAAAAAABbAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					18,
+					1,
+					"insert",
+					{
+						"characters": " wi"
+					},
+					"AwAAAGEAAAAAAAAAYgAAAAAAAAAAAAAAYgAAAAAAAABjAAAAAAAAAAAAAABjAAAAAAAAAGQAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAYQAAAAAAAABhAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					19,
+					2,
+					"left_delete",
+					null,
+					"AgAAAGMAAAAAAAAAYwAAAAAAAAABAAAAaWIAAAAAAAAAYgAAAAAAAAABAAAAdw",
+					"AQAAAAAAAAABAAAAZAAAAAAAAABkAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					20,
+					1,
+					"insert",
+					{
+						"characters": "p"
+					},
+					"AQAAAGIAAAAAAAAAYwAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAYgAAAAAAAABiAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					21,
+					1,
+					"insert_completion",
+					{
+						"completion": "p_window",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "p_window"
+					},
+					"AgAAAGIAAAAAAAAAYgAAAAAAAAABAAAAcGIAAAAAAAAAagAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAYwAAAAAAAABjAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					24,
+					1,
+					"insert",
+					{
+						"characters": ","
+					},
+					"AgAAAKkAAAAAAAAAqgAAAAAAAAAAAAAAqgAAAAAAAACqAAAAAAAAAAsAAAAgbV9yZW5kZXJlcg",
+					"AQAAAAAAAAABAAAAqQAAAAAAAAC0AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					25,
+					1,
+					"left_delete",
+					null,
+					"AQAAAKkAAAAAAAAAqQAAAAAAAAABAAAALA",
+					"AQAAAAAAAAABAAAAqgAAAAAAAACqAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					26,
+					1,
+					"insert",
+					{
+						"characters": "m_+"
+					},
+					"AwAAAKkAAAAAAAAAqgAAAAAAAAAAAAAAqgAAAAAAAACrAAAAAAAAAAAAAACrAAAAAAAAAKwAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAqQAAAAAAAACpAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					27,
+					1,
+					"left_delete",
+					null,
+					"AQAAAKsAAAAAAAAAqwAAAAAAAAABAAAAKw",
+					"AQAAAAAAAAABAAAArAAAAAAAAACsAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					28,
+					1,
+					"insert",
+					{
+						"characters": "window"
+					},
+					"BgAAAKsAAAAAAAAArAAAAAAAAAAAAAAArAAAAAAAAACtAAAAAAAAAAAAAACtAAAAAAAAAK4AAAAAAAAAAAAAAK4AAAAAAAAArwAAAAAAAAAAAAAArwAAAAAAAACwAAAAAAAAAAAAAACwAAAAAAAAALEAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAqwAAAAAAAACrAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					30,
+					8,
+					"left_delete",
+					null,
+					"CAAAALkAAAAAAAAAuQAAAAAAAAABAAAAcrgAAAAAAAAAuAAAAAAAAAABAAAAZbcAAAAAAAAAtwAAAAAAAAABAAAAcrYAAAAAAAAAtgAAAAAAAAABAAAAZbUAAAAAAAAAtQAAAAAAAAABAAAAZLQAAAAAAAAAtAAAAAAAAAABAAAAbrMAAAAAAAAAswAAAAAAAAABAAAAZbIAAAAAAAAAsgAAAAAAAAABAAAAcg",
+					"AQAAAAAAAAABAAAAugAAAAAAAAC6AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					31,
+					1,
+					"insert",
+					{
+						"characters": "p"
+					},
+					"AQAAALIAAAAAAAAAswAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAsgAAAAAAAACyAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					32,
+					1,
+					"insert_completion",
+					{
+						"completion": "p_window",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "p_window"
+					},
+					"AgAAALIAAAAAAAAAsgAAAAAAAAABAAAAcLIAAAAAAAAAugAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAswAAAAAAAACzAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					53,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AgAAANAFAAAAAAAA0QUAAAAAAAAAAAAA0QUAAAAAAADZBQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA0AUAAAAAAADQBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					54,
+					1,
+					"insert",
+					{
+						"characters": "M"
+					},
+					"AQAAANkFAAAAAAAA2gUAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA2QUAAAAAAADZBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					55,
+					1,
+					"left_delete",
+					null,
+					"AQAAANkFAAAAAAAA2QUAAAAAAAABAAAATQ",
+					"AQAAAAAAAAABAAAA2gUAAAAAAADaBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					56,
+					1,
+					"insert",
+					{
+						"characters": "m_render"
+					},
+					"CAAAANkFAAAAAAAA2gUAAAAAAAAAAAAA2gUAAAAAAADbBQAAAAAAAAAAAADbBQAAAAAAANwFAAAAAAAAAAAAANwFAAAAAAAA3QUAAAAAAAAAAAAA3QUAAAAAAADeBQAAAAAAAAAAAADeBQAAAAAAAN8FAAAAAAAAAAAAAN8FAAAAAAAA4AUAAAAAAAAAAAAA4AUAAAAAAADhBQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA2QUAAAAAAADZBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					57,
+					6,
+					"left_delete",
+					null,
+					"BgAAAOAFAAAAAAAA4AUAAAAAAAABAAAAct8FAAAAAAAA3wUAAAAAAAABAAAAZd4FAAAAAAAA3gUAAAAAAAABAAAAZN0FAAAAAAAA3QUAAAAAAAABAAAAbtwFAAAAAAAA3AUAAAAAAAABAAAAZdsFAAAAAAAA2wUAAAAAAAABAAAAcg",
+					"AQAAAAAAAAABAAAA4QUAAAAAAADhBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					58,
+					1,
+					"insert",
+					{
+						"characters": "wind"
+					},
+					"BAAAANsFAAAAAAAA3AUAAAAAAAAAAAAA3AUAAAAAAADdBQAAAAAAAAAAAADdBQAAAAAAAN4FAAAAAAAAAAAAAN4FAAAAAAAA3wUAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA2wUAAAAAAADbBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					59,
+					1,
+					"insert_completion",
+					{
+						"completion": "m_window",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "m_window"
+					},
+					"AgAAANkFAAAAAAAA2QUAAAAAAAAGAAAAbV93aW5k2QUAAAAAAADhBQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA3wUAAAAAAADfBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					60,
+					1,
+					"insert",
+					{
+						"characters": ".ren"
+					},
+					"BAAAAOEFAAAAAAAA4gUAAAAAAAAAAAAA4gUAAAAAAADjBQAAAAAAAAAAAADjBQAAAAAAAOQFAAAAAAAAAAAAAOQFAAAAAAAA5QUAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA4QUAAAAAAADhBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					61,
+					1,
+					"insert_completion",
+					{
+						"completion": "render",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "render"
+					},
+					"AgAAAOIFAAAAAAAA4gUAAAAAAAADAAAAcmVu4gUAAAAAAADoBQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA5QUAAAAAAADlBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					62,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAOgFAAAAAAAA6gUAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA6AUAAAAAAADoBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					63,
+					1,
+					"insert",
+					{
+						"characters": "m_big"
+					},
+					"BQAAAOkFAAAAAAAA6gUAAAAAAAAAAAAA6gUAAAAAAADrBQAAAAAAAAAAAADrBQAAAAAAAOwFAAAAAAAAAAAAAOwFAAAAAAAA7QUAAAAAAAAAAAAA7QUAAAAAAADuBQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA6QUAAAAAAADpBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					64,
+					2,
+					"left_delete",
+					null,
+					"AgAAAO0FAAAAAAAA7QUAAAAAAAABAAAAZ+wFAAAAAAAA7AUAAAAAAAABAAAAaQ",
+					"AQAAAAAAAAABAAAA7gUAAAAAAADuBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					65,
+					1,
+					"insert",
+					{
+						"characters": "g"
+					},
+					"AQAAAOwFAAAAAAAA7QUAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA7AUAAAAAAADsBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					66,
+					1,
+					"insert_completion",
+					{
+						"completion": "m_bgTexture",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "m_bgTexture"
+					},
+					"AgAAAOkFAAAAAAAA6QUAAAAAAAAEAAAAbV9iZ+kFAAAAAAAA9AUAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA7QUAAAAAAADtBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					67,
+					1,
+					"insert",
+					{
+						"characters": ","
+					},
+					"AQAAAPQFAAAAAAAA9QUAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA9AUAAAAAAAD0BQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					68,
+					1,
+					"left_delete",
+					null,
+					"AQAAAPQFAAAAAAAA9AUAAAAAAAABAAAALA",
+					"AQAAAAAAAAABAAAA9QUAAAAAAAD1BQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					70,
+					1,
+					"insert",
+					{
+						"characters": "Vector2f("
+					},
+					"CQAAAOkFAAAAAAAA6gUAAAAAAAAAAAAA6gUAAAAAAADrBQAAAAAAAAAAAADrBQAAAAAAAOwFAAAAAAAAAAAAAOwFAAAAAAAA7QUAAAAAAAAAAAAA7QUAAAAAAADuBQAAAAAAAAAAAADuBQAAAAAAAO8FAAAAAAAAAAAAAO8FAAAAAAAA8AUAAAAAAAAAAAAA8AUAAAAAAADxBQAAAAAAAAAAAADxBQAAAAAAAPIFAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA6QUAAAAAAADpBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					71,
+					1,
+					"insert",
+					{
+						"characters": "200,200Z)"
+					},
+					"CQAAAPIFAAAAAAAA8wUAAAAAAAAAAAAA8wUAAAAAAAD0BQAAAAAAAAAAAAD0BQAAAAAAAPUFAAAAAAAAAAAAAPUFAAAAAAAA9gUAAAAAAAAAAAAA9gUAAAAAAAD3BQAAAAAAAAAAAAD3BQAAAAAAAPgFAAAAAAAAAAAAAPgFAAAAAAAA+QUAAAAAAAAAAAAA+QUAAAAAAAD6BQAAAAAAAAAAAAD6BQAAAAAAAPsFAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA8gUAAAAAAADyBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					72,
+					2,
+					"left_delete",
+					null,
+					"AgAAAPoFAAAAAAAA+gUAAAAAAAABAAAAKfkFAAAAAAAA+QUAAAAAAAABAAAAWg",
+					"AQAAAAAAAAABAAAA+wUAAAAAAAD7BQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					73,
+					1,
+					"insert",
+					{
+						"characters": ")"
+					},
+					"AQAAAPkFAAAAAAAA+gUAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA+QUAAAAAAAD5BQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					74,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAPoFAAAAAAAA+wUAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA+gUAAAAAAAD6BQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					86,
+					1,
+					"paste",
+					null,
+					"AgAAAAAAAAAAAAAAbgkAAAAAAAAAAAAAbgkAAAAAAABuCQAAAAAAAOQIAAAjaW5jbHVkZSA8U0RMMi9TREwuaD4KI2luY2x1ZGUgPFNETDIvU0RMX2ltYWdlLmg+CgpjbGFzcyBTbGlkZXIgewpwdWJsaWM6CiAgICBTbGlkZXIoUmVuZGVyV2luZG93IHBfd2luZG93LCBTRExfVGV4dHVyZSogYmdUZXh0dXJlLCBTRExfVGV4dHVyZSogaGFuZGxlVGV4dHVyZSkgOgogICAgICAgbV93aW5kb3cocF93aW5kb3cpLCBtX3JlY3QocmVjdCksIG1fYmdUZXh0dXJlKGJnVGV4dHVyZSksIG1faGFuZGxlVGV4dHVyZShoYW5kbGVUZXh0dXJlKSwgbV9ob3ZlcmVkKGZhbHNlKSwgbV9kcmFnZ2luZyhmYWxzZSkge30KCiAgICB2b2lkIHVwZGF0ZShTRExfRXZlbnQmIGV2ZW50KSB7CiAgICAgICAgaW50IG1vdXNlWCwgbW91c2VZOwogICAgICAgIFNETF9HZXRNb3VzZVN0YXRlKCZtb3VzZVgsICZtb3VzZVkpOwoKICAgICAgICAvLyBDaGVjayBpZiBtb3VzZSBpcyBob3ZlcmluZyBvdmVyIHRoZSBzbGlkZXIKICAgICAgICBpZiAobW91c2VYID49IG1fcmVjdC54ICYmIG1vdXNlWCA8PSBtX3JlY3QueCArIG1fcmVjdC53ICYmCiAgICAgICAgICAgIG1vdXNlWSA+PSBtX3JlY3QueSAmJiBtb3VzZVkgPD0gbV9yZWN0LnkgKyBtX3JlY3QuaCkgewogICAgICAgICAgICBtX2hvdmVyZWQgPSB0cnVlOwoKICAgICAgICAgICAgaWYgKGV2ZW50LnR5cGUgPT0gU0RMX01PVVNFQlVUVE9ORE9XTiAmJiBldmVudC5idXR0b24uYnV0dG9uID09IFNETF9CVVRUT05fTEVGVCkgewogICAgICAgICAgICAgICAgbV9kcmFnZ2luZyA9IHRydWU7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxzZSBpZiAoZXZlbnQudHlwZSA9PSBTRExfTU9VU0VCVVRUT05VUCAmJiBldmVudC5idXR0b24uYnV0dG9uID09IFNETF9CVVRUT05fTEVGVCkgewogICAgICAgICAgICAgICAgbV9kcmFnZ2luZyA9IGZhbHNlOwogICAgICAgICAgICB9CiAgICAgICAgfQogICAgICAgIGVsc2UgewogICAgICAgICAgICBtX2hvdmVyZWQgPSBmYWxzZTsKICAgICAgICB9CgogICAgICAgIC8vIE1vdmUgaGFuZGxlIGlmIHNsaWRlciBpcyBiZWluZyBkcmFnZ2VkCiAgICAgICAgaWYgKG1fZHJhZ2dpbmcpIHsKICAgICAgICAgICAgaW50IGhhbmRsZVggPSBtb3VzZVggLSBtX2hhbmRsZVRleHR1cmVSZWN0LncgLyAyOwogICAgICAgICAgICBpZiAoaGFuZGxlWCA8IG1fcmVjdC54KSBoYW5kbGVYID0gbV9yZWN0Lng7CiAgICAgICAgICAgIGlmIChoYW5kbGVYID4gbV9yZWN0LnggKyBtX3JlY3QudyAtIG1faGFuZGxlVGV4dHVyZVJlY3QudykgaGFuZGxlWCA9IG1fcmVjdC54ICsgbV9yZWN0LncgLSBtX2hhbmRsZVRleHR1cmVSZWN0Lnc7CiAgICAgICAgICAgIG1faGFuZGxlVGV4dHVyZVJlY3QueCA9IGhhbmRsZVg7CiAgICAgICAgfQogICAgfQoKICAgIHZvaWQgcmVuZGVyKCkgewogICAgICAgIC8vIFJlbmRlciBzbGlkZXIgYmFja2dyb3VuZAogICAgICAgIFNETF9SZW5kZXJDb3B5KG1fcmVuZGVyZXIsIG1fYmdUZXh0dXJlLCBOVUxMLCAmbV9yZWN0KTsKICAgICAgICBtX3dpbmRvdy5yZW5kZXIoVmVjdG9yMmYoMjAwLDIwMCkgbV9iZ1RleHR1cmUpCgogICAgICAgIC8vIFJlbmRlciBoYW5kbGUKICAgICAgICBpZiAobV9ob3ZlcmVkIHx8IG1fZHJhZ2dpbmcpIHsKICAgICAgICAgICAgU0RMX1NldFRleHR1cmVDb2xvck1vZChtX2hhbmRsZVRleHR1cmUsIDIwMCwgMjAwLCAyMDApOyAvLyBTZXQgaGFuZGxlIGNvbG9yIHRvIGdyYXkgd2hlbiBob3ZlcmVkIG9yIGRyYWdnZWQKICAgICAgICB9CiAgICAgICAgZWxzZSB7CiAgICAgICAgICAgIFNETF9TZXRUZXh0dXJlQ29sb3JNb2QobV9oYW5kbGVUZXh0dXJlLCAyNTUsIDI1NSwgMjU1KTsgLy8gU2V0IGhhbmRsZSBjb2xvciB0byB3aGl0ZSB3aGVuIG5vdCBob3ZlcmVkIG9yIGRyYWdnZWQKICAgICAgICB9CiAgICAgICAgU0RMX1JlbmRlckNvcHkobV9yZW5kZXJlciwgbV9oYW5kbGVUZXh0dXJlLCBOVUxMLCAmbV9oYW5kbGVUZXh0dXJlUmVjdCk7CiAgICB9Cgpwcml2YXRlOgogICAgU0RMX1JlbmRlcmVyKiBtX3JlbmRlcmVyOwogICAgU0RMX1JlY3QgbV9yZWN0OwogICAgU0RMX1RleHR1cmUqIG1fYmdUZXh0dXJlOwogICAgU0RMX1RleHR1cmUqIG1faGFuZGxlVGV4dHVyZTsKICAgIFNETF9SZWN0IG1faGFuZGxlVGV4dHVyZVJlY3Qge21fcmVjdC54LCBtX3JlY3QueSArIG1fcmVjdC5oIC8gMiAtIDUsIDEwLCAxMH07IC8vIFNldCBpbml0aWFsIHBvc2l0aW9uIGFuZCBkaW1lbnNpb25zIG9mIGhhbmRsZQogICAgYm9vbCBtX2hvdmVyZWQ7CiAgICBib29sIG1fZHJhZ2dpbmc7Cn07Cg",
+					"AQAAAAAAAAABAAAAAAAAAAAAAADkCAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					97,
+					1,
+					"insert",
+					{
+						"characters": "V"
+					},
+					"AgAAAG0AAAAAAAAAbgAAAAAAAAAAAAAAbgAAAAAAAABuAAAAAAAAAAEAAAB2",
+					"AQAAAAAAAAABAAAAbQAAAAAAAABuAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					100,
+					1,
+					"left_delete",
+					null,
+					"AQAAAFEAAAAAAAAAUQAAAAAAAAABAAAAcg",
+					"AQAAAAAAAAABAAAAUgAAAAAAAABSAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					101,
+					1,
+					"insert",
+					{
+						"characters": "R"
+					},
+					"AQAAAFEAAAAAAAAAUgAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAUQAAAAAAAABRAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					103,
+					1,
+					"left_delete",
+					null,
+					"AQAAAFcAAAAAAAAAVwAAAAAAAAABAAAAdw",
+					"AQAAAAAAAAABAAAAWAAAAAAAAABYAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					104,
+					1,
+					"insert",
+					{
+						"characters": "W"
+					},
+					"AQAAAFcAAAAAAAAAWAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAVwAAAAAAAABXAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					107,
+					1,
+					"insert",
+					{
+						"characters": "Math"
+					},
+					"BQAAAG0AAAAAAAAAbgAAAAAAAAAAAAAAbgAAAAAAAABuAAAAAAAAAAgAAABWZWN0b3IyZm4AAAAAAAAAbwAAAAAAAAAAAAAAbwAAAAAAAABwAAAAAAAAAAAAAABwAAAAAAAAAHEAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAbQAAAAAAAAB1AAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "include/Option.hpp",
+			"settings":
+			{
+				"buffer_size": 711,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					5,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AgAAACQCAAAAAAAAJQIAAAAAAAAAAAAAJQIAAAAAAAAmAgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAJAIAAAAAAAAkAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					6,
+					1,
+					"paste",
+					null,
+					"AQAAACYCAAAAAAAAMgIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAJgIAAAAAAAAmAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					7,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAADICAAAAAAAAMwIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAMgIAAAAAAAAyAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					8,
+					1,
+					"left_delete",
+					null,
+					"AQAAADICAAAAAAAAMgIAAAAAAAABAAAAOw",
+					"AQAAAAAAAAABAAAAMwIAAAAAAAAzAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					9,
+					1,
+					"insert",
+					{
+						"characters": "e;"
+					},
+					"AgAAADICAAAAAAAAMwIAAAAAAAAAAAAAMwIAAAAAAAA0AgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAMgIAAAAAAAAyAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					17,
+					1,
+					"paste",
+					null,
+					"AQAAACYCAAAAAAAAMgIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAJgIAAAAAAAAmAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					18,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAADICAAAAAAAAMwIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAMgIAAAAAAAAyAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					21,
+					1,
+					"insert",
+					{
+						"characters": "\\"
+					},
+					"AQAAAEECAAAAAAAAQgIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQQIAAAAAAABBAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					22,
+					1,
+					"left_delete",
+					null,
+					"AQAAAEECAAAAAAAAQQIAAAAAAAABAAAAXA",
+					"AQAAAAAAAAABAAAAQgIAAAAAAABCAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					23,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AgAAAEECAAAAAAAAQgIAAAAAAAAAAAAAQgIAAAAAAABDAgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQQIAAAAAAABBAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					24,
+					1,
+					"paste",
+					null,
+					"AQAAAEMCAAAAAAAATwIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQwIAAAAAAABDAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					25,
+					1,
+					"insert",
+					{
+						"characters": " sliderButtonT"
+					},
+					"DgAAAE8CAAAAAAAAUAIAAAAAAAAAAAAAUAIAAAAAAABRAgAAAAAAAAAAAABRAgAAAAAAAFICAAAAAAAAAAAAAFICAAAAAAAAUwIAAAAAAAAAAAAAUwIAAAAAAABUAgAAAAAAAAAAAABUAgAAAAAAAFUCAAAAAAAAAAAAAFUCAAAAAAAAVgIAAAAAAAAAAAAAVgIAAAAAAABXAgAAAAAAAAAAAABXAgAAAAAAAFgCAAAAAAAAAAAAAFgCAAAAAAAAWQIAAAAAAAAAAAAAWQIAAAAAAABaAgAAAAAAAAAAAABaAgAAAAAAAFsCAAAAAAAAAAAAAFsCAAAAAAAAXAIAAAAAAAAAAAAAXAIAAAAAAABdAgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAATwIAAAAAAABPAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					26,
+					1,
+					"insert",
+					{
+						"characters": "exture;"
+					},
+					"BwAAAF0CAAAAAAAAXgIAAAAAAAAAAAAAXgIAAAAAAABfAgAAAAAAAAAAAABfAgAAAAAAAGACAAAAAAAAAAAAAGACAAAAAAAAYQIAAAAAAAAAAAAAYQIAAAAAAABiAgAAAAAAAAAAAABiAgAAAAAAAGMCAAAAAAAAAAAAAGMCAAAAAAAAZAIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAXQIAAAAAAABdAgAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "src/renderwindow.cpp",
+			"settings":
+			{
+				"buffer_size": 3979,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					9,
+					1,
+					"insert",
+					{
+						"characters": "\n\n"
+					},
+					"AgAAAJgNAAAAAAAAmQ0AAAAAAAAAAAAAmQ0AAAAAAACaDQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAmA0AAAAAAACYDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					11,
+					1,
+					"paste",
+					null,
+					"AQAAAJkNAAAAAAAAlA4AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAmQ0AAAAAAACZDQAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					12,
+					1,
+					"insert",
+					{
+						"characters": "\n\n"
+					},
+					"AgAAAJQOAAAAAAAAlQ4AAAAAAAAAAAAAlQ4AAAAAAACWDgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAlA4AAAAAAACUDgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					13,
+					1,
+					"paste",
+					null,
+					"AQAAAJYOAAAAAAAADQ8AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAlg4AAAAAAACWDgAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "include/RenderWindow.hpp",
+			"settings":
+			{
+				"buffer_size": 791,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			},
@@ -1274,127 +1905,75 @@
 			[
 				[
 					3,
-					2,
-					"left_delete",
-					null,
-					"AgAAACADAAAAAAAAIAMAAAAAAADnAAAACS8vIENyZWF0ZSB2b2x1bWUgc2xpZGVyCglzbGlkZXJUcmFja1RleHR1cmUgPSB3aW5kb3cubG9hZFRleHR1cmUoInJlcy90ZXh0dXJlcy9kb24ucG5nIik7CglzbGlkZXJIYW5kbGVUZXh0dXJlID0gd2luZG93LmxvYWRUZXh0dXJlKCJyZXMvdGV4dHVyZXMvZW5kc2NyZWVuL2VuZHNjcmVlbi5wbmciKTsKCXNsaWRlclBvcyA9IDAuNWY7CglzbGlkZXJSZWN0ID0geyAzMzAsIDI1MCwgMzAwLCA0MCB9Owp9HwMAAAAAAAAfAwAAAAAAAAEAAAAK",
-					"AQAAAAAAAAABAAAAIAMAAAAAAAAHBAAAAAAAAAAAAAAAAPC/"
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AgAAAHgCAAAAAAAAeQIAAAAAAAAAAAAAeQIAAAAAAAB6AgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAeAIAAAAAAAB4AgAAAAAAAAAAAAAAAPC/"
 				],
 				[
-					6,
+					4,
+					1,
+					"paste",
+					null,
+					"AQAAAHoCAAAAAAAAygIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAegIAAAAAAAB6AgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					7,
 					1,
 					"left_delete",
 					null,
-					"AQAAAB8DAAAAAAAAHwMAAAAAAAABAAAACg",
-					"AQAAAAAAAAABAAAAIAMAAAAAAAAgAwAAAAAAAAAAAAAAAPC/"
+					"AQAAAH8CAAAAAAAAfwIAAAAAAAAOAAAAUmVuZGVyV2luZG93Ojo",
+					"AQAAAAAAAAABAAAAjQIAAAAAAAB/AgAAAAAAAAAAAAAAAPC/"
 				],
 				[
-					9,
-					4,
-					"left_delete",
-					null,
-					"BAAAAE0DAAAAAAAATQMAAAAAAAA1AQAALy8gVXBkYXRlIHZvbHVtZSBzbGlkZXIgcG9zaXRpb24KCVNETF9Qb2ludCBtb3VzZVBvcyA9IHdpbmRvdy5nZXRNb3VzZVBvcygpOwoJaWYgKFNETF9Qb2ludEluUmVjdCgmbW91c2VQb3MsICZzbGlkZXJSZWN0KSAmJiBTRExfR2V0TW91c2VTdGF0ZShOVUxMLCBOVUxMKSAmIFNETF9CVVRUT04oU0RMX0JVVFRPTl9MRUZUKSkgewoJCXNsaWRlclBvcyA9IChmbG9hdCkobW91c2VQb3MueCAtIHNsaWRlclJlY3QueCkgLyBzbGlkZXJSZWN0Lnc7CgkJTWl4X1ZvbHVtZU11c2ljKChpbnQpKHNsaWRlclBvcyAqIE1JWF9NQVhfVk9MVU1FKSk7Cgl9TAMAAAAAAABMAwAAAAAAAAEAAAAJSwMAAAAAAABLAwAAAAAAAAEAAAAKSgMAAAAAAABKAwAAAAAAAAEAAAAK",
-					"AQAAAAAAAAABAAAATQMAAAAAAACCBAAAAAAAAAAAAAAAAPC/"
+					10,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AgAAALwCAAAAAAAAvQIAAAAAAAAAAAAAvQIAAAAAAAC+AgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAvAIAAAAAAAC8AgAAAAAAAAAAAAAAAPC/"
 				],
 				[
-					12,
-					2,
-					"left_delete",
+					11,
+					1,
+					"paste",
 					null,
-					"AgAAAKgDAAAAAAAAqAMAAAAAAAAEAgAALy8gUmVuZGVyIHZvbHVtZSBzbGlkZXIKCVNETF9SZWN0IHRyYWNrUmVjdCA9IHsgc2xpZGVyUmVjdC54LCBzbGlkZXJSZWN0LnkgKyBzbGlkZXJSZWN0LmggLyAyIC0gc2xpZGVyVHJhY2tUZXh0dXJlLmdldEhlaWdodCgpIC8gMiwgc2xpZGVyUmVjdC53LCBzbGlkZXJUcmFja1RleHR1cmUuZ2V0SGVpZ2h0KCkgfTsKCVNETF9SZWN0IGhhbmRsZVJlY3QgPSB7IChpbnQpKHNsaWRlclJlY3QueCArIHNsaWRlclBvcyAqIHNsaWRlclJlY3QudyAtIHNsaWRlckhhbmRsZVRleHR1cmUuZ2V0V2lkdGgoKSAvIDIpLCBzbGlkZXJSZWN0LnksIHNsaWRlckhhbmRsZVRleHR1cmUuZ2V0V2lkdGgoKSwgc2xpZGVySGFuZGxlVGV4dHVyZS5nZXRIZWlnaHQoKSB9OwoJd2luZG93LnJlbmRlcihWZWN0b3IyZih0cmFja1JlY3QueCwgdHJhY2tSZWN0LnkpLCBzbGlkZXJUcmFja1RleHR1cmUpOwoJd2luZG93LnJlbmRlcihWZWN0b3IyZihoYW5kbGVSZWN0LngsIGhhbmRsZVJlY3QueSkgc2xpZGVySGFuZGxlVGV4dHVyZSk7pwMAAAAAAACnAwAAAAAAAAEAAAAJ",
-					"AQAAAAAAAAABAAAAqAMAAAAAAACsBQAAAAAAAAAAAAAAAPC/"
+					"AQAAAL4CAAAAAAAA/QIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAvgIAAAAAAAC+AgAAAAAAAAAAAAAAAPC/"
 				],
 				[
-					15,
-					3,
+					14,
+					1,
 					"left_delete",
 					null,
-					"AwAAAKcDAAAAAAAApwMAAAAAAAABAAAACqYDAAAAAAAApgMAAAAAAAABAAAACqUDAAAAAAAApQMAAAAAAAABAAAACg",
-					"AQAAAAAAAAABAAAAqAMAAAAAAACoAwAAAAAAAAAAAAAAAPC/"
+					"AQAAAMMCAAAAAAAAwwIAAAAAAAAOAAAAUmVuZGVyV2luZG93Ojo",
+					"AQAAAAAAAAABAAAA0QIAAAAAAADDAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					17,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAAO8CAAAAAAAA8AIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA7wIAAAAAAADvAgAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					20,
 					1,
 					"insert",
 					{
-						"characters": "option"
+						"characters": ";"
 					},
-					"BwAAAM8BAAAAAAAA0AEAAAAAAAAAAAAA0AEAAAAAAADQAQAAAAAAAAYAAABtYW51YWzQAQAAAAAAANEBAAAAAAAAAAAAANEBAAAAAAAA0gEAAAAAAAAAAAAA0gEAAAAAAADTAQAAAAAAAAAAAADTAQAAAAAAANQBAAAAAAAAAAAAANQBAAAAAAAA1QEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAzwEAAAAAAADVAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					22,
-					6,
-					"left_delete",
-					null,
-					"BgAAANsBAAAAAAAA2wEAAAAAAAABAAAAbNoBAAAAAAAA2gEAAAAAAAABAAAAYdkBAAAAAAAA2QEAAAAAAAABAAAAddgBAAAAAAAA2AEAAAAAAAABAAAAbtcBAAAAAAAA1wEAAAAAAAABAAAAYdYBAAAAAAAA1gEAAAAAAAABAAAAbQ",
-					"AQAAAAAAAAABAAAA3AEAAAAAAADcAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					23,
-					1,
-					"insert",
-					{
-						"characters": "option"
-					},
-					"BgAAANYBAAAAAAAA1wEAAAAAAAAAAAAA1wEAAAAAAADYAQAAAAAAAAAAAADYAQAAAAAAANkBAAAAAAAAAAAAANkBAAAAAAAA2gEAAAAAAAAAAAAA2gEAAAAAAADbAQAAAAAAAAAAAADbAQAAAAAAANwBAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA1gEAAAAAAADWAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					26,
-					1,
-					"insert",
-					{
-						"characters": "Title"
-					},
-					"BgAAAOACAAAAAAAA4QIAAAAAAAAAAAAA4QIAAAAAAADhAgAAAAAAAAYAAABHb3QgaXThAgAAAAAAAOICAAAAAAAAAAAAAOICAAAAAAAA4wIAAAAAAAAAAAAA4wIAAAAAAADkAgAAAAAAAAAAAADkAgAAAAAAAOUCAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA5gIAAAAAAADgAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					27,
-					5,
-					"left_delete",
-					null,
-					"BQAAAOQCAAAAAAAA5AIAAAAAAAABAAAAZeMCAAAAAAAA4wIAAAAAAAABAAAAbOICAAAAAAAA4gIAAAAAAAABAAAAdOECAAAAAAAA4QIAAAAAAAABAAAAaeACAAAAAAAA4AIAAAAAAAABAAAAVA",
-					"AQAAAAAAAAABAAAA5QIAAAAAAADlAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					28,
-					1,
-					"insert",
-					{
-						"characters": "Confirm"
-					},
-					"BwAAAOACAAAAAAAA4QIAAAAAAAAAAAAA4QIAAAAAAADiAgAAAAAAAAAAAADiAgAAAAAAAOMCAAAAAAAAAAAAAOMCAAAAAAAA5AIAAAAAAAAAAAAA5AIAAAAAAADlAgAAAAAAAAAAAADlAgAAAAAAAOYCAAAAAAAAAAAAAOYCAAAAAAAA5wIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA4AIAAAAAAADgAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					30,
-					1,
-					"left_delete",
-					null,
-					"AQAAAOcCAAAAAAAA5wIAAAAAAAABAAAAIQ",
-					"AQAAAAAAAAABAAAA6AIAAAAAAADoAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					51,
-					1,
-					"insert",
-					{
-						"characters": "}"
-					},
-					"AQAAAB8DAAAAAAAAIAMAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAHwMAAAAAAAAfAwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					52,
-					1,
-					"insert",
-					{
-						"characters": "\n"
-					},
-					"AQAAACADAAAAAAAAIQMAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAIAMAAAAAAAAgAwAAAAAAAAAAAAAAAPC/"
+					"AQAAALwCAAAAAAAAvQIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAvAIAAAAAAAC8AgAAAAAAAAAAAAAAAPC/"
 				]
 			]
 		}
@@ -1455,35 +2034,38 @@
 	[
 		"/G/Workspace/ProjectTaiko",
 		"/G/Workspace/ProjectTaiko/include",
-		"/G/Workspace/ProjectTaiko/res",
 		"/G/Workspace/ProjectTaiko/src"
 	],
 	"file_history":
 	[
-		"/G/Workspace/ProjectTaiko/src/option.cpp",
-		"/G/Workspace/ProjectTaiko/src/titlescreen.cpp",
-		"/G/Workspace/ProjectTaiko/src/manual.cpp",
+		"/G/Workspace/ProjectTaiko/include/Gameplay.hpp",
+		"/G/Workspace/ProjectTaiko/include/Slider.hpp",
 		"/G/Workspace/ProjectTaiko/include/Game.hpp",
 		"/G/Workspace/ProjectTaiko/src/game.cpp",
-		"/G/Workspace/ProjectTaiko/include/TitleScreen.hpp",
-		"/G/Workspace/ProjectTaiko/include/Manual.hpp",
-		"/G/Workspace/ProjectTaiko/src/button.cpp",
-		"/G/Workspace/ProjectTaiko/include/Button.hpp",
-		"/G/Workspace/ProjectTaiko/src/main.cpp",
-		"/G/Workspace/ProjectTaiko/src/utils.cpp",
-		"/G/Workspace/ProjectTaiko/include/Utils.hpp",
-		"/G/Workspace/ProjectTaiko/src/endscreen.cpp",
-		"/G/Workspace/ProjectTaiko/include/EndScreen.hpp",
 		"/G/Workspace/ProjectTaiko/src/gameplay.cpp",
-		"/G/Workspace/ProjectTaiko/include/Gameplay.hpp",
-		"/G/Workspace/ProjectTaiko/include/Math.hpp",
-		"/G/Workspace/ProjectTaiko/src/renderwindow.cpp",
+		"/G/Workspace/ProjectTaiko/src/utils.cpp",
+		"/G/Workspace/ProjectTaiko/src/endscreen.cpp",
+		"/G/Workspace/ProjectTaiko/src/selection.cpp",
+		"/G/Workspace/ProjectTaiko/include/Selection.hpp",
+		"/G/Workspace/ProjectTaiko/src/button.cpp",
 		"/G/Workspace/ProjectTaiko/ProjectTaiko.sublime-project",
+		"/G/Workspace/ProjectTaiko/include/Button.hpp",
+		"/G/Workspace/ProjectTaiko/src/renderwindow.cpp",
+		"/G/Workspace/ProjectTaiko/include/EndScreen.hpp",
+		"/G/Workspace/ProjectTaiko/src/manual.cpp",
+		"/G/Workspace/ProjectTaiko/include/Manual.hpp",
+		"/G/Workspace/ProjectTaiko/src/titlescreen.cpp",
+		"/G/Workspace/ProjectTaiko/include/Utils.hpp",
+		"/G/Workspace/ProjectTaiko/src/charts.cpp",
+		"/G/Workspace/ProjectTaiko/include/Charts.hpp",
+		"/G/Workspace/ProjectTaiko/src/option.cpp",
+		"/G/Workspace/ProjectTaiko/include/Option.hpp",
+		"/G/Workspace/ProjectTaiko/include/TitleScreen.hpp",
+		"/G/Workspace/ProjectTaiko/src/main.cpp",
+		"/G/Workspace/ProjectTaiko/include/Math.hpp",
 		"/G/Workspace/ProjectTaiko/include/Game/Gameplay.cpp",
 		"/G/Workspace/ProjectTaiko/include/GameLoop.hpp",
 		"/G/Workspace/ProjectTaiko/src/note.cpp",
-		"/G/Workspace/ProjectTaiko/src/charts.cpp",
-		"/G/Workspace/ProjectTaiko/include/Charts.hpp",
 		"/G/Workspace/ProjectTaiko/include/Effect.hpp",
 		"/G/Workspace/ProjectTaiko/include/RenderWindow.hpp",
 		"/G/Workspace/ProjectTaiko/src/effect.cpp",
@@ -1512,6 +2094,25 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"gameState = selectionState",
+			"selectionscreen",
+			"clicksfx",
+			"mv",
+			"std::cout",
+			"blindingLight",
+			"bindingLight",
+			"bindinglight",
+			"gamescreen->init(difficulty)",
+			"selection",
+			"bgfile",
+			"backGround",
+			"spawn_point",
+			"selection",
+			"gamescreen->init()",
+			"DifChooseState",
+			"OPTION",
+			"START",
+			"MANUAL",
 			"manualstate",
 			"titlescreen.init();",
 			"gameState = TitleState;",
@@ -1576,6 +2177,13 @@
 		"regex": false,
 		"replace_history":
 		[
+			"bindingLight",
+			"blindingLight",
+			"gamescreen->init(difficulty, selectionscreen->getMod());",
+			"gamescreen->init(difficulty)",
+			"HARD",
+			"EASY",
+			"NORMAL",
 			"titlescreen->init();",
 			"ManualState",
 			"OptionState",
@@ -1613,19 +2221,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "include/Option.hpp",
+					"file": "src/option.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 647,
+						"buffer_size": 1351,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								457,
-								457
+								1086,
+								1086
 							]
 						],
 						"settings":
@@ -1635,7 +2243,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 319.0,
+						"translation.y": 382.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -1644,29 +2252,29 @@
 				},
 				{
 					"buffer": 1,
-					"file": "include/Game.hpp",
+					"file": "include/Slider.hpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 909,
+						"buffer_size": 2410,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								468,
-								468
+								113,
+								113
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/C++/C++.sublime-syntax",
 							"tab_size": 4,
-							"translate_tabs_to_spaces": false
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 152.0,
+						"translation.y": 73.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -1675,51 +2283,20 @@
 				},
 				{
 					"buffer": 2,
-					"file": "src/gameplay.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8915,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4160,
-								4160
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/game.cpp",
+					"file": "include/Option.hpp",
 					"selected": true,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6415,
+						"buffer_size": 711,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1823,
-								1829
+								612,
+								612
 							]
 						],
 						"settings":
@@ -1729,7 +2306,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 68.0,
+						"translation.y": 377.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1737,20 +2314,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "src/option.cpp",
+					"buffer": 3,
+					"file": "src/renderwindow.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1025,
+						"buffer_size": 3979,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								801,
-								801
+								3797,
+								3797
 							]
 						],
 						"settings":
@@ -1760,10 +2337,41 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 258.0,
+						"translation.y": 2668.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "include/RenderWindow.hpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 791,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								700,
+								700
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 213.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"stack_multiselect": false,
 					"type": "text"
 				}
@@ -1803,7 +2411,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 164.0
+		"height": 181.0
 	},
 	"output.find_results":
 	{
@@ -1851,7 +2459,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 228.0,
+	"side_bar_width": 246.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

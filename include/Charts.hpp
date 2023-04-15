@@ -12,11 +12,5 @@
 #include <vector>
 #include <cstring>
 
-std::vector<Note> getEasyChart(Vector2f p_pos, SDL_Texture* donTexture, SDL_Texture* kaTexture);
-std::vector<Uint32> getEasyTiming();
-
-std::vector<Note> getNormalChart(Vector2f p_pos, SDL_Texture* donTexture, SDL_Texture* kaTexture);
-std::vector<Uint32> getNormalTiming();
-
-std::vector<Note> getHardChart(Vector2f p_pos, SDL_Texture* donTexture, SDL_Texture* kaTexture);
-std::vector<Uint32> getHardTiming();
+std::vector<Note> getChart(Vector2f SPAWN_POINT, Vector2f SPAWN_POINT_BIG, SDL_Texture* donTexture, SDL_Texture* kaTexture, SDL_Texture* bigDonTexture, SDL_Texture* bigKaTexture, int difficulty);
+std::vector<Uint32> getTiming(int difficulty);

@@ -21,23 +21,26 @@ Gameplay::Gameplay(RenderWindow p_window) : window(p_window)
 {
     donSfx = Mix_LoadWAV("res/sounds/taiko-normal-hitnormal.wav");
 	kaSfx = Mix_LoadWAV("res/sounds/taiko-normal-hitclap.wav");
+	bigSfx = Mix_LoadWAV("res/sounds/taiko-normal-hitfinish.wav");
 	missSfx = Mix_LoadWAV("res/sounds/taiko-normal-hitwhistle.wav");
 	reAoharuMusic = Mix_LoadMUS("res/sounds/reaoharu-audio.mp3");
 
-	donTexture = window.loadTexture("res/textures/don.png");
-	kaTexture = window.loadTexture("res/textures/ka.png");
+	donTexture = window.loadTexture("res/textures/gameplay/don.png");
+	kaTexture = window.loadTexture("res/textures/gameplay/ka.png");
+	bigDonTexture = window.loadTexture("res/textures/gameplay/big-don.png");
+	bigKaTexture = window.loadTexture("res/textures/gameplay/big-ka.png");
 
 	slider.push_back(Entity(Vector2f(0, PLACEMENT), window.loadTexture("res/textures/slider/taiko-bar-left.png")));
 	slider.push_back(Entity(Vector2f(190, PLACEMENT), window.loadTexture("res/textures/slider/taiko-bar-middle.png")));
 	slider.push_back(Entity(Vector2f(390, PLACEMENT), window.loadTexture("res/textures/slider/taiko-bar-right.png")));
 	
 	//Background textures
-	for (int i = 1; i <= 723; i++) {
+	/*for (int i = 1; i <= 723; i++) {
         std::vector<const char*> v = getText("res/textures/background/", i, ".png");
         bgfile.insert(bgfile.end(), v.begin(), v.end());
     }
     for (auto i: bgfile) backgrounds.push_back(Entity(Vector2f(0,0), window.loadTexture(i)));
-    for (auto i : bgfile) delete[] i; // Free memory for const char*
+    for (auto i : bgfile) delete[] i; // Free memory for const char**/
 
     shiroko.push_back(Entity(Vector2f(0, 18), window.loadTexture("res/textures/shiroko/0.png")));
 	shiroko.push_back(Entity(Vector2f(0, 18), window.loadTexture("res/textures/shiroko/1.png")));
@@ -50,10 +53,17 @@ Gameplay::Gameplay(RenderWindow p_window) : window(p_window)
 	innerTextureLeft = window.loadTexture("res/textures/drum/taiko-drum-inner-left.png");
 	innerTextureRight = window.loadTexture("res/textures/drum/taiko-drum-inner-right.png");
 	outerTextureRight = window.loadTexture("res/textures/drum/taiko-drum-outer-right.png");
+
 	glowTexture = window.loadTexture("res/textures/slider/taiko-glow.png");
-	perfectTexture =  window.loadTexture("res/textures/taiko-hit-perfect.png");
-	okTexture =  window.loadTexture("res/textures/taiko-hit-ok.png");
-	missTexture =  window.loadTexture("res/textures/taiko-hit-miss.png");
+	perfectTexture =  window.loadTexture("res/textures/gameplay/taiko-hit-perfect.png");
+	okTexture =  window.loadTexture("res/textures/gameplay/taiko-hit-ok.png");
+	missTexture =  window.loadTexture("res/textures/gameplay/taiko-hit-miss.png");
+
+	binding001 = window.loadTexture("res/textures/gameplay/001.png");
+	binding002 = window.loadTexture("res/textures/gameplay/002.png");
+	binding003 = window.loadTexture("res/textures/gameplay/003.png");
+	binding004 = window.loadTexture("res/textures/gameplay/004.png");
+	arisBlindingLight = window.loadTexture("res/textures/gameplay/blinding-light.png");
 
 	font64 = TTF_OpenFont("res/fonts/taikofont.ttf", 64);
 	font64_outline = TTF_OpenFont("res/fonts/taikofont.ttf", 64);
@@ -65,13 +75,13 @@ Gameplay::Gameplay(RenderWindow p_window) : window(p_window)
 	TTF_SetFontOutline(font64_outline, 1);  
 }
 
-void Gameplay::init()
+void Gameplay::init(int difficulty, std::vector<bool>mod)
 {
 	chart.clear();
 	timings.clear();
 	playnotes.clear();
-	chart = getNormalChart(SPAWN_POINT, donTexture, kaTexture);
-	timings = getNormalTiming();
+	chart = getChart(SPAWN_POINT, SPAWN_POINT_BIG, donTexture, kaTexture, bigDonTexture, bigKaTexture, difficulty);
+	timings = getTiming(difficulty);
 	accs = { 0, 0, 0};
 	point = 0;
 	combo = 0;
@@ -81,26 +91,35 @@ void Gameplay::init()
 	initNote = SDL_GetTicks();
 	currentNote = 0;
 	shirokoBackGround = 0;
-	backGround = 0;
+	backGroundCount = 1;
 	lastBackGroundTime = 0;
 	lastShirokoTime = 0;
 	lastFrameTime = SDL_GetTicks();
+
+	precise = (mod[0])?2:1;
+	suddenDeath = (mod[1])?true:false;
+	allPerfect = (mod[2])?true:false;
+	bindingLight = (mod[3])?true:false;
+	//std::cout << precise << suddenDeath << allPerfect << bindingLight << std::endl;
 }
 
-void Gameplay::pressNote(SDL_Texture* p_tex, Uint32 time)
+void Gameplay::pressNote(SDL_Texture* p_tex, SDL_Texture* big_p_tex, Uint32 time)
 {
 	if (playnotes.size() <= 0) return;
 	float distance = playnotes[0].distanceFromPoint(playnotes[0].getPos());
-	if (playnotes[0].getTex() != p_tex) return;
-	if (distance <= 100) 
+	if (!((playnotes[0].getTex() == p_tex) || (playnotes[0].getTex() == big_p_tex))) return;
+	if (distance <= 100/precise) 
 	{
-		if (distance <= 30)
+		if (playnotes[0].getTex() == bigDonTexture || playnotes[0].getTex() == bigKaTexture)
+			Mix_PlayChannel(-1, bigSfx, 0);
+
+		if (distance <= 30/precise)
 		{
 			effect.push_back(Effect(Vector2f(190, PLACEMENT), perfectTexture, time));
 			point += POINT_PERFECT;
 			combo++;
 			accs[PERFECT]++;
-		} else if (distance <= 60)
+		} else if (distance <= 60/precise)
 			{
 				effect.push_back(Effect(Vector2f(190, PLACEMENT), okTexture, time));
 				point += POINT_OKAY;
@@ -152,6 +171,11 @@ void Gameplay::update()
 				++it;
 			}
 		}
+
+
+	std::string v = getTextString("res/textures/background/", backGroundCount, ".png");
+	SDL_DestroyTexture(backGroundTexture); //insane memory leaks
+	backGroundTexture = window.loadTexture(v.c_str());
 }
 
 void Gameplay::handleEvents(SDL_Event event)
@@ -163,32 +187,32 @@ void Gameplay::handleEvents(SDL_Event event)
 				case SDLK_LEFT:
 					Mix_PlayChannel(-1, kaSfx, 0);
 					drum.push_back(Effect(Vector2f(0, PLACEMENT), outerTexture, currentTime));
-					pressNote(kaTexture, currentTime);
+					pressNote(kaTexture, bigKaTexture, currentTime);
 					break;
 				case SDLK_RIGHT:
 					Mix_PlayChannel(-1, donSfx, 0);
 					drum.push_back(Effect(Vector2f(0, PLACEMENT), innerTexture, currentTime));
-					pressNote(donTexture, currentTime);
+					pressNote(donTexture, bigDonTexture, currentTime);
 					break;
 				case SDLK_d:
 					Mix_PlayChannel(-1, kaSfx, 0);
 					drum.push_back(Effect(Vector2f(-2, PLACEMENT), outerTextureLeft, currentTime));
-					pressNote(kaTexture, currentTime);
+					pressNote(kaTexture, bigKaTexture, currentTime);
 					break;;
 				case SDLK_j:
 					Mix_PlayChannel(-1, donSfx, 0);
 					drum.push_back(Effect(Vector2f(-2, PLACEMENT), innerTextureLeft, currentTime));
-					pressNote(donTexture, currentTime);
+					pressNote(donTexture, bigDonTexture, currentTime);
 					break;
 				case SDLK_k:
 					Mix_PlayChannel(-1, donSfx, 0);
 					drum.push_back(Effect(Vector2f(-2, PLACEMENT), innerTextureRight, currentTime));
-					pressNote(donTexture, currentTime);
+					pressNote(donTexture, bigDonTexture, currentTime);
 					break;
 				case SDLK_f:	
 					Mix_PlayChannel(-1, kaSfx, 0);
 					drum.push_back(Effect(Vector2f(-2, PLACEMENT), outerTextureRight, currentTime));
-					pressNote(kaTexture, currentTime);
+					pressNote(kaTexture, bigKaTexture, currentTime);
 					break;
 		}
 	}
@@ -197,12 +221,11 @@ void Gameplay::handleEvents(SDL_Event event)
 void Gameplay::render()
 {
 	window.clear();
-	//std::cout << "Background: " << backGround << "   " << "size: " << backgrounds.size() << std::endl;
-	window.render(backgrounds[backGround]);
-	if (backGroundTime >= 200 && backgrounds.size() > 0 && backGround < 723) 
+	window.render(Vector2f(0,0), backGroundTexture);
+	if (backGroundTime >= 200 && backGroundCount < 723) 
 	{
 		lastBackGroundTime = currentTime;
-		backGround++;
+		backGroundCount++;
 	} // background timer
 
 	for (Entity& p : slider) window.render(p);
@@ -210,9 +233,9 @@ void Gameplay::render()
 
 	window.render(Vector2f(1140, 20), getScore(point), font32, blue);
 	window.render(Vector2f(1175, 60), getScore(accs[PERFECT], accs[OKAY], accs[MISS]), font24, white);
-	window.render(Vector2f(20, 600), getScore("Perfect: ", accs[PERFECT]), font24, white);
-	window.render(Vector2f(20, 630), getScore("Okay: ", accs[OKAY]), font24, white);
-	window.render(Vector2f(20, 660), getScore("Miss: ", accs[MISS]), font24, white);
+	//window.render(Vector2f(20, 600), getScore("Perfect: ", accs[PERFECT]), font24, white);
+	//window.render(Vector2f(20, 630), getScore("Okay: ", accs[OKAY]), font24, white);
+	//window.render(Vector2f(20, 660), getScore("Miss: ", accs[MISS]), font24, white);
 	
 	window.renderCenter(Vector2f(0, -GAME_HEIGHT/3), getScore("", combo), font64, blue);
 	window.renderCenter(Vector2f(0, -GAME_HEIGHT/3+40), "Combo", font24, white);
@@ -230,6 +253,15 @@ void Gameplay::render()
 	} // shiroko timer
 	window.render(shiroko[shirokoBackGround]);
 	
+	//bindings
+	if (precise == 2) window.render(Vector2f(1160, 100), binding001);
+	if (suddenDeath) window.render(Vector2f(1190, 100), binding002);
+	if (allPerfect) window.render(Vector2f(1220, 100), binding003);
+	if (bindingLight) {
+		window.render(Vector2f(1250, 100), binding004);
+		window.render(Vector2f(0,0), arisBlindingLight);
+	}
+
 	for (Effect& p: drum) window.render(p);
 
 	for (Effect& p : effect) {
@@ -249,7 +281,7 @@ std::vector<int> Gameplay::getAcc()
 
 int Gameplay::getEnd()
 {
-	return backGround;
+	return backGroundCount;
 }
 
 int Gameplay::getTotalScore()
@@ -266,4 +298,16 @@ int Gameplay::getRanking()
 {
 	int rank = getRank(accs[PERFECT], accs[OKAY], accs[MISS]);
 	return rank;
+}
+
+bool Gameplay::getMiss()
+{
+	if (accs[MISS] > 0 && suddenDeath) return true;
+	return false;
+}
+
+bool Gameplay::getOkay()
+{
+	if (accs[OKAY] > 0 && allPerfect) return true;
+	return false;
 }

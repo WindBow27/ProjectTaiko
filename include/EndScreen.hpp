@@ -28,6 +28,7 @@ class EndScreen
 {
 public:
 	EndScreen(RenderWindow p_window, int p_score, int p_maxcombo, int p_rank, std::vector<int> p_accs);
+	~EndScreen();
 	void update();
 	void render();
 	Button* getButton(int num);

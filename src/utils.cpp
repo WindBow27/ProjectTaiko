@@ -3,6 +3,7 @@
 #include <vector>
 #include <cstring>
 #include <algorithm>
+#include "Utils.hpp"
 
 const char* getScore(const char* str, int score)
 {
@@ -46,7 +47,15 @@ int getRank(int n300, int n100, int n0)
     if (acc > 90.0) return 1;
     if (acc > 80.0) return 2;
     if (acc > 60.0) return 3;
-    return -1;
+    return 4;
+}
+
+int getRank(float acc) {
+    if (acc > 97.0) return 0;
+    if (acc > 90.0) return 1;
+    if (acc > 80.0) return 2;
+    if (acc > 60.0) return 3;
+    return 4;
 }
 
 std::vector<const char*> getText(const char* str, int number, const char* str1)
@@ -69,6 +78,18 @@ std::vector<const char*> getText(const char* str, int number, const char* str1)
     return result_vector;
 }
 
+std::string getTextString(const char* str, int number, const char* str1)
+{
+    std::string s = std::to_string(number);
+    size_t n = 3;
+    int precision = n - std::min(n, s.size());
+    s.insert(0, precision, '0');
+    std::string result_str = str + s + str1;
+
+    return result_str;
+}
+
 /*int mouseX, mouseY;
 		SDL_GetMouseState(&mouseX, &mouseY);
 		std::cout << "Mouse X: " << mouseX << ", Mouse Y: " << mouseY << std::endl;*/
+

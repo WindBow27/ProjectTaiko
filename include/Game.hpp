@@ -22,6 +22,13 @@
 #include "EndScreen.hpp"
 #include "Manual.hpp"
 #include "Option.hpp"
+#include "Selection.hpp"
+
+enum Difficulty {
+	EASY_DIF = 0,
+	NORMAL_DIF = 1,
+	HARD_DIF = 2
+};
 
 class Game
 {
@@ -54,4 +61,5 @@ private:
 	Mix_Chunk* backSfx;
 	Mix_Chunk* clickSfx;
 	const int END_POINT = 723;
+	int difficulty;
 };

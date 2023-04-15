@@ -2,12 +2,14 @@
 #include "RenderWindow.hpp"
 
 #include <iostream>
+#include <fstream>
 
 TitleScreen* titlescreen = NULL;
 Gameplay* gamescreen = NULL;
 EndScreen* endscreen = NULL;
 Manual* manualscreen = NULL;
 Option* optionscreen = NULL;
+Selection* selectionscreen = NULL;
 
 RenderWindow window;
 
@@ -27,7 +29,8 @@ enum State
 	IngameState = 1,
 	EndState = 2,
 	ManualState = 3,
-	OptionState = 4
+	OptionState = 4,
+	SelectionState = 5
 };
 
 void Game::init()
@@ -48,9 +51,11 @@ void Game::init()
 
 	gameState = TitleState;
 	titlescreen = new TitleScreen(window);
-	titlescreen->render();
 	titlescreen->init();
 	gamescreen = new Gameplay(window);
+	selectionscreen = new Selection(window);
+	manualscreen = new Manual(window);
+	optionscreen = new Option(window);
 
 	isRunning = true;
 }
@@ -63,10 +68,29 @@ void Game::update() {
 		break;
 	case IngameState:
 		gamescreen->update();
+		if (gamescreen->getOkay()) gamescreen->init(difficulty, selectionscreen->getMod());
+		if (gamescreen->getMiss()) gamescreen->init(difficulty, selectionscreen->getMod());
 		if (gamescreen->getEnd() == END_POINT)
 		{
 			Mix_HaltMusic();
 			gameState = EndState;
+			
+			//getting score into a vector
+			std::vector<int> tempScores;
+			std::fstream scoreFile("score.txt");
+			int tempScore;
+			while (scoreFile >> tempScore) tempScores.push_back(tempScore);
+
+			//replacing score
+			if (gamescreen->getRanking() < tempScores[difficulty]) 
+			tempScores[difficulty] = gamescreen->getRanking();
+
+			//saving score
+			scoreFile.close();
+			std::ofstream outputScoreFile("score.txt");
+			for (auto i: tempScores) outputScoreFile << i << std::endl;
+			outputScoreFile.close();
+
 			endscreen = new EndScreen(window, gamescreen->getTotalScore(), gamescreen->getMaxCombo(), gamescreen->getRanking(), gamescreen->getAcc());
 		}
 		break;
@@ -79,6 +103,8 @@ void Game::update() {
 	case OptionState:
 		optionscreen->update();
 		break;
+	case SelectionState:
+		selectionscreen->update();
 	default:
 		break;
 	}
@@ -104,22 +130,23 @@ void Game::handleEvents()
             		if (titlescreen->getButton(START)->getHovered())
                     {
                     	Mix_PlayChannel(-1, clickSfx, 0);
-                        gameState = IngameState;
-                        gamescreen->init();
+                        gameState = SelectionState;
+ 						selectionscreen->init();
+ 						
                         return;
                     }
                     if (titlescreen->getButton(MANUAL)->getHovered())
                     {
                     	Mix_PlayChannel(-1, clickSfx, 0);
                         gameState = ManualState;
-                        manualscreen = new Manual(window);
+                        
                         return;
                     }
                     if (titlescreen->getButton(OPTION)->getHovered())
                     {
                     	Mix_PlayChannel(-1, clickSfx, 0);
                         gameState = OptionState;
-                        optionscreen = new Option(window);
+                        
                         return;
                     }
                     if (titlescreen->getButton(QUIT)->getHovered())
@@ -139,7 +166,8 @@ void Game::handleEvents()
                 		Mix_PlayChannel(-1, clickSfx, 0);
                 		Mix_HaltMusic();
                 		gameState = IngameState;
-                		gamescreen->init();
+                		gamescreen->init(difficulty, selectionscreen->getMod());
+                		delete endscreen;
                 		return;
                 	}
                 	if (endscreen->getButton(TITLE)->getHovered())
@@ -148,6 +176,7 @@ void Game::handleEvents()
                 		Mix_HaltMusic();
                 		gameState = TitleState;
                 		titlescreen->init();
+                		delete endscreen;
                 		return;
                 	}
                 	break;
@@ -170,6 +199,38 @@ void Game::handleEvents()
                		}
                		break;
 
+               	case SelectionState:
+               		if (selectionscreen->getButton(EASY)->getHovered())
+               		{
+               			Mix_PlayChannel(-1, clickSfx, 0);
+               			difficulty = EASY_DIF;
+               			gameState = IngameState;
+               			gamescreen->init(difficulty, selectionscreen->getMod());;
+               			return;
+               		}
+               		if (selectionscreen->getButton(NORMAL)->getHovered())
+               		{
+               			Mix_PlayChannel(-1, clickSfx, 0);
+               			difficulty = NORMAL_DIF;
+               			gameState = IngameState;
+               			gamescreen->init(difficulty, selectionscreen->getMod());;
+               			return;
+               		}
+               		if (selectionscreen->getButton(HARD)->getHovered())
+               		{
+               			Mix_PlayChannel(-1, clickSfx, 0);
+               			difficulty = HARD_DIF;
+               			gameState = IngameState;
+               			gamescreen->init(difficulty, selectionscreen->getMod());;
+               			return;
+               		}
+               		if (selectionscreen->getButton(BACK)->getHovered())
+               		{
+               			Mix_PlayChannel(-1, clickSfx, 0);
+               			gameState = TitleState;
+                		return;
+               		}
+               		break;
             	}
 
             case SDL_KEYDOWN:
@@ -198,7 +259,7 @@ void Game::handleEvents()
                         }
                         else if (SDL_GetTicks() - rPressedTime >= 500)
                         {
-                            gamescreen->init();
+                            gamescreen->init(difficulty, selectionscreen->getMod());;
                         }
                         break;
                 	}
@@ -232,6 +293,9 @@ void Game::render()
 		break;
 	case OptionState:
 		optionscreen->render();
+		break;
+	case SelectionState:
+		selectionscreen->render();
 		break;
 	default:
 		break;

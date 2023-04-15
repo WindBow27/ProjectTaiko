@@ -29,6 +29,8 @@ private:
 	RenderWindow window;
 	SDL_Texture* screenTexture;
 	SDL_Texture* buttonTexture;
+	SDL_Texture* sliderTexture;
+	SDL_Texture* sliderButtonTexture;
 	Button* button;
 	TTF_Font* font32;
 	TTF_Font* font32_outline;

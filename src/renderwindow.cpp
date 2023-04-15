@@ -3,8 +3,8 @@
 #include <SDL2/SDL_ttf.h>
 #include <iostream>
 
-#include "renderwindow.hpp"
-#include "entity.hpp"
+#include "RenderWindow.hpp"
+#include "Entity.hpp"
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
@@ -16,12 +16,22 @@ RenderWindow::RenderWindow()
 
 void RenderWindow::create(const char* p_title, int p_w, int p_h)
 {
-	window = SDL_CreateWindow(p_title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, p_w, p_h, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow(p_title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, p_w, p_h, SDL_WINDOW_SHOWN);
 
-	if (window == NULL)
-		std::cout << "Window failed to init. Error: " << SDL_GetError() << std::endl;
+    if (window == NULL)
+        std::cout << "Window failed to init. Error: " << SDL_GetError() << std::endl;
 
-	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    // Set render hint to enable VSync
+    if (SDL_SetHint(SDL_HINT_RENDER_VSYNC, "1") == SDL_FALSE) {
+        std::cout << "Failed to enable VSync. Error: " << SDL_GetError() << std::endl;
+    }
+
+    // Set render scale quality to nearest
+    if (SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0") == SDL_FALSE) {
+        std::cout << "Failed to set render scale quality to nearest. Error: " << SDL_GetError() << std::endl;
+    }
+
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 }
 
 

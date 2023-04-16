@@ -28,6 +28,6 @@ Download the game <a href="https://github.com/WindBow27/ProjectTaiko/releases/ta
  - [Target for Love](https://www.youtube.com/watch?v=WFsl1D8RNVc&ab_channel=FonziM-MelodiesonPiano)
  - [RE Aoharu (Blue Archive 4th PV)](https://www.youtube.com/watch?v=4rDOsvzTicY&ab_channel=%E3%83%96%E3%83%AB%E3%83%BC%E3%82%A2%E3%83%BC%E3%82%AB%E3%82%A4%E3%83%96-BlueArchive-)
 ### Disclaimer
-All copyrighted assets belong to its respective owners. This project is made for education purposes and have no means of monetization.
+All copyrighted assets belong to their respective owners. This project is made for educational purposes and has no means of monetization.
 ## Contributing
 Contributions are always welcome! Feel free to create a fork of this repository or use the code for any other noncommercial purposes.

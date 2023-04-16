@@ -19,6 +19,7 @@ public:
 	bool getClicked() {return m_clicked; }
  	void setOnClickTexture(SDL_Texture* texture);
  	void setHoverTexture(SDL_Texture* texture);
+ 	void setHoverDestination(Vector2f p_des);
 	void setSize(Vector2f p_size);
 	void setTex(SDL_Texture* p_texture) { m_texture = p_texture; }
 	void update();
@@ -36,6 +37,7 @@ private:
     Uint32 m_lastClickTime;
     Uint32 currentTime;
 	Vector2f m_size;
+	Vector2f m_des;
 	Mix_Chunk* hoveredSfx;
 	Mix_Chunk* clickSfx;
 	SDL_Color white = { 255, 255, 255 };

@@ -51,6 +51,8 @@ std::vector<Note> getChart(Vector2f SPAWN_POINT, Vector2f SPAWN_POINT_BIG, SDL_T
 		d, d, k, d, k, k, k, k, k, k, d, k, k, k, d, d, k, k, k, k, d, k, k, k, k
 	};
 
+	//std::cout << easy.size() << " " << normal.size() << " " << hard.size() << std::endl;
+
 	switch (difficulty) {
 	case 0:
 		return easy;

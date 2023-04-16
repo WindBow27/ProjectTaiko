@@ -25,10 +25,9 @@ TitleScreen::TitleScreen(RenderWindow p_window) : window(p_window)
 	font32 = TTF_OpenFont("res/fonts/taikofont.ttf", 32);
 	font32_outline = TTF_OpenFont("res/fonts/taikofont.ttf", 32);
 	TTF_SetFontOutline(font32_outline, 1);
-	button[START] = new Button(window, "Play", font32, black, buttonTexture, Vector2f(620,465));
-	button[MANUAL] = new Button(window, "Tutorial", font32, black, buttonTexture, Vector2f(620,575));
-	button[OPTION] = new Button(window, "Options", font32, black, buttonTexture, Vector2f(930,465));
-	button[QUIT] = new Button(window, "Quit", font32, black, buttonTexture, Vector2f(930,575));
+	button[START] = new Button(window, "Play", font32, black, buttonTexture, Vector2f(750,430));
+	button[MANUAL] = new Button(window, "Tutorial", font32, black, buttonTexture, Vector2f(750,520));
+	button[QUIT] = new Button(window, "Quit", font32, black, buttonTexture, Vector2f(750,610));
 	titleMusic = Mix_LoadMUS("res/sounds/target-for-love.mp3");
 }
 

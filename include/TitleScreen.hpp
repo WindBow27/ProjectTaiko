@@ -22,8 +22,7 @@ enum TitleScreenButtonDetail
 {
 	START = 0,
 	MANUAL = 1, 
-	OPTION = 2,
-	QUIT = 3,
+	QUIT = 2,
 };
 
 class TitleScreen
@@ -40,7 +39,7 @@ private:
 	SDL_Texture* titleTexture;
 	SDL_Texture* buttonTexture;
 	Mix_Music* titleMusic;
-	Button* button[4];
+	Button* button[3];
 	TTF_Font* font32;
 	TTF_Font* font32_outline;
 	SDL_Color black = { 0, 0, 0 };

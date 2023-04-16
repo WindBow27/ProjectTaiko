@@ -8,7 +8,6 @@ TitleScreen* titlescreen = NULL;
 Gameplay* gamescreen = NULL;
 EndScreen* endscreen = NULL;
 Manual* manualscreen = NULL;
-Option* optionscreen = NULL;
 Selection* selectionscreen = NULL;
 
 RenderWindow window;
@@ -29,8 +28,7 @@ enum State
 	IngameState = 1,
 	EndState = 2,
 	ManualState = 3,
-	OptionState = 4,
-	SelectionState = 5
+	SelectionState = 4
 };
 
 void Game::init()
@@ -55,7 +53,6 @@ void Game::init()
 	gamescreen = new Gameplay(window);
 	selectionscreen = new Selection(window);
 	manualscreen = new Manual(window);
-	optionscreen = new Option(window);
 
 	isRunning = true;
 }
@@ -77,7 +74,7 @@ void Game::update() {
 			
 			//getting score into a vector
 			std::vector<int> tempScores;
-			std::fstream scoreFile("score.txt");
+			std::fstream scoreFile("data/score.txt");
 			int tempScore;
 			while (scoreFile >> tempScore) tempScores.push_back(tempScore);
 
@@ -87,11 +84,11 @@ void Game::update() {
 
 			//saving score
 			scoreFile.close();
-			std::ofstream outputScoreFile("score.txt");
+			std::ofstream outputScoreFile("data/score.txt");
 			for (auto i: tempScores) outputScoreFile << i << std::endl;
 			outputScoreFile.close();
 
-			endscreen = new EndScreen(window, gamescreen->getTotalScore(), gamescreen->getMaxCombo(), gamescreen->getRanking(), gamescreen->getAcc());
+			endscreen = new EndScreen(window, gamescreen->getTotalScore(), gamescreen->getMaxCombo(), gamescreen->getRanking(), gamescreen->getAcc(), gamescreen->getBindingCount());
 		}
 		break;
 	case EndState:
@@ -99,9 +96,6 @@ void Game::update() {
 		break;
 	case ManualState:
 		manualscreen->update();
-		break;
-	case OptionState:
-		optionscreen->update();
 		break;
 	case SelectionState:
 		selectionscreen->update();
@@ -113,8 +107,8 @@ void Game::update() {
 void Game::handleEvents()
 {
     SDL_Event e;
-    Uint32 escPressedTime;
-    Uint32 rPressedTime;
+    Uint32 escPressedTime = 0;
+    Uint32 rPressedTime = 0;
 
     while (SDL_PollEvent(&e))
     {
@@ -139,13 +133,6 @@ void Game::handleEvents()
                     {
                     	Mix_PlayChannel(-1, clickSfx, 0);
                         gameState = ManualState;
-                        
-                        return;
-                    }
-                    if (titlescreen->getButton(OPTION)->getHovered())
-                    {
-                    	Mix_PlayChannel(-1, clickSfx, 0);
-                        gameState = OptionState;
                         
                         return;
                     }
@@ -189,15 +176,6 @@ void Game::handleEvents()
                 		return;
                 	}
                 	break;
-
-               	case OptionState:
-               		if (optionscreen->getButton()->getHovered())
-               		{
-               			Mix_PlayChannel(-1, clickSfx, 0);
-                		gameState = TitleState;
-                		return;
-               		}
-               		break;
 
                	case SelectionState:
                		if (selectionscreen->getButton(EASY)->getHovered())
@@ -290,9 +268,6 @@ void Game::render()
 		break;
 	case ManualState:
 		manualscreen->render();
-		break;
-	case OptionState:
-		optionscreen->render();
 		break;
 	case SelectionState:
 		selectionscreen->render();

@@ -42,6 +42,7 @@ public:
 	int getRanking();
 	bool getMiss();
 	bool getOkay();
+	int getBindingCount();
 private:
 	RenderWindow window;
 	const int GAME_WIDTH = 1280;
@@ -109,6 +110,8 @@ private:
 	int shirokoBackGround;
 	int backGroundCount;
 	int finalNote;
+	int bindingCount;
+	float offset;
 
 	Uint32 currentTime;
 

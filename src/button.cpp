@@ -40,6 +40,11 @@ void Button::setHoverTexture(SDL_Texture* texture)
     m_hoverTexture = texture;
 }
 
+void Button::setHoverDestination(Vector2f p_des)
+{
+    m_des = p_des;
+}
+
 void Button::update()
 {
      // check if mouse is hovering over the button
@@ -88,7 +93,7 @@ void Button::render()
     if (m_hovered)
     {
         if (m_hoverTexture) {
-            m_window.render(Vector2f(440, 481), m_hoverTexture);
+            m_window.render(Vector2f(m_des), m_hoverTexture);
         }
         m_window.render(textPos, m_text, m_font, white);
     }

@@ -4,6 +4,7 @@
 #include <SDL2/SDL_mixer.h>
 
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
 #include <cstring>
@@ -86,6 +87,7 @@ void Gameplay::init(int difficulty, std::vector<bool>mod)
 	point = 0;
 	combo = 0;
 	maxCombo = 0;
+	bindingCount = 0;
 	Mix_PlayMusic(reAoharuMusic, -1);
 	finalNote = chart.size();
 	initNote = SDL_GetTicks();
@@ -96,17 +98,26 @@ void Gameplay::init(int difficulty, std::vector<bool>mod)
 	lastShirokoTime = 0;
 	lastFrameTime = SDL_GetTicks();
 
+	for (auto i:mod) if (i) bindingCount++;
 	precise = (mod[0])?2:1;
 	suddenDeath = (mod[1])?true:false;
 	allPerfect = (mod[2])?true:false;
 	bindingLight = (mod[3])?true:false;
 	//std::cout << precise << suddenDeath << allPerfect << bindingLight << std::endl;
+
+	std::fstream scoreFile("data/offset.txt");
+	scoreFile >> offset;
+	scoreFile.close();
+	if (offset < -50) offset = -50;
+	else if (offset > 50) offset = 50;
+	//std::cout << offset << std::endl;
 }
 
 void Gameplay::pressNote(SDL_Texture* p_tex, SDL_Texture* big_p_tex, Uint32 time)
 {
 	if (playnotes.size() <= 0) return;
-	float distance = playnotes[0].distanceFromPoint(playnotes[0].getPos());
+	float distance = playnotes[0].distanceFromPoint(playnotes[0].getPos(), offset);
+	//std::cout << distance << std::endl;
 	if (!((playnotes[0].getTex() == p_tex) || (playnotes[0].getTex() == big_p_tex))) return;
 	if (distance <= 100/precise) 
 	{
@@ -310,4 +321,9 @@ bool Gameplay::getOkay()
 {
 	if (accs[OKAY] > 0 && allPerfect) return true;
 	return false;
+}
+
+int Gameplay::getBindingCount()
+{
+	return bindingCount;
 }

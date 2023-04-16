@@ -27,7 +27,7 @@ enum EndScreenButtonDetail
 class EndScreen
 {
 public:
-	EndScreen(RenderWindow p_window, int p_score, int p_maxcombo, int p_rank, std::vector<int> p_accs);
+	EndScreen(RenderWindow p_window, int p_score, int p_maxcombo, int p_rank, std::vector<int> p_accs, int bindingCount);
 	~EndScreen();
 	void update();
 	void render();

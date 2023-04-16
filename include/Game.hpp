@@ -21,7 +21,6 @@
 #include "TitleScreen.hpp"
 #include "EndScreen.hpp"
 #include "Manual.hpp"
-#include "Option.hpp"
 #include "Selection.hpp"
 
 enum Difficulty {

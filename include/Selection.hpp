@@ -57,15 +57,13 @@ private:
 	SDL_Texture* suddendeath1Texture;
 	SDL_Texture* allperfect1Texture;
 	SDL_Texture* bindinglight1Texture;
-	SDL_Texture* desc1;
-	SDL_Texture* desc2;
-	SDL_Texture* desc3;
-	SDL_Texture* desc4;
 	SDL_Texture* rankS;
 	SDL_Texture* rankA;
 	SDL_Texture* rankB;
 	SDL_Texture* rankC;
 	SDL_Texture* rankD;
+	SDL_Texture* descBinding[4];
+	SDL_Texture* descButton[3];
 	Button* button[4];
 	Button* binding[4];
 	std::vector<bool> mod = {0, 0, 0, 0};

@@ -33,10 +33,13 @@ Selection::Selection(RenderWindow p_window) : window(p_window)
 	suddendeath1Texture = window.loadTexture("res/textures/selection/bindings/Sudden-Death-1.png");
 	allperfect1Texture = window.loadTexture("res/textures/selection/bindings/All-Perfect-1.png");
 	bindinglight1Texture = window.loadTexture("res/textures/selection/bindings/Binding-Light-1.png");
-	desc1 = window.loadTexture("res/textures/selection/bindings/desc1.png");
-	desc2 = window.loadTexture("res/textures/selection/bindings/desc2.png");
-	desc3 = window.loadTexture("res/textures/selection/bindings/desc3.png");
-	desc4 = window.loadTexture("res/textures/selection/bindings/desc4.png");
+	descBinding[0] = window.loadTexture("res/textures/selection/bindings/desc1.png");
+	descBinding[1] = window.loadTexture("res/textures/selection/bindings/desc2.png");
+	descBinding[2] = window.loadTexture("res/textures/selection/bindings/desc3.png");
+	descBinding[3] = window.loadTexture("res/textures/selection/bindings/desc4.png");
+	descButton[0] = window.loadTexture("res/textures/selection/button_desc/desc1.png");
+	descButton[1] = window.loadTexture("res/textures/selection/button_desc/desc2.png");
+	descButton[2] = window.loadTexture("res/textures/selection/button_desc/desc3.png");
 	rankS = window.loadTexture("res/textures/selection/ranks/ranking-S.png");
 	rankA = window.loadTexture("res/textures/selection/ranks/ranking-A.png");
 	rankB = window.loadTexture("res/textures/selection/ranks/ranking-B.png");
@@ -55,10 +58,10 @@ Selection::Selection(RenderWindow p_window) : window(p_window)
 	button[NORMAL]->setSize(Vector2f(306, 96));
 	button[HARD]->setSize(Vector2f(306, 96));
 
-	binding[PRECISE] = new Button(window, " ", font40, black, preciseTexture, Vector2f(134, 150));
-	binding[SUDDENDEATH] = new Button(window, " ", font40, black, suddendeathTexture, Vector2f(120, 300));
-	binding[ALLPERFECT] = new Button(window, " ", font40, black, allperfectTexture, Vector2f(1048, 150));
-	binding[BINDINGLIGHT] = new Button(window, " ", font40, black, bindinglightTexture, Vector2f(1062, 300));
+	binding[PRECISE] = new Button(window, " ", font40, black, preciseTexture, Vector2f(380, 500));
+	binding[SUDDENDEATH] = new Button(window, " ", font40, black, suddendeathTexture, Vector2f(520, 500));
+	binding[ALLPERFECT] = new Button(window, " ", font40, black, allperfectTexture, Vector2f(660, 500));
+	binding[BINDINGLIGHT] = new Button(window, " ", font40, black, bindinglightTexture, Vector2f(800, 500));
 	for (auto i: binding) i->setSize(Vector2f(100,125));
 
 	binding[PRECISE]->setOnClickTexture(precise1Texture);
@@ -66,16 +69,23 @@ Selection::Selection(RenderWindow p_window) : window(p_window)
 	binding[ALLPERFECT]->setOnClickTexture(allperfect1Texture);
 	binding[BINDINGLIGHT]->setOnClickTexture(bindinglight1Texture);
 
-	binding[PRECISE]->setHoverTexture(desc1);
-	binding[SUDDENDEATH]->setHoverTexture(desc2);
-	binding[ALLPERFECT]->setHoverTexture(desc3);
-	binding[BINDINGLIGHT]->setHoverTexture(desc4);
+	binding[PRECISE]->setHoverTexture(descBinding[0]);
+	binding[SUDDENDEATH]->setHoverTexture(descBinding[1]);
+	binding[ALLPERFECT]->setHoverTexture(descBinding[2]);
+	binding[BINDINGLIGHT]->setHoverTexture(descBinding[3]);
+
+	button[0]->setHoverTexture(descButton[0]);
+	button[1]->setHoverTexture(descButton[1]);
+	button[2]->setHoverTexture(descButton[2]);
+
+	for (auto i:binding) i->setHoverDestination(Vector2f(825, 180));
+	for (auto i:button) i->setHoverDestination(Vector2f(55, 180));
 }
 
 void Selection::init()
 {
 	highscore.clear();
-	std::fstream scoreFile("score.txt");
+	std::fstream scoreFile("data/score.txt");
 	int rank;
 	while (scoreFile >> rank)
 	{
@@ -84,7 +94,7 @@ void Selection::init()
 	scoreFile.close();
 
 	if (highscore.size() < 3) highscore = {999, 999, 999}; //handling first playthrough
-	std::ofstream outputScoreFile("score.txt");
+	std::ofstream outputScoreFile("data/score.txt");
 	for (auto i: highscore) outputScoreFile << i << std::endl;
 	outputScoreFile.close();
 }

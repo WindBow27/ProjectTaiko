@@ -17,8 +17,9 @@
 #include "Gameplay.hpp"
 #include "Endscreen.hpp"
 
-EndScreen::EndScreen(RenderWindow p_window, int p_score, int p_maxcombo, int p_rank, std::vector<int>p_accs) : window(p_window), score(p_score), maxcombo(p_maxcombo), rank(p_rank), accs(p_accs)
+EndScreen::EndScreen(RenderWindow p_window, int p_score, int p_maxcombo, int p_rank, std::vector<int>p_accs, int bindingCount) : window(p_window), score(p_score), maxcombo(p_maxcombo), rank(p_rank), accs(p_accs)
 {
+	score = score * bindingCount * 1.2;
 	screenTexture = window.loadTexture("res/textures/endscreen/endscreen.png");
 	buttonTexture = window.loadTexture("res/textures/button.png");
 	applause = Mix_LoadWAV("res/sounds/applause.wav");

@@ -7,6 +7,7 @@
 #include <string>
 #include <vector>
 #include <cstring>
+#include <cmath>
 
 #include "RenderWindow.hpp"
 #include "Entity.hpp"
@@ -19,7 +20,7 @@
 
 EndScreen::EndScreen(RenderWindow p_window, int p_score, int p_maxcombo, int p_rank, std::vector<int>p_accs, int bindingCount) : window(p_window), score(p_score), maxcombo(p_maxcombo), rank(p_rank), accs(p_accs)
 {
-	score = score * bindingCount * 1.2;
+	score = score * std::max(1.0, pow(1.2,double(bindingCount)));
 	screenTexture = window.loadTexture("res/textures/endscreen/endscreen.png");
 	buttonTexture = window.loadTexture("res/textures/button.png");
 	applause = Mix_LoadWAV("res/sounds/applause.wav");

@@ -23,8 +23,10 @@ Download the game <a href="https://github.com/WindBow27/ProjectTaiko/releases/ta
 ### Resources
  - [SDL2](https://www.libsdl.org/)
  - [Blue Archive](https://bluearchive.nexon.com/home)
+ - [osu!](https://osu.ppy.sh/home)
  - [Taiko no Tatsujin](https://taiko.namco-ch.net/taiko/en/)
  - [TheEZIC 「Furude Rika」 Skin](https://skins.osuck.net/skins/1720?v=0)
+ - [Rinze](https://osu.ppy.sh/users/19901680)
  - [Target for Love](https://www.youtube.com/watch?v=WFsl1D8RNVc&ab_channel=FonziM-MelodiesonPiano)
  - [RE Aoharu (Blue Archive 4th PV)](https://www.youtube.com/watch?v=4rDOsvzTicY&ab_channel=%E3%83%96%E3%83%AB%E3%83%BC%E3%82%A2%E3%83%BC%E3%82%AB%E3%82%A4%E3%83%96-BlueArchive-)
 ### Disclaimer

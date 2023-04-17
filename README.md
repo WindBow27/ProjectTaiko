@@ -1,10 +1,11 @@
-# <p align="center"> <img src="https://static.wikia.nocookie.net/blue-archive/images/e/ea/Shiroko_Halo.png" width="30;" /> Project Taiko </p>
+# <p align="center"> <img src="https://static.wikia.nocookie.net/blue-archive/images/e/ea/Shiroko_Halo.png" width="40;" /> Project Taiko <img src="https://cdn.discordapp.com/emojis/1023963162795585568.gif?size=80&quality=lossless" width="40"/> </p>
 <p align="center"> A game made with SDL2 for INT-2215 (Advanced Programming) </p>
 
 <p align="center"> <img src="https://i.imgur.com/eiGiRcN.png"/ width="500;"> </p>
 
 ## Installation
 Download the game <a href="https://github.com/WindBow27/ProjectTaiko/releases/tag/v1.0">here</a>. 
+Be sure to run the game as administrator.
 
 ## About
 - Project Taiko is based on the arcade game <a href="https://taiko.namco-ch.net/taiko/en/"> Taiko Tatsujin</a>, with added features and assets from <a href="https://bluearchive.nexon.com/home"> Blue Archive</a>.
@@ -14,7 +15,7 @@ Download the game <a href="https://github.com/WindBow27/ProjectTaiko/releases/ta
 ## Acknowledgements
 ### Tutorials
  - [codergopher's amazing Tutorials for Beginners](https://www.youtube.com/watch?v=KsG6dJlLBDw&list=PL2RPjWnJduNmXHRYwdtublIPdlqocBoLS&ab_channel=codergopher)
- - [Polymar's 2020 Game Jam SDL2 Game](https://www.youtube.com/watch?v=EAMHQfCGymg&ab_channel=PolyMars)
+ - [Polymars's 2020 Game Jam SDL2 Game](https://www.youtube.com/watch?v=EAMHQfCGymg&ab_channel=PolyMars)
  - [ChatGPT](https://chat.openai.com/)
 ### Tools
  - [EzGif](https://ezgif.com/)
